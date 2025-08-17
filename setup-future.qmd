@@ -1,5 +1,5 @@
 ---
-title: "Reproducible Environments: Nix vs. Docker"
+title: "Reproducible Environments and Github: Nix vs. Docker"
 ---
 
 ## Nix: The Reproducible Package Manager
@@ -8,44 +8,30 @@ Nix is a powerful tool for managing software environments in a way that is fully
 
 ### The Nix Workflow with RStudio and GitHub
 
-1.  **Define Your Environment:** In the root of your R project, create a file named `shell.nix`. Inside this file, you'll specify all your dependencies using the Nix language. This is where you declare the specific version of R, RStudio, and any required packages.
-    ```nix
-    let
-      nixpkgs = fetchTarball "[https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz](https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz)";
-      pkgs = import nixpkgs { };
-    in
-    pkgs.mkShell {
-      buildInputs = [
-        pkgs.r-base
-        pkgs.r-jsonlite
-        pkgs.r-ggplot2
-        # ... add all other R packages here
-      ];
-    }
-    ```
+1.  **Define Your Environment:** In the root of your R project, create a file named `shell.nix`. Inside this file, you'll specify all your dependencies using the Nix language. This is where you declare the specific version of R, RStudio, and any required packages. `nix     let       nixpkgs = fetchTarball "[https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz](https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz)";       pkgs = import nixpkgs { };     in     pkgs.mkShell {       buildInputs = [         pkgs.r-base         pkgs.r-jsonlite         pkgs.r-ggplot2         # ... add all other R packages here       ];     }`
 
 2.  **Enter the Environment:** From your terminal, run the command `nix-shell`. Nix will automatically download and set up all the specified dependencies without interfering with the rest of your system. Once the process is complete, you are "inside" the isolated environment.
 
 3.  **Launch RStudio:** With the Nix environment active, you can launch RStudio. It will automatically detect and use the specific versions of R and packages that you've defined in your `shell.nix` file.
 
 4.  **Version Control with Git and GitHub:**
-    * Your `shell.nix` file is just a text file. You commit it to Git and push it to your GitHub repository along with your R code.
-    * A collaborator simply clones your repository and runs `nix-shell`. Nix handles all the dependency management, so they don't have to worry about manually installing anything.
+
+    -   Your `shell.nix` file is just a text file. You commit it to Git and push it to your GitHub repository along with your R code.
+    -   A collaborator simply clones your repository and runs `nix-shell`. Nix handles all the dependency management, so they don't have to worry about manually installing anything.
 
 ### Pros and Cons of using Nix
 
-* **Pros:**
-    * **Reproducibility:** Guarantees the same environment every time.
-    * **Isolation:** Packages and dependencies are kept separate from your system, avoiding conflicts.
-    * **Fine-grained control:** You can pin dependencies to specific versions, even across different operating systems.
-    * **Performance:** Nix runs directly on your machine without the overhead of containerization.
+-   **Pros:**
+    -   **Reproducibility:** Guarantees the same environment every time.
+    -   **Isolation:** Packages and dependencies are kept separate from your system, avoiding conflicts.
+    -   **Fine-grained control:** You can pin dependencies to specific versions, even across different operating systems.
+    -   **Performance:** Nix runs directly on your machine without the overhead of containerization.
+-   **Cons:**
+    -   **Learning Curve:** The Nix language and ecosystem can be complex for new users.
+    -   **Initial Setup:** Installing Nix and setting up your first environment can take time.
+    -   **All-or-Nothing:** All collaborators must use Nix to get the benefits.
 
-* **Cons:**
-    * **Learning Curve:** The Nix language and ecosystem can be complex for new users.
-    * **Initial Setup:** Installing Nix and setting up your first environment can take time.
-    * **All-or-Nothing:** All collaborators must use Nix to get the benefits.
-
----
+------------------------------------------------------------------------
 
 ## Docker: The Containerization Solution
 
@@ -54,40 +40,37 @@ Docker is a platform that uses **containers** to package an application and its 
 ### The Docker Workflow with RStudio and GitHub
 
 1.  **Define Your Container:** In the root of your R project, you create a text file named `Dockerfile`. This file contains instructions for building your container image. You'll start with a base image (like a `rocker/rstudio` image), and then specify which R packages to install.
-    ```dockerfile
+
+    ``` dockerfile
     FROM rocker/rstudio:4.3.0
-    
+
     # Install R packages
     RUN R -e "install.packages('ggplot2', repos='[https://cloud.r-project.org/](https://cloud.r-project.org/)')"
     RUN R -e "install.packages('jsonlite', repos='[https://cloud.r-project.org/](https://cloud.r-project.org/)')"
-    
+
     # Set the working directory
     WORKDIR /home/rstudio
     ```
 
 2.  **Build the Image:** From your terminal, run the command `docker build -t my-r-project .`. This command reads the `Dockerfile` and builds a new Docker image containing all your dependencies.
 
-3.  **Run the Container:** Once the image is built, you can run a container from it and map your project folder to it.
-    ```bash
-    docker run --rm -p 8787:8787 -v C:/path/to/my/project:/home/rstudio my-r-project
-    ```
-    This command starts the container and makes RStudio accessible in your web browser at `localhost:8787`. The `-v` flag ensures that your local project files are accessible inside the container.
+3.  **Run the Container:** Once the image is built, you can run a container from it and map your project folder to it. `bash     docker run --rm -p 8787:8787 -v C:/path/to/my/project:/home/rstudio my-r-project` This command starts the container and makes RStudio accessible in your web browser at `localhost:8787`. The `-v` flag ensures that your local project files are accessible inside the container.
 
 4.  **Version Control with Git and GitHub:**
-    * You commit the `Dockerfile` to your Git repository and push it to GitHub alongside your R code.
-    * A collaborator clones the repository. They only need to run the `docker build` and `docker run` commands to get a fully working, isolated environment that is identical to yours.
+
+    -   You commit the `Dockerfile` to your Git repository and push it to GitHub alongside your R code.
+    -   A collaborator clones the repository. They only need to run the `docker build` and `docker run` commands to get a fully working, isolated environment that is identical to yours.
 
 ### Pros and Cons of using Docker
 
-* **Pros:**
-    * **Portability:** Docker containers can run on any machine with Docker installed (Windows, macOS, or Linux).
-    * **Strong Isolation:** The container is a fully isolated environment, which is great for security and avoiding conflicts.
-    * **Industry Standard:** Docker is widely used, and there is a huge community and ecosystem of pre-built images.
-    * **Environment Encapsulation:** The entire environment, from the operating system up, is encapsulated in the image.
+-   **Pros:**
+    -   **Portability:** Docker containers can run on any machine with Docker installed (Windows, macOS, or Linux).
+    -   **Strong Isolation:** The container is a fully isolated environment, which is great for security and avoiding conflicts.
+    -   **Industry Standard:** Docker is widely used, and there is a huge community and ecosystem of pre-built images.
+    -   **Environment Encapsulation:** The entire environment, from the operating system up, is encapsulated in the image.
+-   **Cons:**
+    -   **Performance Overhead:** The containerization layer can add some overhead, especially for computationally intensive tasks.
+    -   **Resource Intensive:** Docker can be more resource-heavy than Nix, as it requires a background daemon and can consume more disk space.
+    -   **Debugging:** It can be slightly more challenging to debug code inside a container than it is in a local environment.
 
-* **Cons:**
-    * **Performance Overhead:** The containerization layer can add some overhead, especially for computationally intensive tasks.
-    * **Resource Intensive:** Docker can be more resource-heavy than Nix, as it requires a background daemon and can consume more disk space.
-    * **Debugging:** It can be slightly more challenging to debug code inside a container than it is in a local environment.
-
----
+------------------------------------------------------------------------
