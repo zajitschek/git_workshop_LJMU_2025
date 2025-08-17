@@ -1,0 +1,78 @@
+---
+title: "What is Git/Github and why to use it as a researcher"
+format:
+  html:
+    toc: true
+    code-copy: true
+    mermaid: {}
+---
+
+## What are Git and GitHub? 
+
+**Git** is a version control system. Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to easily revert to previous versions, compare changes, and work on different features without affecting the main code. It operates locally on your computer.
+
+**GitHub** is a cloud-based service that hosts Git repositories. It's like a social network for code. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git is the engine, GitHub is the platform that hosts the work and provides tools for collaboration.
+
+***
+
+## Why an Academic Researcher Needs It 🔬
+
+Even if you're not a data analyst, Git and GitHub are invaluable for several reasons:
+
+* **Reproducible Research**: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core tenet of modern science.
+* **Backup and Disaster Recovery**: Your research code is a valuable asset. If your computer fails, your entire project is safe and sound on GitHub. It's a free, off-site backup.
+* **Collaboration with Students**: As a principal investigator, you can use GitHub to work on projects with your students. You can review their code, suggest changes, and merge their contributions into the main project. You can see who made which changes and when, which helps with accountability and streamlines the collaboration process.
+* **Access Anywhere**: You can access your code from any computer with an internet connection. This is great for working from a lab, office, or home without needing to use a flash drive.
+
+***
+
+## A Simple GitHub Workflow for RStudio
+
+This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio.
+
+
+```{mermaid}
+
+graph TD
+    A[Local Computer]
+    B[RStudio Project]
+    C{Git & Version Control}
+    D[Stage Changes]
+    E[Commit Changes]
+    F[Push to GitHub]
+    G[GitHub Repository]
+
+    subgraph Local Computer
+        B
+        C
+        D
+        E
+        F
+    end
+
+    subgraph The Cloud
+        G
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> B
+
+    A --> B % 1. Start/Update %
+    B --> C % 2. Edit Code %
+    C --> D % 3. Save & Stage %
+    D --> E % 4. Commit %
+    E --> F % 5. Upload to Cloud %
+    F --> G % 6. Sync with GitHub %
+    G --> B % 7. Pull Changes %
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style G fill:#f9f,stroke:#333,stroke-width:2px
+    classDef commitbox fill:#bbf,stroke:#333,stroke-width:2px,color:#fff
+    class D,E,F commitbox
+    linkStyle 0,1,2,3,4,5,6 stroke:#333,stroke-width:2px
+```

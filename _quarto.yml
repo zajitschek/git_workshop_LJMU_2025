@@ -1,0 +1,36 @@
+project:
+  type: website
+
+website:
+  title: "Open Research Workshop LJMU: What is Git/Github, and how do I use it with R?"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Sections"
+        menu: # This creates a dropdown menu
+          - text: "What is Git/Github and why to use it as a researcher"
+            href: why-git.qmd
+          - text: "Minimal setup with Github Desktop"
+            href: setup-githubdesktop.qmd
+          - text: "Standard setup with integration of RStudio and Github"
+            href: setup-complete.qmd
+          - text: "More involved setups"
+            href: setup-future.qmd
+      - href: git-installation-windows.qmd
+        text: "Git Installation Windows"
+      - href: git-installation-mac.qmd
+        text: "Git Installation Mac"
+format:
+  html:
+    theme: cosmo # A clean, modern theme. You can try others: journal, lumen, darkly, etc.
+    css: site_libs/quarto-html/theme-cosmo.css
+    toc: true # Enable Table of Contents on pages (useful for long setup guides)
+    code-copy: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+
+editor: visual
+

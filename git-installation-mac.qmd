@@ -1,0 +1,67 @@
+---
+title: "Git Installation on macOS"
+format:
+  html:
+    theme: default
+---
+
+## Installing Git on macOS
+
+This guide walks you through installing Git on your macOS machine for use with RStudio and GitHub. We recommend using Homebrew for the easiest installation.
+
+### Method 1: Using Homebrew (Recommended)
+
+Homebrew is a package manager for macOS that simplifies software installation.
+
+1. **Install Homebrew (if not already installed)**
+   - Open the Terminal application: `Finder > Applications > Utilities > Terminal`.
+   - Run the following command:
+     ```bash
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+     ```
+   - Follow the on-screen instructions, entering your macOS user password if prompted.
+
+2. **Install Git using Homebrew**
+   - In the Terminal, run:
+     ```bash
+     brew install git
+     ```
+   - Press Enter to download and install Git.
+
+3. **Verify Installation in RStudio**
+   - **Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.
+   - Open a new terminal in RStudio: `Tools > Terminal > New Terminal`.
+   - Type `git --version` and press Enter. You should see the Git version (e.g., `git version 2.43.0`).
+
+### Method 2: Using the Official Installer (Alternative)
+
+1. **Download the Installer**
+   - Visit the official Git website: [https://git-scm.com/downloads](https://git-scm.com/downloads).
+   - Click the "macOS" link and download the latest `.dmg` installer.
+
+2. **Run the Installer**
+   - Locate the downloaded `.dmg` file and double-click it.
+   - Double-click the `.pkg` file in the opened window to start the installer.
+
+3. **Follow the Installation Wizard Prompts**
+   - Click `Continue` through the steps.
+   - Enter your macOS administrator password when prompted.
+
+4. **Verify Installation in RStudio**
+   - **Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.
+   - Open a new terminal in RStudio: `Tools > Terminal > New Terminal`.
+   - Type `git --version` and press Enter. You should see the Git version (e.g., `git version 2.43.0`).
+
+## RStudio, Git, and GitHub Workflow
+
+To use Git and GitHub with RStudio, follow these steps:
+
+1. **Start/Update Project**: Create or update an RStudio project locally.
+2. **Edit Code**: Write or modify R code in RStudio.
+3. **Save & Stage**: Save changes and stage them with `git add`.
+4. **Commit Changes**: Commit staged changes with `git commit`.
+5. **Push to GitHub**: Push commits to a GitHub repository with `git push`.
+6. **Sync with GitHub**: Ensure the GitHub repository reflects local changes.
+7. **Pull Changes**: Pull updates from GitHub with `git pull`.
+
+[Return to Section Overview](/index.qmd) | [Check for Git Installation](/verify-git.qmd)

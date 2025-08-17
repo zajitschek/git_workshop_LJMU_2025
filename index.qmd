@@ -1,0 +1,30 @@
+---
+title: "Welcome to an Open Research LJMU Workshop!"
+---
+
+Welcome to **What is Git/Github, and how do I use it with R?**! To ensure a smooth experience during our session, after the Waht is Git information section, please have a look at the following instructions, starting with a check whether Git is already installed on your computer.
+
+**Minimum Requirement:** All participants should have **RStudio** installed. If you don't have RStudio, please install it first from [posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/). 
+
+### 1. [What is Git/Github and why to use it as a researcher](why-git.qmd) 
+
+What are Git, Github? What's the workflow? Why would it benefit researchers and supervisors who aren't software developers or data analysts?
+
+
+### 2. [Minimal setup with Github Desktop](setup-githubdesktop.qmd) 
+
+Minimal local version control, using the local app 'Github Desktop'. No direct integration with RStudio.
+
+
+### 3. [Standard setup with integration of RStudio and Github](setup-complete.qmd) 
+Full setup, including version control with Git and seamless integration with GitHub for collaborative projects and advanced data science workflows. This is ideal if you plan to continue using a combination of RStudio and Git beyond this workshop.
+
+
+### 4. [More involved setups](setup-future.qmd) 
+
+Where to look if you want robust and highly reproducible solutions that also work with Git version control to some extent: Nix vs. Docker. I haven't tested Nix yet, but it's similar to Anaconda that was used by a previous presenter in this workshop. Docker is good but not the best for day-to-day smooth workflow due to large file sizes and time needed to build docker images.
+
+**Questions or Issues?** If you encounter any problems during setup, please don't hesitate to reach out! 
+eMail: f.zajitschek\@ljmu.ac.uk 
+Bluesky: @zajitschek.bsky.social 
+X: @zajitschek

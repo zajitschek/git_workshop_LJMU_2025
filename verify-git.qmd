@@ -1,0 +1,49 @@
+---
+title: "How to Check for Git Installation"
+---
+It's easy to check if Git is already installed on your computer.
+
+1.  **Open the Terminal in RStudio:**
+    * In RStudio, go to `Tools > Terminal > New Terminal`. This will open a command-line interface directly within RStudio.
+2.  **Type the command and press Enter:**
+
+    ```bash
+    git --version
+    ```
+3.  **Interpret the output:**
+    * **If Git IS installed:**
+        You will see a message like this, indicating the version number:
+        
+        ```
+        git version 2.45.2.windows.1 # (Version number will vary)
+        ```
+        If you see this, great! You have Git. You can continue with the next steps.
+    * **If Git is NOT installed:**
+        You will see an error message, which varies slightly by operating system:
+        * **On Windows:**
+        
+            ```
+            'git' is not recognized as an internal or external command,
+            operable program or batch file.
+            ```
+            or
+            ```
+            The term 'git' is not recognized as the name of a cmdlet, function, script file, or operable program.
+            
+            ```
+        * **On macOS / Linux:**
+            ```
+            bash: git: command not found
+            ```
+            or
+            ```
+            zsh: command not found: git
+            ```
+        If you see any of these error messages, Git is not installed or not correctly configured in your system's PATH. Please proceed to the installation steps below for your operating system.
+
+
+### **Need to Install Git?**
+* **For Windows (PC):** Follow these detailed instructions: [Git Installation on Windows](git-installation-windows.qmd)
+* **For macOS:** Follow these detailed instructions: [Git Installation on macOS](git-installation-mac.qmd)
+
+---

@@ -1,0 +1,93 @@
+---
+title: "Minimal Setup with Github Desktop"
+---
+
+## 1. Installing and Setting Up GitHub Desktop
+
+Getting started with GitHub Desktop is a straightforward process.
+
+1.  **Download the Application:** Go to the official GitHub Desktop website and download the installer for your operating system (Windows or macOS).
+2.  **Install and Launch:** Run the installer and follow the on-screen prompts. Once installed, launch the application.
+3.  **Sign In:** You'll be prompted to **sign in to your GitHub.com account**. This is a crucial step that connects the application to your online repositories. If you don't have an account, you'll need to create one first on the GitHub website.
+
+---
+
+## 2. Using GitHub Desktop with a New RStudio Project
+
+This is the easiest way to start a new project. You'll create the repository on GitHub and then clone it to your computer.
+
+1.  **Create a New Repository:** In GitHub Desktop, click **File > New Repository...**.
+2.  **Name Your Project:** Give your new repository a clear and descriptive name (e.g., `my-first-r-project`). Check the box to "Initialize this repository with a README."
+3.  **Clone to Your Local Machine:** Click **Create Repository**. GitHub Desktop will automatically publish it to your GitHub account and then clone it to a folder on your computer. You'll see the folder path right on the main screen of the application.
+4.  **Create RStudio Project:** In RStudio, go to **File > New Project...**. Select **Existing Directory** and navigate to the folder that GitHub Desktop just created for you. Click **Create Project**.
+5.  **Initial Commit:** RStudio will now be linked to your Git repository. You'll notice a Git tab in the top-right pane. Back in GitHub Desktop, you'll see that a new `.Rproj` file has been added. Write a short commit message like "Add RStudio project file" and click **Commit to main**.
+6.  **Push to GitHub:** Click the **Push origin** button to upload these changes to your online GitHub repository.
+
+---
+
+## 3. Connecting an Existing RStudio Project
+
+If you've already started working on a project in RStudio and want to add it to GitHub, here's the workflow.
+
+1.  **Add a Local Repository:** In GitHub Desktop, click **File > Add Local Repository...**.
+2.  **Navigate to Your Project:** Select the folder that contains your RStudio project.
+3.  **Publish Your Repository:** Once added, you'll see a blue button that says **Publish repository**. Click it.
+4.  **Name and Publish:** A window will pop up to let you name the new repository on GitHub. Once you've chosen a name, click **Publish Repository**.
+5.  **Initial Commit:** All of your project's existing files are now ready to be committed. Write an initial commit message like "Initial project files" and click **Commit to main**.
+6.  **Push to GitHub:** Click the **Push origin** button to upload your project to GitHub.
+
+---
+
+## 4. Your Daily Workflow: Commit & Push
+
+This is the simple, repetitive process you'll use every day.
+
+1.  **Make Changes:** Work on your code or documents within RStudio as you normally would.
+2.  **Open GitHub Desktop:** After saving your files, switch to the GitHub Desktop application.
+3.  **Review and Stage:** GitHub Desktop will automatically show you all the changes you've made. You can review and select the files you want to include in your commit.
+4.  **Write a Commit Message:** In the bottom-left of the application, write a short, descriptive commit summary. For example, "Add data cleaning script" or "Fix bug in plot function". A good commit message explains *what* you changed and *why*.
+5.  **Commit and Push:** Click the **Commit to main** button. This saves the changes to your local Git history. Then, click **Push origin** to send those changes to your online GitHub repository.
+
+---
+
+## 5. Collaborating with a Student
+
+To allow a student to collaborate on your repository, you first need to invite them to the project on GitHub.com.
+
+1.  **Invite Collaborator:** On the GitHub website, navigate to your repository. Click on the **Settings** tab, then **Collaborators and teams**. From there, you can invite your student using their GitHub username or email address.
+2.  **Student Accepts Invitation:** The student will receive an invitation email. They must accept the invitation to gain access.
+3.  **Student Clones the Repository:** The student should open GitHub Desktop and go to **File > Clone Repository...**. They will see your project in the list of their repositories and can select it to clone it to their own computer.
+4.  **Student's Workflow:** The student's workflow is similar to your daily one, but with one key difference: they should **Pull** before they start working. This ensures they have the latest version of the code. The complete cycle for them is:
+    * **Pull** any new changes from the main repository.
+    * **Make changes** in RStudio.
+    * **Commit** their changes with a descriptive message.
+    * **Push** their committed changes to the main repository.
+
+---
+
+## 6. Working with Branches (A Best Practice)
+
+Working directly on the `main` branch can be risky, especially in a collaborative project. A **branch** is a separate version of your project that allows you to work on new features or bug fixes without affecting the main code.
+
+1.  **Create a New Branch:** In GitHub Desktop, at the top of the application, click on the **Current Branch** dropdown menu and select **New Branch...**. Give your branch a descriptive name (e.g., `add-new-data`, `fix-plot-bug`).
+2.  **Switch to Your New Branch:** The application will automatically switch you to this new branch.
+3.  **Make and Commit Changes:** Make all of your changes and commits on this new branch. This keeps them separate from the `main` branch.
+4.  **Publish the Branch:** The first time you commit to a new branch, you'll need to **Publish branch** to make it available on GitHub.com.
+5.  **Create a Pull Request:** Once you are done with your work, go to the GitHub website. You will see a prompt to create a **Pull Request**. A Pull Request is a request to merge your changes from your new branch into the `main` branch. This is the perfect time to ask your collaborator for a review or to check for any conflicts before merging.
+6.  **Merge into Main:** When your work is ready and reviewed, you can merge your branch into `main`. In the Pull Request on GitHub.com, click the **Merge pull request** button. The changes are now safely integrated into your main project.
+7.  **Clean Up:** Once merged, you can delete your branch from both GitHub.com and GitHub Desktop to keep your project clean.
+
+### 6.1 Collaboration Best Practices on Branches
+
+For a smooth collaborative workflow, it's essential that everyone follows a few best practices.
+
+1.  **Start with the Latest Code:** Before a student begins any new work, they should always **Fetch origin** and **Pull origin** on their `main` branch to make sure their local version is up-to-date with the shared repository.
+2.  **Branch for Every Task:** Encourage your student to create a new, separate branch for *every* new feature, bug fix, or major change they work on. This keeps their changes isolated and makes it easy to review and merge their work without disrupting the rest of the project.
+3.  **Use Pull Requests for Feedback:** The Pull Request is the central tool for code review. As a tutor, you can review the student's code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com.
+4.  **Resolve Conflicts Locally:** Sometimes, you or your student might be working on the same file at the same time, leading to a merge conflict. GitHub Desktop will alert you when this happens. You should always try to resolve these conflicts locally on your computer before attempting to merge.
+
+
+### **If you have Github Desktop installed, you don't need to install the standalone Git version if you start working with Git from RStudio**
+
+
+

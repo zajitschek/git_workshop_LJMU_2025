@@ -1,0 +1,113 @@
+---
+title: "Complete Setup"
+---
+
+This is the recommended setup for getting the most out of the workshop and for your future projects. It includes **RStudio, Git, and GitHub integration**.
+
+## Requirements:
+1.   **RStudio Desktop:**
+     * Ensure RStudio is installed: [posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+
+2.   **Git Installation:**
+     Git is essential for version control and collaborating with others via GitHub.
+     
+     **If you already have Github Desktop installed, you don't need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.**
+     
+     First, check if you already have Git installed: [How to Check for Git Installation](verify-git.qmd)
+     
+     **If you DO NOT have Git installed:**
+     * **For Windows (PC):** Follow these detailed instructions: [Git Installation on Windows](git-installation-windows.qmd)
+     * **For macOS:** Follow these detailed instructions: [Git Installation on macOS](git-installation-mac.qmd)
+     
+     **If you DO have Git installed:**
+     Great! You're all set for the Git part of this setup.
+
+3.   **Configure Git (First-Time Setup):**
+     After installing Git, tell it who you are by running these commands in your RStudio Terminal:
+     ```bash
+     git config --global user.name "Your Name"
+     git config --global user.email "your.email@example.com"
+     ```
+4.   **GitHub Account:**
+     GitHub is a web-based hosting service for Git repositories. We'll use it for sharing code and potentially collaborating.
+     * If you don't have a GitHub account, please create one here: [github.com/join](https://github.com/join)
+     * Remember your username and password.
+5.   **Connect RStudio to GitHub (Personal Access Token - PAT):**
+     This is the most secure way to connect RStudio/Git to GitHub without repeatedly typing your password.
+     * **Generate a PAT on GitHub:**
+         1.  Go to your GitHub profile settings: [github.com/settings/tokens](https://github.com/settings/tokens)
+         2.  Click `Generate new token` (or `Generate new token (classic)` if you don't see the new one).
+         3.  Give it a descriptive `Note` (e.g., "RStudio PAT").
+         4.  Set an `Expiration` (e.g., 30 days, 90 days, or a custom date after the workshop).
+         5.  Under `Select scopes`, check at least `repo` (full control of private repositories) and potentially `workflow` if you plan to use GitHub Actions.
+         6.  Click `Generate token`.
+         7.  **IMPORTANT:** Copy the generated token immediately! You won't see it again. Store it securely (e.g., in a password manager).
+     * **Store PAT in RStudio/Git:**
+         When you try to interact with GitHub from RStudio for the first time (e.g., by creating a new RStudio project from a GitHub repository, or pushing changes), Git will prompt you for your username and password/PAT.
+         * Enter your GitHub username.
+         * When prompted for password, **paste the PAT you just generated**.
+         * Git Credential Manager Core (Windows) or macOS Keychain Access will often securely store this for future use, so you don't have to enter it every time.
+
+## 6. RStudio-GitHub Workflow: Project Setup & Collaboration
+
+### Step 1: Create a Project and Add Git
+
+This is the first step to linking your work to Git.
+
+* **For a NEW Project:** Go to the RStudio menu bar and select **File > New Project...**. In the pop-up window, choose **New Directory**, and make sure to **check the box** for "Create a Git repository." Give your project a name and click "Create Project." This automatically initializes a Git repository in your new project folder.
+
+* **For an EXISTING Project:** Go to **File > New Project...**, then select **Existing Directory**. Navigate to your project folder. Click "Create Project." To add Git, go to the RStudio menu bar and select **Tools > Project Options...**. In the pop-up window, go to the **Git/SVN** tab. Next to "Version control system," choose **Git** from the dropdown menu and click "OK." RStudio will prompt you to restart. After restarting, a new Git pane will appear in the top-right of the RStudio window.
+
+### Step 2: Make Your First Commit
+
+This is how you save a snapshot of your project's history.
+
+* **Make Changes:** Create a new script, save a data file, or make any other changes to your project.
+* **Open the Git Pane:** In the top-right pane of RStudio, you'll see a tab named **Git**. Click on it.
+* **Review and Stage:** The Git pane shows you a list of all the files that have changed.
+    * The "Status" column indicates if a file is new (`?`), modified (`M`), or deleted (`D`).
+    * To prepare a file for your commit, click the **checkbox** next to its name under the "Staged" column. This action is called **staging**—you're telling Git which specific changes you want to include in this snapshot.
+* **Commit the Changes:** Click the **Commit** button at the top of the Git pane. This opens a new window called "Review Changes."
+    * On the left, you can see the files you've staged.
+    * On the bottom right, there's a box for a **Commit message**. This is a brief, descriptive note that explains *what* you changed and *why*. A good message is like a helpful hint for your future self (or a collaborator).
+    * Click the **Commit** button in the pop-up window. This creates a **local** snapshot of your staged files. The changes are now saved to your computer's Git history.
+
+### Step 3: Link to a GitHub Repository (Your Remote)
+
+Now that you have a local Git repository, you need to connect it to an online repository on GitHub.
+
+1.  **Create a Repository on GitHub:** Go to the GitHub website and click the green **New** button. Give your repository a name, and be sure to **leave the checkboxes for initializing with a README, .gitignore, and license unchecked.** Click "Create repository." You will be taken to a page with a series of instructions. **Copy the HTTPS URL** (it will look something like `https://github.com/your-username/your-repo.git`).
+2.  **Add a Remote in RStudio:** Back in RStudio, go to the **Git** pane. Click the blue **Push** button (the up arrow). Since this is the first time you're pushing, RStudio will prompt you to set a "Remote URL." Paste the HTTPS URL you just copied from GitHub and click "OK." This establishes the connection between your local project and the online GitHub repository.
+
+### Step 4: Push to GitHub
+
+Once you've made a commit, you need to push it to share it with the world.
+
+* **The Push Action:** The **Push** button (the up arrow in the Git pane) sends the commits you've made on your computer to the remote repository on GitHub.
+* **Pushing for the First Time:** The first time you push, a window will pop up asking for your GitHub username and password/PAT. Enter your username and paste your PAT, as you set up in the earlier step. Your commits will now be uploaded to GitHub.
+* **The Push-Pull Cycle:** From now on, your workflow will be a simple "push-pull" cycle. After you commit, you **push** to share your changes.
+
+### Step 5: Working on a Branch (Best Practices)
+
+To avoid problems in collaborative projects, you should always work on a separate branch.
+
+1.  **Create a New Branch:** In the RStudio Git pane, click the **dropdown menu** with the branch name (it will likely say "main"). From the menu, select **New Branch...**. Give your branch a descriptive name (e.g., `feature-plots` or `bug-fix`). Click "OK." RStudio will automatically switch you to this new branch.
+2.  **Make and Commit Changes:** Make all your changes and commits on this branch, just as you did on the main branch. Your commits are now isolated from the main project code.
+3.  **Push the Branch:** Click the **Push** button to send your new branch and its commits to GitHub. Since this is a new branch, you may need to confirm the "Upstream branch" setting, but RStudio usually handles this automatically.
+4.  **Create a Pull Request:** Go to your repository on the GitHub website. GitHub will usually show a banner at the top prompting you to create a **Pull Request** for your newly pushed branch. A Pull Request is how you propose that the changes on your branch be merged into the `main` branch. This is also where you can ask a collaborator to review your work.
+5.  **Merge and Cleanup:** Once the Pull Request is approved, you can click the **Merge pull request** button on GitHub to safely integrate your changes. After the merge is complete, you can click the **Delete branch** button on GitHub to keep your repository tidy.
+
+This process keeps your main project code safe and allows for a smooth, collaborative workflow.
+
+### Working with a Collaborator on a Branch
+
+Working with a collaborator on a branch is a highly recommended practice for keeping your `main` branch clean and stable. Here's a typical workflow:
+
+1.  **Both Collaborators Create a Branch:** Each person creates their own branch from the `main` branch (e.g., you create `your-branch` and your collaborator creates `collaborator-branch`).
+2.  **Work and Commit Locally:** You both work independently on your branches, making changes and committing them as you go.
+3.  **The "Pull Before Push" Rule:** Before you `Push` your changes to GitHub, it is best practice to always **Pull** first. This fetches any new changes from the remote repository that your collaborator might have pushed. Click the **Pull** button (the down arrow) in the Git pane. This helps prevent merge conflicts.
+4.  **Push Your Changes:** After you pull, and after you are confident that your local branch is up-to-date with your collaborator's work, you can `Push` your commits to GitHub. Your collaborator will do the same from their machine.
+5.  **The Pull Request and Code Review:** When you are ready to merge your work, you open a **Pull Request** on GitHub. The Pull Request shows the changes you've made and allows your collaborator (or team) to review the code, suggest changes, or ask questions. This is a crucial step for collaboration, as it ensures quality and prevents bugs from being introduced to the `main` branch.
+6.  **Merging:** Once the Pull Request is approved, you can merge your branch into `main`. Then, you can delete your branch on GitHub, and your collaborator will need to `Pull` from `main` to get your new changes.
+
+This approach ensures that all work is reviewed and tested before being integrated, making for a much more robust and manageable project.
