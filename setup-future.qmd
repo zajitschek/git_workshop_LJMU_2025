@@ -73,4 +73,4 @@ Docker is a platform that uses **containers** to package an application and its 
     -   **Resource Intensive:** Docker can be more resource-heavy than Nix, as it requires a background daemon and can consume more disk space.
     -   **Debugging:** It can be slightly more challenging to debug code inside a container than it is in a local environment.
 
------------------------------------------------------------------------
+----------------------------------------------------------------------
