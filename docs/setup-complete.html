@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Complete Setup – Open Research Workshop LJMU: What is Git/Github, and how do I use it with R?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-f3c7dabe75a0c4d0cadd41566b53a9a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="site_libs/quarto-html/theme-cosmo.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Open Research Workshop LJMU: What is Git/Github, and how do I use it with R?</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sections" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sections</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sections">    
+        <li>
+    <a class="dropdown-item" href="./why-git.html">
+ <span class="dropdown-text">What is Git/Github and why to use it as a researcher</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./setup-githubdesktop.html">
+ <span class="dropdown-text">Minimal setup with Github Desktop</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./setup-complete.html">
+ <span class="dropdown-text">Standard setup with integration of RStudio and Github</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./setup-future.html">
+ <span class="dropdown-text">More involved setups</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./git-installation-windows.html"> 
+<span class="menu-text">Git Installation Windows</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./git-installation-mac.html"> 
+<span class="menu-text">Git Installation Mac</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements:</a></li>
+  <li><a href="#rstudio-github-workflow-project-setup-collaboration" id="toc-rstudio-github-workflow-project-setup-collaboration" class="nav-link" data-scroll-target="#rstudio-github-workflow-project-setup-collaboration">6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-a-project-and-add-git" id="toc-step-1-create-a-project-and-add-git" class="nav-link" data-scroll-target="#step-1-create-a-project-and-add-git">Step 1: Create a Project and Add Git</a></li>
+  <li><a href="#step-2-make-your-first-commit" id="toc-step-2-make-your-first-commit" class="nav-link" data-scroll-target="#step-2-make-your-first-commit">Step 2: Make Your First Commit</a></li>
+  <li><a href="#step-3-link-to-a-github-repository-your-remote" id="toc-step-3-link-to-a-github-repository-your-remote" class="nav-link" data-scroll-target="#step-3-link-to-a-github-repository-your-remote">Step 3: Link to a GitHub Repository (Your Remote)</a></li>
+  <li><a href="#step-4-push-to-github" id="toc-step-4-push-to-github" class="nav-link" data-scroll-target="#step-4-push-to-github">Step 4: Push to GitHub</a></li>
+  <li><a href="#step-5-working-on-a-branch-best-practices" id="toc-step-5-working-on-a-branch-best-practices" class="nav-link" data-scroll-target="#step-5-working-on-a-branch-best-practices">Step 5: Working on a Branch (Best Practices)</a></li>
+  <li><a href="#working-with-a-collaborator-on-a-branch" id="toc-working-with-a-collaborator-on-a-branch" class="nav-link" data-scroll-target="#working-with-a-collaborator-on-a-branch">Working with a Collaborator on a Branch</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Complete Setup</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This is the recommended setup for getting the most out of the workshop and for your future projects. It includes <strong>RStudio, Git, and GitHub integration</strong>.</p>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements:</h2>
+<ol type="1">
+<li><p><strong>RStudio Desktop:</strong></p>
+<ul>
+<li>Ensure RStudio is installed: <a href="https://posit.co/download/rstudio-desktop/">posit.co/download/rstudio-desktop/</a></li>
+</ul></li>
+<li><p><strong>Git Installation:</strong> Git is essential for version control and collaborating with others via GitHub.</p>
+<p><strong>If you already have Github Desktop installed, you don’t need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.</strong></p>
+<p>First, check if you already have Git installed: <a href="./verify-git.html">How to Check for Git Installation</a></p>
+<p><strong>If you DO NOT have Git installed:</strong></p>
+<ul>
+<li><strong>For Windows (PC):</strong> Follow these detailed instructions: <a href="./git-installation-windows.html">Git Installation on Windows</a></li>
+<li><strong>For macOS:</strong> Follow these detailed instructions: <a href="./git-installation-mac.html">Git Installation on macOS</a></li>
+</ul>
+<p><strong>If you DO have Git installed:</strong> Great! You’re all set for the Git part of this setup.</p></li>
+<li><p><strong>Configure Git (First-Time Setup):</strong> After installing Git, tell it who you are by running these commands in your RStudio Terminal: <code>bash      git config --global user.name "Your Name"      git config --global user.email "your.email@example.com"</code></p></li>
+<li><p><strong>GitHub Account:</strong> GitHub is a web-based hosting service for Git repositories. We’ll use it for sharing code and potentially collaborating.</p>
+<ul>
+<li>If you don’t have a GitHub account, please create one here: <a href="https://github.com/join">github.com/join</a></li>
+<li>Remember your username and password.</li>
+</ul></li>
+<li><p><strong>Connect RStudio to GitHub (Personal Access Token - PAT):</strong> This is the most secure way to connect RStudio/Git to GitHub without repeatedly typing your password.</p>
+<ul>
+<li><strong>Generate a PAT on GitHub:</strong>
+<ol type="1">
+<li>Go to your GitHub profile settings: <a href="https://github.com/settings/tokens">github.com/settings/tokens</a></li>
+<li>Click <code>Generate new token</code> (or <code>Generate new token (classic)</code> if you don’t see the new one).</li>
+<li>Give it a descriptive <code>Note</code> (e.g., “RStudio PAT”).</li>
+<li>Set an <code>Expiration</code> (e.g., 30 days, 90 days, or a custom date after the workshop).</li>
+<li>Under <code>Select scopes</code>, check at least <code>repo</code> (full control of private repositories) and potentially <code>workflow</code> if you plan to use GitHub Actions.</li>
+<li>Click <code>Generate token</code>.</li>
+<li><strong>IMPORTANT:</strong> Copy the generated token immediately! You won’t see it again. Store it securely (e.g., in a password manager).</li>
+</ol></li>
+<li><strong>Store PAT in RStudio/Git:</strong> When you try to interact with GitHub from RStudio for the first time (e.g., by creating a new RStudio project from a GitHub repository, or pushing changes), Git will prompt you for your username and password/PAT.
+<ul>
+<li>Enter your GitHub username.</li>
+<li>When prompted for password, <strong>paste the PAT you just generated</strong>.</li>
+<li>Git Credential Manager Core (Windows) or macOS Keychain Access will often securely store this for future use, so you don’t have to enter it every time.</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="rstudio-github-workflow-project-setup-collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-github-workflow-project-setup-collaboration">6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</h2>
+<section id="step-1-create-a-project-and-add-git" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-a-project-and-add-git">Step 1: Create a Project and Add Git</h3>
+<p>This is the first step to linking your work to Git.</p>
+<ul>
+<li><p><strong>For a NEW Project:</strong> Go to the RStudio menu bar and select <strong>File &gt; New Project…</strong>. In the pop-up window, choose <strong>New Directory</strong>, and make sure to <strong>check the box</strong> for “Create a Git repository.” Give your project a name and click “Create Project.” This automatically initializes a Git repository in your new project folder.</p></li>
+<li><p><strong>For an EXISTING Project:</strong> Go to <strong>File &gt; New Project…</strong>, then select <strong>Existing Directory</strong>. Navigate to your project folder. Click “Create Project.” To add Git, go to the RStudio menu bar and select <strong>Tools &gt; Project Options…</strong>. In the pop-up window, go to the <strong>Git/SVN</strong> tab. Next to “Version control system,” choose <strong>Git</strong> from the dropdown menu and click “OK.” RStudio will prompt you to restart. After restarting, a new Git pane will appear in the top-right of the RStudio window.</p></li>
+</ul>
+</section>
+<section id="step-2-make-your-first-commit" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-make-your-first-commit">Step 2: Make Your First Commit</h3>
+<p>This is how you save a snapshot of your project’s history.</p>
+<ul>
+<li><strong>Make Changes:</strong> Create a new script, save a data file, or make any other changes to your project.</li>
+<li><strong>Open the Git Pane:</strong> In the top-right pane of RStudio, you’ll see a tab named <strong>Git</strong>. Click on it.</li>
+<li><strong>Review and Stage:</strong> The Git pane shows you a list of all the files that have changed.
+<ul>
+<li>The “Status” column indicates if a file is new (<code>?</code>), modified (<code>M</code>), or deleted (<code>D</code>).</li>
+<li>To prepare a file for your commit, click the <strong>checkbox</strong> next to its name under the “Staged” column. This action is called <strong>staging</strong>—you’re telling Git which specific changes you want to include in this snapshot.</li>
+</ul></li>
+<li><strong>Commit the Changes:</strong> Click the <strong>Commit</strong> button at the top of the Git pane. This opens a new window called “Review Changes.”
+<ul>
+<li>On the left, you can see the files you’ve staged.</li>
+<li>On the bottom right, there’s a box for a <strong>Commit message</strong>. This is a brief, descriptive note that explains <em>what</em> you changed and <em>why</em>. A good message is like a helpful hint for your future self (or a collaborator).</li>
+<li>Click the <strong>Commit</strong> button in the pop-up window. This creates a <strong>local</strong> snapshot of your staged files. The changes are now saved to your computer’s Git history.</li>
+</ul></li>
+</ul>
+</section>
+<section id="step-3-link-to-a-github-repository-your-remote" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-link-to-a-github-repository-your-remote">Step 3: Link to a GitHub Repository (Your Remote)</h3>
+<p>Now that you have a local Git repository, you need to connect it to an online repository on GitHub.</p>
+<ol type="1">
+<li><strong>Create a Repository on GitHub:</strong> Go to the GitHub website and click the green <strong>New</strong> button. Give your repository a name, and be sure to <strong>leave the checkboxes for initializing with a README, .gitignore, and license unchecked.</strong> Click “Create repository.” You will be taken to a page with a series of instructions. <strong>Copy the HTTPS URL</strong> (it will look something like <code>https://github.com/your-username/your-repo.git</code>).</li>
+<li><strong>Add a Remote in RStudio:</strong> Back in RStudio, go to the <strong>Git</strong> pane. Click the blue <strong>Push</strong> button (the up arrow). Since this is the first time you’re pushing, RStudio will prompt you to set a “Remote URL.” Paste the HTTPS URL you just copied from GitHub and click “OK.” This establishes the connection between your local project and the online GitHub repository.</li>
+</ol>
+</section>
+<section id="step-4-push-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-push-to-github">Step 4: Push to GitHub</h3>
+<p>Once you’ve made a commit, you need to push it to share it with the world.</p>
+<ul>
+<li><strong>The Push Action:</strong> The <strong>Push</strong> button (the up arrow in the Git pane) sends the commits you’ve made on your computer to the remote repository on GitHub.</li>
+<li><strong>Pushing for the First Time:</strong> The first time you push, a window will pop up asking for your GitHub username and password/PAT. Enter your username and paste your PAT, as you set up in the earlier step. Your commits will now be uploaded to GitHub.</li>
+<li><strong>The Push-Pull Cycle:</strong> From now on, your workflow will be a simple “push-pull” cycle. After you commit, you <strong>push</strong> to share your changes.</li>
+</ul>
+</section>
+<section id="step-5-working-on-a-branch-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-working-on-a-branch-best-practices">Step 5: Working on a Branch (Best Practices)</h3>
+<p>To avoid problems in collaborative projects, you should always work on a separate branch.</p>
+<ol type="1">
+<li><strong>Create a New Branch:</strong> In the RStudio Git pane, click the <strong>dropdown menu</strong> with the branch name (it will likely say “main”). From the menu, select <strong>New Branch…</strong>. Give your branch a descriptive name (e.g., <code>feature-plots</code> or <code>bug-fix</code>). Click “OK.” RStudio will automatically switch you to this new branch.</li>
+<li><strong>Make and Commit Changes:</strong> Make all your changes and commits on this branch, just as you did on the main branch. Your commits are now isolated from the main project code.</li>
+<li><strong>Push the Branch:</strong> Click the <strong>Push</strong> button to send your new branch and its commits to GitHub. Since this is a new branch, you may need to confirm the “Upstream branch” setting, but RStudio usually handles this automatically.</li>
+<li><strong>Create a Pull Request:</strong> Go to your repository on the GitHub website. GitHub will usually show a banner at the top prompting you to create a <strong>Pull Request</strong> for your newly pushed branch. A Pull Request is how you propose that the changes on your branch be merged into the <code>main</code> branch. This is also where you can ask a collaborator to review your work.</li>
+<li><strong>Merge and Cleanup:</strong> Once the Pull Request is approved, you can click the <strong>Merge pull request</strong> button on GitHub to safely integrate your changes. After the merge is complete, you can click the <strong>Delete branch</strong> button on GitHub to keep your repository tidy.</li>
+</ol>
+<p>This process keeps your main project code safe and allows for a smooth, collaborative workflow.</p>
+</section>
+<section id="working-with-a-collaborator-on-a-branch" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-a-collaborator-on-a-branch">Working with a Collaborator on a Branch</h3>
+<p>Working with a collaborator on a branch is a highly recommended practice for keeping your <code>main</code> branch clean and stable. Here’s a typical workflow:</p>
+<ol type="1">
+<li><strong>Both Collaborators Create a Branch:</strong> Each person creates their own branch from the <code>main</code> branch (e.g., you create <code>your-branch</code> and your collaborator creates <code>collaborator-branch</code>).</li>
+<li><strong>Work and Commit Locally:</strong> You both work independently on your branches, making changes and committing them as you go.</li>
+<li><strong>The “Pull Before Push” Rule:</strong> Before you <code>Push</code> your changes to GitHub, it is best practice to always <strong>Pull</strong> first. This fetches any new changes from the remote repository that your collaborator might have pushed. Click the <strong>Pull</strong> button (the down arrow) in the Git pane. This helps prevent merge conflicts.</li>
+<li><strong>Push Your Changes:</strong> After you pull, and after you are confident that your local branch is up-to-date with your collaborator’s work, you can <code>Push</code> your commits to GitHub. Your collaborator will do the same from their machine.</li>
+<li><strong>The Pull Request and Code Review:</strong> When you are ready to merge your work, you open a <strong>Pull Request</strong> on GitHub. The Pull Request shows the changes you’ve made and allows your collaborator (or team) to review the code, suggest changes, or ask questions. This is a crucial step for collaboration, as it ensures quality and prevents bugs from being introduced to the <code>main</code> branch.</li>
+<li><strong>Merging:</strong> Once the Pull Request is approved, you can merge your branch into <code>main</code>. Then, you can delete your branch on GitHub, and your collaborator will need to <code>Pull</code> from <code>main</code> to get your new changes.</li>
+</ol>
+<p>This approach ensures that all work is reviewed and tested before being integrated, making for a much more robust and manageable project.</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Complete Setup"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>This is the recommended setup for getting the most out of the workshop and for your future projects. It includes **RStudio, Git, and GitHub integration**.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">1.   </span>**RStudio Desktop:**</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">     * </span>Ensure RStudio is installed: <span class="co">[</span><span class="ot">posit.co/download/rstudio-desktop/</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">2.   </span>**Git Installation:**</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>     Git is essential for version control and collaborating with others via GitHub.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     **If you already have Github Desktop installed, you don't need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.**</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     First, check if you already have Git installed: <span class="co">[</span><span class="ot">How to Check for Git Installation</span><span class="co">](verify-git.qmd)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>     **If you DO NOT have Git installed:**</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">     * </span>**For Windows (PC):** Follow these detailed instructions: <span class="co">[</span><span class="ot">Git Installation on Windows</span><span class="co">](git-installation-windows.qmd)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">     * </span>**For macOS:** Follow these detailed instructions: <span class="co">[</span><span class="ot">Git Installation on macOS</span><span class="co">](git-installation-mac.qmd)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>     **If you DO have Git installed:**</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>     Great! You're all set for the Git part of this setup.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">3.   </span>**Configure Git (First-Time Setup):**</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>     After installing Git, tell it who you are by running these commands in your RStudio Terminal:</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>     <span class="in">```bash</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your.email@example.com"</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>     <span class="in">```</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">4.   </span>**GitHub Account:**</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>     GitHub is a web-based hosting service for Git repositories. We'll use it for sharing code and potentially collaborating.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">     * </span>If you don't have a GitHub account, please create one here: <span class="co">[</span><span class="ot">github.com/join</span><span class="co">](https://github.com/join)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">     * </span>Remember your username and password.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">5.   </span>**Connect RStudio to GitHub (Personal Access Token - PAT):**</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>     This is the most secure way to connect RStudio/Git to GitHub without repeatedly typing your password.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">     * </span>**Generate a PAT on GitHub:**</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">         1.  </span>Go to your GitHub profile settings: <span class="co">[</span><span class="ot">github.com/settings/tokens</span><span class="co">](https://github.com/settings/tokens)</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">         2.  </span>Click <span class="in">`Generate new token`</span> (or <span class="in">`Generate new token (classic)`</span> if you don't see the new one).</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">         3.  </span>Give it a descriptive <span class="in">`Note`</span> (e.g., "RStudio PAT").</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">         4.  </span>Set an <span class="in">`Expiration`</span> (e.g., 30 days, 90 days, or a custom date after the workshop).</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">         5.  </span>Under <span class="in">`Select scopes`</span>, check at least <span class="in">`repo`</span> (full control of private repositories) and potentially <span class="in">`workflow`</span> if you plan to use GitHub Actions.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">         6.  </span>Click <span class="in">`Generate token`</span>.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">         7.  </span>**IMPORTANT:** Copy the generated token immediately! You won't see it again. Store it securely (e.g., in a password manager).</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">     * </span>**Store PAT in RStudio/Git:**</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>         When you try to interact with GitHub from RStudio for the first time (e.g., by creating a new RStudio project from a GitHub repository, or pushing changes), Git will prompt you for your username and password/PAT.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">         * </span>Enter your GitHub username.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">         * </span>When prompted for password, **paste the PAT you just generated**.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">         * </span>Git Credential Manager Core (Windows) or macOS Keychain Access will often securely store this for future use, so you don't have to enter it every time.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Create a Project and Add Git</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>This is the first step to linking your work to Git.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**For a NEW Project:** Go to the RStudio menu bar and select **File &gt; New Project...**. In the pop-up window, choose **New Directory**, and make sure to **check the box** for "Create a Git repository." Give your project a name and click "Create Project." This automatically initializes a Git repository in your new project folder.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**For an EXISTING Project:** Go to **File &gt; New Project...**, then select **Existing Directory**. Navigate to your project folder. Click "Create Project." To add Git, go to the RStudio menu bar and select **Tools &gt; Project Options...**. In the pop-up window, go to the **Git/SVN** tab. Next to "Version control system," choose **Git** from the dropdown menu and click "OK." RStudio will prompt you to restart. After restarting, a new Git pane will appear in the top-right of the RStudio window.</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Make Your First Commit</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>This is how you save a snapshot of your project's history.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Make Changes:** Create a new script, save a data file, or make any other changes to your project.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Open the Git Pane:** In the top-right pane of RStudio, you'll see a tab named **Git**. Click on it.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Review and Stage:** The Git pane shows you a list of all the files that have changed.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>The "Status" column indicates if a file is new (<span class="in">`?`</span>), modified (<span class="in">`M`</span>), or deleted (<span class="in">`D`</span>).</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>To prepare a file for your commit, click the **checkbox** next to its name under the "Staged" column. This action is called **staging**—you're telling Git which specific changes you want to include in this snapshot.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Commit the Changes:** Click the **Commit** button at the top of the Git pane. This opens a new window called "Review Changes."</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On the left, you can see the files you've staged.</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On the bottom right, there's a box for a **Commit message**. This is a brief, descriptive note that explains *what* you changed and *why*. A good message is like a helpful hint for your future self (or a collaborator).</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Click the **Commit** button in the pop-up window. This creates a **local** snapshot of your staged files. The changes are now saved to your computer's Git history.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Link to a GitHub Repository (Your Remote)</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>Now that you have a local Git repository, you need to connect it to an online repository on GitHub.</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a Repository on GitHub:** Go to the GitHub website and click the green **New** button. Give your repository a name, and be sure to **leave the checkboxes for initializing with a README, .gitignore, and license unchecked.** Click "Create repository." You will be taken to a page with a series of instructions. **Copy the HTTPS URL** (it will look something like <span class="in">`https://github.com/your-username/your-repo.git`</span>).</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Add a Remote in RStudio:** Back in RStudio, go to the **Git** pane. Click the blue **Push** button (the up arrow). Since this is the first time you're pushing, RStudio will prompt you to set a "Remote URL." Paste the HTTPS URL you just copied from GitHub and click "OK." This establishes the connection between your local project and the online GitHub repository.</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Push to GitHub</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>Once you've made a commit, you need to push it to share it with the world.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**The Push Action:** The **Push** button (the up arrow in the Git pane) sends the commits you've made on your computer to the remote repository on GitHub.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pushing for the First Time:** The first time you push, a window will pop up asking for your GitHub username and password/PAT. Enter your username and paste your PAT, as you set up in the earlier step. Your commits will now be uploaded to GitHub.</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**The Push-Pull Cycle:** From now on, your workflow will be a simple "push-pull" cycle. After you commit, you **push** to share your changes.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 5: Working on a Branch (Best Practices)</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>To avoid problems in collaborative projects, you should always work on a separate branch.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a New Branch:** In the RStudio Git pane, click the **dropdown menu** with the branch name (it will likely say "main"). From the menu, select **New Branch...**. Give your branch a descriptive name (e.g., <span class="in">`feature-plots`</span> or <span class="in">`bug-fix`</span>). Click "OK." RStudio will automatically switch you to this new branch.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Make and Commit Changes:** Make all your changes and commits on this branch, just as you did on the main branch. Your commits are now isolated from the main project code.</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Push the Branch:** Click the **Push** button to send your new branch and its commits to GitHub. Since this is a new branch, you may need to confirm the "Upstream branch" setting, but RStudio usually handles this automatically.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Create a Pull Request:** Go to your repository on the GitHub website. GitHub will usually show a banner at the top prompting you to create a **Pull Request** for your newly pushed branch. A Pull Request is how you propose that the changes on your branch be merged into the <span class="in">`main`</span> branch. This is also where you can ask a collaborator to review your work.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Merge and Cleanup:** Once the Pull Request is approved, you can click the **Merge pull request** button on GitHub to safely integrate your changes. After the merge is complete, you can click the **Delete branch** button on GitHub to keep your repository tidy.</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>This process keeps your main project code safe and allows for a smooth, collaborative workflow.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Working with a Collaborator on a Branch</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Working with a collaborator on a branch is a highly recommended practice for keeping your <span class="in">`main`</span> branch clean and stable. Here's a typical workflow:</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Both Collaborators Create a Branch:** Each person creates their own branch from the <span class="in">`main`</span> branch (e.g., you create <span class="in">`your-branch`</span> and your collaborator creates <span class="in">`collaborator-branch`</span>).</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Work and Commit Locally:** You both work independently on your branches, making changes and committing them as you go.</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**The "Pull Before Push" Rule:** Before you `Push` your changes to GitHub, it is best practice to always **Pull** first. This fetches any new changes from the remote repository that your collaborator might have pushed. Click the **Pull** button (the down arrow) in the Git pane. This helps prevent merge conflicts.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Push Your Changes:** After you pull, and after you are confident that your local branch is up-to-date with your collaborator's work, you can <span class="in">`Push`</span> your commits to GitHub. Your collaborator will do the same from their machine.</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**The Pull Request and Code Review:** When you are ready to merge your work, you open a **Pull Request** on GitHub. The Pull Request shows the changes you've made and allows your collaborator (or team) to review the code, suggest changes, or ask questions. This is a crucial step for collaboration, as it ensures quality and prevents bugs from being introduced to the <span class="in">`main`</span> branch.</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Merging:** Once the Pull Request is approved, you can merge your branch into <span class="in">`main`</span>. Then, you can delete your branch on GitHub, and your collaborator will need to <span class="in">`Pull`</span> from <span class="in">`main`</span> to get your new changes.</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>This approach ensures that all work is reviewed and tested before being integrated, making for a much more robust and manageable project.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
