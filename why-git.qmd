@@ -9,9 +9,14 @@ format:
 
 ## What are Git and GitHub? 
 
-**Git** is a version control system. Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to easily revert to previous versions, compare changes, and work on different features without affecting the main code. It operates locally on your computer.
+**Git** is the de facto standard version control system (https://git-scm.com/). Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to revert to previous versions, compare changes, and work on different features without affecting the main code. It operates locally on your computer.
 
-**GitHub** is a cloud-based service that hosts Git repositories. It's like a social network for code. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git is the engine, GitHub is the platform that hosts the work and provides tools for collaboration.
+Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects: https://en.wikipedia.org/wiki/Software_Freedom_Conservancy
+
+**GitHub** is the largest cloud-based service that hosts Git repositories. It's like a social network for code. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git provides the protocol and machinery, GitHub is the platform that hosts the work and provides tools for collaboration.
+
+GitHub is part of Microsoft. There are alternatives, e.g. Codeberg (non-profit; https://en.wikipedia.org/wiki/Codeberg) or BitBucket (https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform.
+As a further primer for later, this 2016 PLOS paper https://doi.org/10.1371/journal.pcbi.1004668 with accompanying files on GitHub https://github.com/jdblischak/git-for-science might be helpful (but it only uses command line code).
 
 ***
 
@@ -30,49 +35,4 @@ Even if you're not a data analyst, Git and GitHub are invaluable for several rea
 
 This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio.
 
-
-```{mermaid}
-
-graph TD
-    A[Local Computer]
-    B[RStudio Project]
-    C{Git & Version Control}
-    D[Stage Changes]
-    E[Commit Changes]
-    F[Push to GitHub]
-    G[GitHub Repository]
-
-    subgraph Local Computer
-        B
-        C
-        D
-        E
-        F
-    end
-
-    subgraph The Cloud
-        G
-    end
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> B
-
-    A --> B % 1. Start/Update %
-    B --> C % 2. Edit Code %
-    C --> D % 3. Save & Stage %
-    D --> E % 4. Commit %
-    E --> F % 5. Upload to Cloud %
-    F --> G % 6. Sync with GitHub %
-    G --> B % 7. Pull Changes %
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style G fill:#f9f,stroke:#333,stroke-width:2px
-    classDef commitbox fill:#bbf,stroke:#333,stroke-width:2px,color:#fff
-    class D,E,F commitbox
-    linkStyle 0,1,2,3,4,5,6 stroke:#333,stroke-width:2px
-```
+![Git workflow diagram](git_worklflow.png)
