@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Open Research Workshop LJMU: What is Git/Github, and how do I use it with R?"
