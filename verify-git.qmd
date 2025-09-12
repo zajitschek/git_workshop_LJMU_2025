@@ -14,7 +14,7 @@ It's easy to check if Git is already installed on your computer.
     git --version
     ```
 
-    **!** If you want to copy and paste, but it doesn't work with <kbd></kbd>Ctrl + V</kbd> or <kbd>Cmd + V</kbd>, use <kbd>Shift + Insert</kbd> or Edit-\>Paste
+    **!** If you want to copy and paste, but it doesn't work with <kbd>Ctrl + V</kbd> or <kbd>Cmd + V</kbd>, use <kbd>Shift + Insert</kbd>, or Edit-\>Paste
 
 3.  **Interpret the output:**
 
@@ -24,7 +24,7 @@ It's easy to check if Git is already installed on your computer.
         git version 2.45.2.windows.1 # (Version number will vary)
         ```
 
-        If you see this, great! You have Git. You can continue with the next steps.
+        If you see this, great! You have Git. You can continue with the next steps:<br> [**Go back and proceed on the GitHub Desktop page**](setup-githubdesktop.qmd)
 
     -   **If Git is NOT installed:** You will see an error message, which varies slightly by operating system:
 
@@ -44,6 +44,7 @@ It's easy to check if Git is already installed on your computer.
 ### **Need to Install Git?**
 
 -   **For Windows (PC):** Follow these detailed instructions: [Git Installation on Windows](git-installation-windows.qmd)
+
 -   **For macOS:** Follow these detailed instructions: [Git Installation on macOS](git-installation-mac.qmd)
 
 ------------------------------------------------------------------------

@@ -2,6 +2,10 @@
 title: "Minimal Setup with Github Desktop"
 ---
 
+### **To use Git on your local computer, you need to have the standalone Git version installed, for both GitHub Desktop and for using Git from RStudio**
+
+   [**Verify whether Git is installed**](verify-git.qmd) <br><br><br>
+
 ## 1. Installing and Setting Up GitHub Desktop
 
 Getting started with GitHub Desktop is a straightforward process.
@@ -12,31 +16,31 @@ Getting started with GitHub Desktop is a straightforward process.
 
 3.  **Sign In:** You'll be prompted to **sign in to your GitHub.com account**. This is a crucial step that connects the application to your online repositories. If you don't have an account, you'll need to create one first on the [GitHub website](https://github.com/).
 
----
+------------------------------------------------------------------------
 
 ## 2. Using GitHub Desktop with a New RStudio Project
 
 This is the easiest way to start a new project. You'll create the repository on GitHub and then clone it to your computer.
 
-1.  **Create a New Repository:** In GitHub Desktop, click **File > New Repository...**.
+1.  **Create a New Repository:** In GitHub Desktop, click **File \> New Repository...**.
 
 2.  **Name Your Project:** Give your new repository a clear and descriptive name (e.g., `my-first-r-project`). Check the box to "Initialize this repository with a README."
 
 3.  **Clone to Your Local Machine:** Click **Create Repository**. GitHub Desktop will automatically publish it to your GitHub account and then clone it to a folder on your computer. You'll see the folder path right on the main screen of the application.
 
-4.  **Create RStudio Project:** In RStudio, go to **File > New Project...**. Select **Existing Directory** and navigate to the folder that GitHub Desktop just created for you. Click **Create Project**.
+4.  **Create RStudio Project:** In RStudio, go to **File \> New Project...**. Select **Existing Directory** and navigate to the folder that GitHub Desktop just created for you. Click **Create Project**.
 
 5.  **Initial Commit:** RStudio will now be linked to your Git repository. You'll notice a Git tab in the top-right pane. Back in GitHub Desktop, you'll see that a new `.Rproj` file has been added. Write a short commit message like "Add RStudio project file" and click **Commit to main**.
 
 6.  **Push to GitHub:** Click the **Push origin** button to upload these changes to your online GitHub repository.
 
----
+------------------------------------------------------------------------
 
 ## 3. Connecting an Existing RStudio Project
 
 If you've already started working on a project in RStudio and want to add it to GitHub, here's the workflow.
 
-1.  **Add a Local Repository:** In GitHub Desktop, click **File > Add Local Repository...**.
+1.  **Add a Local Repository:** In GitHub Desktop, click **File \> Add Local Repository...**.
 
 2.  **Navigate to Your Project:** Select the folder that contains your RStudio project.
 
@@ -48,7 +52,7 @@ If you've already started working on a project in RStudio and want to add it to 
 
 6.  **Push to GitHub:** Click the **Push origin** button to upload your project to GitHub.
 
----
+------------------------------------------------------------------------
 
 ## 4. Standard Workflow: Commit & Push
 
@@ -64,7 +68,7 @@ This is the normal process you'll use with GitHUb Desktop.
 
 5.  **Commit and Push:** Click the **Commit to main** button. This saves the changes to your local Git history. Then, click **Push origin** to send those changes to your online GitHub repository.
 
----
+------------------------------------------------------------------------
 
 ## 5. Collaborating with a Student
 
@@ -74,27 +78,28 @@ To allow a student to collaborate on your repository, you first need to invite t
 
 2.  **Student Accepts Invitation:** The student will receive an invitation email. They must accept the invitation to gain access.
 
-3.  **Student Clones the Repository:** The student should open GitHub Desktop and go to **File > Clone Repository...**. They will see your project in the list of their repositories and can select it to clone it to their own computer.
+3.  **Student Clones the Repository:** The student should open GitHub Desktop and go to **File \> Clone Repository...**. They will see your project in the list of their repositories and can select it to clone it to their own computer.
 
 4.  **Student's Workflow:** The student's workflow is similar to yours, but with one key difference: they should **Pull** before they start working. This ensures they have the latest version of the code. The complete cycle for them is:
-    * **Pull** any new changes from the main repository.
-    * **Make changes** in RStudio.
-    * **Commit** their changes with a descriptive message.
-    * **Push** their committed changes to the main repository.
 
----
+    -   **Pull** any new changes from the main repository.
+    -   **Make changes** in RStudio.
+    -   **Commit** their changes with a descriptive message.
+    -   **Push** their committed changes to the main repository.
+
+------------------------------------------------------------------------
 
 ## Optional
 
-## 6. Working with Branches (best practice, but not essential, especially for <2 users of the same repo)
+## 6. Working with Branches (best practice, but not essential, especially for \<2 users of the same repo)
 
 Working directly on the `main` branch can be risky, especially in a collaborative project. A **branch** is a separate version of your project that allows you to work on new features or bug fixes without affecting the main code.
 
 A branch is essentially a small, movable pointer to a specific commit. When you create a new branch, you're **not** creating a full copy of your project's files (there's no separate folder for each branch). Instead, you're creating a new pointer that initially points to the same commit as the branch you branched from (e.g., 'main').
 
-  * Commits: Each commit is a snapshot of your project at a particular point in time. It contains a unique identifier (a hash), metadata (author, date, message), and a pointer to its parent commit. This forms a history of changes.
+-   Commits: Each commit is a snapshot of your project at a particular point in time. It contains a unique identifier (a hash), metadata (author, date, message), and a pointer to its parent commit. This forms a history of changes.
 
-  * Branches: A branch is simply a name that points to one of these commits. When you switch to a branch, Git updates your working directory to match the state of the files at that commit.
+-   Branches: A branch is simply a name that points to one of these commits. When you switch to a branch, Git updates your working directory to match the state of the files at that commit.
 
 When you make a new commit on a branch, Git creates a new commit and then updates the branch pointer to point to this new commit.
 
@@ -118,19 +123,12 @@ For a smooth collaborative workflow, it's essential that everyone follows a few 
 
 1.  **Start with the Latest Code:** Before a student begins any new work, they should always **Fetch origin** and **Pull origin** on their `main` branch to make sure their local version is up-to-date with the shared repository.
 
-- **Fetch** just imports all the updated files and the commit history, without **merging** it with any local files. 
+-   **Fetch** just imports all the updated files and the commit history, without **merging** it with any local files.
 
-- In contrast, **Pull** is a combination of **Fetch** and **Merge**: It downloads the changes and then attempts to integrate them into your current local branch.
+-   In contrast, **Pull** is a combination of **Fetch** and **Merge**: It downloads the changes and then attempts to integrate them into your current local branch.
 
 2.  **Branch for Every Task:** Encourage your student to create a new, separate branch for *every* new feature, bug fix, or major change they work on. This keeps their changes isolated and makes it easy to review and merge their work without disrupting the rest of the project.
 
-3.  **Use Pull Requests for Feedback:** The Pull Request is the central tool for code review. As a tutor, you can review the student's code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com. 
-As this requires more involved work on GitHUb.com, I added a workflow description that can be accessed here: [Pull Requests & Commenting](pull_comment.qmd)
+3.  **Use Pull Requests for Feedback:** The Pull Request is the central tool for code review. As a tutor, you can review the student's code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com. As this requires more involved work on GitHUb.com, I added a workflow description that can be accessed here: [Pull Requests & Commenting](pull_comment.qmd)
 
 4.  **Resolve Conflicts Locally:** Sometimes, you or your student might be working on the same file at the same time, leading to a merge conflict. GitHub Desktop will alert you when this happens. You should always try to resolve these conflicts locally on your computer before attempting to merge.
-
-
-### **If you have Github Desktop installed, you don't need to install the standalone Git version if you start working with Git from RStudio**
-
-
-

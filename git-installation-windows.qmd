@@ -34,8 +34,13 @@ This guide walks you through installing Git on your Windows PC for use with RStu
     -   Click `Finish` when complete. Uncheck "View Release Notes" if desired.
 5.  **Verify Installation in RStudio**
     -   **Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.
+
     -   Open a new terminal in RStudio: `Tools > Terminal > New Terminal`.
+
     -   Type `git --version` and press Enter. You should see the Git version (e.g., `git version 2.45.2.windows.1`).
+
+        **!** If you want to copy and paste, but it doesn't work with <kbd>Ctrl + V</kbd> or <kbd>Cmd + V</kbd>, use <kbd>Shift + Insert</kbd>, or Edit-\>Paste
+
     -   If an error occurs, restart your computer and retry `git --version`.
 
 ## RStudio, Git, and GitHub Workflow
@@ -50,4 +55,4 @@ To use Git and GitHub with RStudio, follow these steps:
 6.  **Sync with GitHub**: Ensure the GitHub repository reflects local changes.
 7.  **Pull Changes**: Pull updates from GitHub with `git pull`.
 
-## [Return to SEction Overview](/index.qmd) \| [Check for Git Installation](/verify-git.qmd)
+### [Proceed with GitHub Desktop workflow](setup-githubdesktop.qmd) \| [Return to Section Overview](/index.qmd)
