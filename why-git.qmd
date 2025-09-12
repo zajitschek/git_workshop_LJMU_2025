@@ -9,14 +9,17 @@ format:
 
 ## What are Git and GitHub? 
 
-**Git** is the de facto standard version control system (https://git-scm.com/). Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to revert to previous versions, compare changes, and work on different features without affecting the main code. It operates locally on your computer.
+**Git** is the de facto standard version control system ([git-scm.com](https://git-scm.com/)). Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to revert to previous versions, compare changes, and work on different features without affecting the main code. 
 
-Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects: https://en.wikipedia.org/wiki/Software_Freedom_Conservancy
+It operates locally on your computer, and it can be used locally, without having to connect to a remote platform like GitHub.
+
+Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects ([Software Freedom Conservancy] (https://en.wikipedia.org/wiki/Software_Freedom_Conservancy)).
 
 **GitHub** is the largest cloud-based service that hosts Git repositories. It's like a social network for code. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git provides the protocol and machinery, GitHub is the platform that hosts the work and provides tools for collaboration.
 
-GitHub is part of Microsoft. There are alternatives, e.g. Codeberg (non-profit; https://en.wikipedia.org/wiki/Codeberg) or BitBucket (https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform.
-As a further primer for later, this 2016 PLOS paper https://doi.org/10.1371/journal.pcbi.1004668 with accompanying files on GitHub https://github.com/jdblischak/git-for-science might be helpful (but it only uses command line code).
+GitHub is part of Microsoft. There are alternatives, e.g. non-profit [Codeberg] (https://en.wikipedia.org/wiki/Codeberg) or [BitBucket] (https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform.
+
+As a further primer after this workshop, this [2016 PLOS paper] (https://doi.org/10.1371/journal.pcbi.1004668) with accompanying [files on GitHub] (https://github.com/jdblischak/git-for-science) might be helpful (but it only uses command line code).
 
 ***
 
@@ -25,14 +28,17 @@ As a further primer for later, this 2016 PLOS paper https://doi.org/10.1371/jour
 Even if you're not a data analyst, Git and GitHub are invaluable for several reasons:
 
 * **Reproducible Research**: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core tenet of modern science.
+
 * **Backup and Disaster Recovery**: Your research code is a valuable asset. If your computer fails, your entire project is safe and sound on GitHub. It's a free, off-site backup.
+
 * **Collaboration with Students**: As a principal investigator, you can use GitHub to work on projects with your students. You can review their code, suggest changes, and merge their contributions into the main project. You can see who made which changes and when, which helps with accountability and streamlines the collaboration process.
+
 * **Access Anywhere**: You can access your code from any computer with an internet connection. This is great for working from a lab, office, or home without needing to use a flash drive.
 
 ***
 
 ## A Simple GitHub Workflow for RStudio
 
-This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio.
+This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio. Text in red arrows are the functions used by Git.
 
-![Git workflow diagram](git_worklflow.png)
+![Git workflow diagram](git_worklflow2.png)
