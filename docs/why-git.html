@@ -203,29 +203,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="what-are-git-and-github" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-git-and-github">What are Git and GitHub?</h2>
-<p><strong>Git</strong> is the de facto standard version control system (https://git-scm.com/). Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to revert to previous versions, compare changes, and work on different features without affecting the main code. It operates locally on your computer.</p>
-<p>Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects: https://en.wikipedia.org/wiki/Software_Freedom_Conservancy</p>
+<p><strong>Git</strong> is the de facto standard version control system (<a href="https://git-scm.com/">git-scm.com</a>). Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to revert to previous versions, compare changes, and work on different features without affecting the main code.</p>
+<p>It operates locally on your computer, and it can be used locally, without having to connect to a remote platform like GitHub.</p>
+<p>Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects ([Software Freedom Conservancy] (https://en.wikipedia.org/wiki/Software_Freedom_Conservancy)).</p>
 <p><strong>GitHub</strong> is the largest cloud-based service that hosts Git repositories. It’s like a social network for code. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git provides the protocol and machinery, GitHub is the platform that hosts the work and provides tools for collaboration.</p>
-<p>GitHub is part of Microsoft. There are alternatives, e.g.&nbsp;Codeberg (non-profit; https://en.wikipedia.org/wiki/Codeberg) or BitBucket (https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform. As a further primer for later, this 2016 PLOS paper https://doi.org/10.1371/journal.pcbi.1004668 with accompanying files on GitHub https://github.com/jdblischak/git-for-science might be helpful (but it only uses command line code).</p>
+<p>GitHub is part of Microsoft. There are alternatives, e.g.&nbsp;non-profit [Codeberg] (https://en.wikipedia.org/wiki/Codeberg) or [BitBucket] (https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform.</p>
+<p>As a further primer after this workshop, this [2016 PLOS paper] (https://doi.org/10.1371/journal.pcbi.1004668) with accompanying [files on GitHub] (https://github.com/jdblischak/git-for-science) might be helpful (but it only uses command line code).</p>
 <hr>
 </section>
 <section id="why-an-academic-researcher-needs-it" class="level2">
 <h2 class="anchored" data-anchor-id="why-an-academic-researcher-needs-it">Why an Academic Researcher Needs It 🔬</h2>
 <p>Even if you’re not a data analyst, Git and GitHub are invaluable for several reasons:</p>
 <ul>
-<li><strong>Reproducible Research</strong>: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core tenet of modern science.</li>
-<li><strong>Backup and Disaster Recovery</strong>: Your research code is a valuable asset. If your computer fails, your entire project is safe and sound on GitHub. It’s a free, off-site backup.</li>
-<li><strong>Collaboration with Students</strong>: As a principal investigator, you can use GitHub to work on projects with your students. You can review their code, suggest changes, and merge their contributions into the main project. You can see who made which changes and when, which helps with accountability and streamlines the collaboration process.</li>
-<li><strong>Access Anywhere</strong>: You can access your code from any computer with an internet connection. This is great for working from a lab, office, or home without needing to use a flash drive.</li>
+<li><p><strong>Reproducible Research</strong>: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core tenet of modern science.</p></li>
+<li><p><strong>Backup and Disaster Recovery</strong>: Your research code is valuable, and probably has to be published together with your research paper. If your computer fails, your entire project is safe and sound on GitHub. It’s a free, off-site backup.</p></li>
+<li><p><strong>Collaboration with Students</strong>: As a principal investigator, you can use GitHub to work on projects with your students. You can review their code, suggest changes, and merge their contributions into the main project. You can see who made which changes and when, which helps with accountability and streamlines the collaboration process.</p></li>
+<li><p><strong>Access Anywhere</strong>: You can access your code from any computer with an internet connection. While working remotely is also possibly with other cloud solutions (e.g.&nbsp;LJMU’s MIicrosoft or Google), they lack the version control functionality. Without Git, you probably end up with a lot of different code files, maybe with the date in the name. While possible, tracking changes across these files is more difficult and not enforced, unlike in Git where changes have to be commented.</p></li>
 </ul>
 <hr>
 </section>
 <section id="a-simple-github-workflow-for-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="a-simple-github-workflow-for-rstudio">A Simple GitHub Workflow for RStudio</h2>
-<p>This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio.</p>
+<p>This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio. Text in red arrows are the functions used by Git.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="git_worklflow.png" class="img-fluid figure-img"></p>
+<p><img src="git_worklflow2.png" class="img-fluid figure-img"></p>
 <figcaption>Git workflow diagram</figcaption>
 </figure>
 </div>
@@ -715,33 +717,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## What are Git and GitHub? </span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>**Git** is the de facto standard version control system (https://git-scm.com/). Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to revert to previous versions, compare changes, and work on different features without affecting the main code. It operates locally on your computer.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>**Git** is the de facto standard version control system (<span class="co">[</span><span class="ot">git-scm.com</span><span class="co">](https://git-scm.com/)</span>). Think of it as a tool that tracks every change you make to your files. It creates a complete history of your project, allowing you to revert to previous versions, compare changes, and work on different features without affecting the main code. </span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects: https://en.wikipedia.org/wiki/Software_Freedom_Conservancy</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>It operates locally on your computer, and it can be used locally, without having to connect to a remote platform like GitHub.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>**GitHub** is the largest cloud-based service that hosts Git repositories. It's like a social network for code. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git provides the protocol and machinery, GitHub is the platform that hosts the work and provides tools for collaboration.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects (<span class="co">[</span><span class="ot">Software Freedom Conservancy</span><span class="co">]</span> (https://en.wikipedia.org/wiki/Software_Freedom_Conservancy)).</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>GitHub is part of Microsoft. There are alternatives, e.g. Codeberg (non-profit; https://en.wikipedia.org/wiki/Codeberg) or BitBucket (https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>As a further primer for later, this 2016 PLOS paper https://doi.org/10.1371/journal.pcbi.1004668 with accompanying files on GitHub https://github.com/jdblischak/git-for-science might be helpful (but it only uses command line code).</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>***</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why an Academic Researcher Needs It 🔬</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Even if you're not a data analyst, Git and GitHub are invaluable for several reasons:</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Reproducible Research**: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core tenet of modern science.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Backup and Disaster Recovery**: Your research code is a valuable asset. If your computer fails, your entire project is safe and sound on GitHub. It's a free, off-site backup.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Collaboration with Students**: As a principal investigator, you can use GitHub to work on projects with your students. You can review their code, suggest changes, and merge their contributions into the main project. You can see who made which changes and when, which helps with accountability and streamlines the collaboration process.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Access Anywhere**: You can access your code from any computer with an internet connection. This is great for working from a lab, office, or home without needing to use a flash drive.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**GitHub** is the largest cloud-based service that hosts Git repositories. It's like a social network for code. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git provides the protocol and machinery, GitHub is the platform that hosts the work and provides tools for collaboration.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>GitHub is part of Microsoft. There are alternatives, e.g. non-profit <span class="co">[</span><span class="ot">Codeberg</span><span class="co">]</span> (https://en.wikipedia.org/wiki/Codeberg) or <span class="co">[</span><span class="ot">BitBucket</span><span class="co">]</span> (https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>As a further primer after this workshop, this <span class="co">[</span><span class="ot">2016 PLOS paper</span><span class="co">]</span> (https://doi.org/10.1371/journal.pcbi.1004668) with accompanying <span class="co">[</span><span class="ot">files on GitHub</span><span class="co">]</span> (https://github.com/jdblischak/git-for-science) might be helpful (but it only uses command line code).</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>***</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why an Academic Researcher Needs It 🔬</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Even if you're not a data analyst, Git and GitHub are invaluable for several reasons:</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Reproducible Research**: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core tenet of modern science.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>***</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Backup and Disaster Recovery**: Your research code is valuable, and probably has to be published together with your research paper. If your computer fails, your entire project is safe and sound on GitHub. It's a free, off-site backup.</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## A Simple GitHub Workflow for RStudio</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Collaboration with Students**: As a principal investigator, you can use GitHub to work on projects with your students. You can review their code, suggest changes, and merge their contributions into the main project. You can see who made which changes and when, which helps with accountability and streamlines the collaboration process.</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Access Anywhere**: You can access your code from any computer with an internet connection. While working remotely is also possibly with other cloud solutions (e.g. LJMU's MIicrosoft or Google), they lack the version control functionality. Without Git, you probably end up with a lot of different code files, maybe with the date in the name. While possible, tracking changes across these files is more difficult and not enforced, unlike in Git where changes have to be commented.</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="al">![Git workflow diagram](git_worklflow.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>***</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## A Simple GitHub Workflow for RStudio</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio. Text in red arrows are the functions used by Git.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="al">![Git workflow diagram](git_worklflow2.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
