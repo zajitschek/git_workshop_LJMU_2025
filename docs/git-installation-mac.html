@@ -178,7 +178,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#method-1-using-homebrew-recommended" id="toc-method-1-using-homebrew-recommended" class="nav-link" data-scroll-target="#method-1-using-homebrew-recommended">Method 1: Using Homebrew (Recommended)</a></li>
   <li><a href="#method-2-using-the-official-installer-alternative" id="toc-method-2-using-the-official-installer-alternative" class="nav-link" data-scroll-target="#method-2-using-the-official-installer-alternative">Method 2: Using the Official Installer (Alternative)</a></li>
   </ul></li>
-  <li><a href="#rstudio-git-and-github-workflow" id="toc-rstudio-git-and-github-workflow" class="nav-link" data-scroll-target="#rstudio-git-and-github-workflow">RStudio, Git, and GitHub Workflow</a></li>
+  <li><a href="#rstudio-git-and-github-workflow" id="toc-rstudio-git-and-github-workflow" class="nav-link" data-scroll-target="#rstudio-git-and-github-workflow">RStudio, Git, and GitHub Workflow</a>
+  <ul class="collapse">
+  <li><a href="#proceed-with-github-desktop-workflow-return-to-section-overview" id="toc-proceed-with-github-desktop-workflow-return-to-section-overview" class="nav-link" data-scroll-target="#proceed-with-github-desktop-workflow-return-to-section-overview">Proceed with GitHub Desktop workflow | Return to Section Overview</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -237,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><strong>Download the Installer</strong>
 <ul>
-<li>Visit the official Git website: <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</li>
+<li>Visit the official Git website: <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>.</li>
 <li>Click the “macOS” link and download the latest <code>.dmg</code> installer.</li>
 </ul></li>
 <li><strong>Run the Installer</strong>
@@ -254,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Important</strong>: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</li>
 <li>Open a new terminal in RStudio: <code>Tools &gt; Terminal &gt; New Terminal</code>.</li>
-<li>Type <code>git --version</code> and press Enter. You should see the Git version (e.g., <code>git version 2.43.0</code>).</li>
+<li>Type <code>git --version</code> and press Enter. You should see the Git version (e.g., <code>git version 2.43.0</code>). <strong>!</strong> If you want to copy and paste, but it doesn’t work with <kbd>Ctrl + V</kbd> or <kbd>Cmd + V</kbd>, use <kbd>Shift + Insert</kbd>, or Edit-&gt;Paste</li>
 </ul></li>
 </ol>
 </section>
@@ -271,11 +274,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Sync with GitHub</strong>: Ensure the GitHub repository reflects local changes.</li>
 <li><strong>Pull Changes</strong>: Pull updates from GitHub with <code>git pull</code>.</li>
 </ol>
-<p><a href="./index.html">Return to Section Overview</a> | <a href="./verify-git.html">Check for Git Installation</a></p>
+<section id="proceed-with-github-desktop-workflow-return-to-section-overview" class="level3">
+<h3 class="anchored" data-anchor-id="proceed-with-github-desktop-workflow-return-to-section-overview"><a href="./setup-githubdesktop.html">Proceed with GitHub Desktop workflow</a> | <a href="./index.html">Return to Section Overview</a></h3>
 
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -762,58 +767,59 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Homebrew is a package manager for macOS that simplifies software installation.</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Install Homebrew (if not already installed)**</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Open the Terminal application: <span class="in">`Finder &gt; Applications &gt; Utilities &gt; Terminal`</span>.</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Run the following command:</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>     <span class="in">```bash</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>     <span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>     <span class="in">```</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Follow the on-screen instructions, entering your macOS user password if prompted.</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Install Git using Homebrew**</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>In the Terminal, run:</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>     <span class="in">```bash</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>     <span class="ex">brew</span> install git</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>     <span class="in">```</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Press Enter to download and install Git.</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Verify Installation in RStudio**</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Open a new terminal in RStudio: <span class="in">`Tools &gt; Terminal &gt; New Terminal`</span>.</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Type <span class="in">`git --version`</span> and press Enter. You should see the Git version (e.g., <span class="in">`git version 2.43.0`</span>).</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Method 2: Using the Official Installer (Alternative)</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Download the Installer**</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Visit the official Git website: <span class="co">[</span><span class="ot">https://git-scm.com/downloads</span><span class="co">](https://git-scm.com/downloads)</span>.</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click the "macOS" link and download the latest <span class="in">`.dmg`</span> installer.</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Run the Installer**</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Locate the downloaded <span class="in">`.dmg`</span> file and double-click it.</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Double-click the <span class="in">`.pkg`</span> file in the opened window to start the installer.</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Follow the Installation Wizard Prompts**</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Click <span class="in">`Continue`</span> through the steps.</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Enter your macOS administrator password when prompted.</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Verify Installation in RStudio**</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Open a new terminal in RStudio: <span class="in">`Tools &gt; Terminal &gt; New Terminal`</span>.</span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Type <span class="in">`git --version`</span> and press Enter. You should see the Git version (e.g., <span class="in">`git version 2.43.0`</span>).</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## RStudio, Git, and GitHub Workflow</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>To use Git and GitHub with RStudio, follow these steps:</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Start/Update Project**: Create or update an RStudio project locally.</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Edit Code**: Write or modify R code in RStudio.</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Save &amp; Stage**: Save changes and stage them with <span class="in">`git add`</span>.</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Commit Changes**: Commit staged changes with <span class="in">`git commit`</span>.</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Push to GitHub**: Push commits to a GitHub repository with <span class="in">`git push`</span>.</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Sync with GitHub**: Ensure the GitHub repository reflects local changes.</span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**Pull Changes**: Pull updates from GitHub with <span class="in">`git pull`</span>.</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Return to Section Overview</span><span class="co">](/index.qmd)</span> | <span class="co">[</span><span class="ot">Check for Git Installation</span><span class="co">](/verify-git.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Install Homebrew (if not already installed)**</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open the Terminal application: <span class="in">`Finder &gt; Applications &gt; Utilities &gt; Terminal`</span>.</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Run the following command:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="in">``` bash</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="in">```</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Follow the on-screen instructions, entering your macOS user password if prompted.</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Install Git using Homebrew**</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>In the Terminal, run:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="in">``` bash</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="ex">brew</span> install git</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="in">```</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Press Enter to download and install Git.</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Verify Installation in RStudio**</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open a new terminal in RStudio: <span class="in">`Tools &gt; Terminal &gt; New Terminal`</span>.</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Type <span class="in">`git --version`</span> and press Enter. You should see the Git version (e.g., <span class="in">`git version 2.43.0`</span>).</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Method 2: Using the Official Installer (Alternative)</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Download the Installer**</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Visit the official Git website: <span class="ot">&lt;https://git-scm.com/downloads&gt;</span>.</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click the "macOS" link and download the latest <span class="in">`.dmg`</span> installer.</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Run the Installer**</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Locate the downloaded <span class="in">`.dmg`</span> file and double-click it.</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Double-click the <span class="in">`.pkg`</span> file in the opened window to start the installer.</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Follow the Installation Wizard Prompts**</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click <span class="in">`Continue`</span> through the steps.</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enter your macOS administrator password when prompted.</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Verify Installation in RStudio**</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open a new terminal in RStudio: <span class="in">`Tools &gt; Terminal &gt; New Terminal`</span>.</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Type <span class="in">`git --version`</span> and press Enter. You should see the Git version (e.g., <span class="in">`git version 2.43.0`</span>).</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    **!** If you want to copy and paste, but it doesn't work with &lt;kbd&gt;Ctrl + V&lt;/kbd&gt; or &lt;kbd&gt;Cmd + V&lt;/kbd&gt;, use &lt;kbd&gt;Shift + Insert&lt;/kbd&gt;, or Edit-<span class="sc">\&gt;</span>Paste</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## RStudio, Git, and GitHub Workflow</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>To use Git and GitHub with RStudio, follow these steps:</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start/Update Project**: Create or update an RStudio project locally.</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Edit Code**: Write or modify R code in RStudio.</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Save &amp; Stage**: Save changes and stage them with <span class="in">`git add`</span>.</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Commit Changes**: Commit staged changes with <span class="in">`git commit`</span>.</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Push to GitHub**: Push commits to a GitHub repository with <span class="in">`git push`</span>.</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Sync with GitHub**: Ensure the GitHub repository reflects local changes.</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Pull Changes**: Pull updates from GitHub with <span class="in">`git pull`</span>.</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Proceed with GitHub Desktop workflow](setup-githubdesktop.qmd) \| [Return to Section Overview](/index.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -174,8 +174,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#installing-git-on-windows" id="toc-installing-git-on-windows" class="nav-link active" data-scroll-target="#installing-git-on-windows">Installing Git on Windows</a></li>
-  <li><a href="#rstudio-git-and-github-workflow" id="toc-rstudio-git-and-github-workflow" class="nav-link" data-scroll-target="#rstudio-git-and-github-workflow">RStudio, Git, and GitHub Workflow</a></li>
-  <li><a href="#return-to-section-overview-check-for-git-installation" id="toc-return-to-section-overview-check-for-git-installation" class="nav-link" data-scroll-target="#return-to-section-overview-check-for-git-installation">Return to SEction Overview | Check for Git Installation</a></li>
+  <li><a href="#rstudio-git-and-github-workflow" id="toc-rstudio-git-and-github-workflow" class="nav-link" data-scroll-target="#rstudio-git-and-github-workflow">RStudio, Git, and GitHub Workflow</a>
+  <ul class="collapse">
+  <li><a href="#proceed-with-github-desktop-workflow-return-to-section-overview" id="toc-proceed-with-github-desktop-workflow-return-to-section-overview" class="nav-link" data-scroll-target="#proceed-with-github-desktop-workflow-return-to-section-overview">Proceed with GitHub Desktop workflow | Return to Section Overview</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -240,10 +242,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><strong>Verify Installation in RStudio</strong>
 <ul>
-<li><strong>Important</strong>: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</li>
-<li>Open a new terminal in RStudio: <code>Tools &gt; Terminal &gt; New Terminal</code>.</li>
-<li>Type <code>git --version</code> and press Enter. You should see the Git version (e.g., <code>git version 2.45.2.windows.1</code>).</li>
-<li>If an error occurs, restart your computer and retry <code>git --version</code>.</li>
+<li><p><strong>Important</strong>: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</p></li>
+<li><p>Open a new terminal in RStudio: <code>Tools &gt; Terminal &gt; New Terminal</code>.</p></li>
+<li><p>Type <code>git --version</code> and press Enter. You should see the Git version (e.g., <code>git version 2.45.2.windows.1</code>).</p>
+<p><strong>!</strong> If you want to copy and paste, but it doesn’t work with <kbd>Ctrl + V</kbd> or <kbd>Cmd + V</kbd>, use <kbd>Shift + Insert</kbd>, or Edit-&gt;Paste</p></li>
+<li><p>If an error occurs, restart your computer and retry <code>git --version</code>.</p></li>
 </ul></li>
 </ol>
 </section>
@@ -259,13 +262,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Sync with GitHub</strong>: Ensure the GitHub repository reflects local changes.</li>
 <li><strong>Pull Changes</strong>: Pull updates from GitHub with <code>git pull</code>.</li>
 </ol>
-</section>
-<section id="return-to-section-overview-check-for-git-installation" class="level2">
-<h2 class="anchored" data-anchor-id="return-to-section-overview-check-for-git-installation"><a href="./index.html">Return to SEction Overview</a> | <a href="./verify-git.html">Check for Git Installation</a></h2>
+<section id="proceed-with-github-desktop-workflow-return-to-section-overview" class="level3">
+<h3 class="anchored" data-anchor-id="proceed-with-github-desktop-workflow-return-to-section-overview"><a href="./setup-githubdesktop.html">Proceed with GitHub Desktop workflow</a> | <a href="./index.html">Return to Section Overview</a></h3>
 
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -773,23 +776,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click <span class="in">`Finish`</span> when complete. Uncheck "View Release Notes" if desired.</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Verify Installation in RStudio**</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open a new terminal in RStudio: <span class="in">`Tools &gt; Terminal &gt; New Terminal`</span>.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Type <span class="in">`git --version`</span> and press Enter. You should see the Git version (e.g., <span class="in">`git version 2.45.2.windows.1`</span>).</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If an error occurs, restart your computer and retry <span class="in">`git --version`</span>.</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## RStudio, Git, and GitHub Workflow</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>To use Git and GitHub with RStudio, follow these steps:</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start/Update Project**: Create or update an RStudio project locally.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Edit Code**: Write or modify R code in RStudio.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Save &amp; Stage**: Save changes and stage them with <span class="in">`git add`</span>.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Commit Changes**: Commit staged changes with <span class="in">`git commit`</span>.</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Push to GitHub**: Push commits to a GitHub repository with <span class="in">`git push`</span>.</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Sync with GitHub**: Ensure the GitHub repository reflects local changes.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Pull Changes**: Pull updates from GitHub with <span class="in">`git pull`</span>.</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Return to SEction Overview](/index.qmd) \| [Check for Git Installation](/verify-git.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open a new terminal in RStudio: <span class="in">`Tools &gt; Terminal &gt; New Terminal`</span>.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Type <span class="in">`git --version`</span> and press Enter. You should see the Git version (e.g., <span class="in">`git version 2.45.2.windows.1`</span>).</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        **!** If you want to copy and paste, but it doesn't work with &lt;kbd&gt;Ctrl + V&lt;/kbd&gt; or &lt;kbd&gt;Cmd + V&lt;/kbd&gt;, use &lt;kbd&gt;Shift + Insert&lt;/kbd&gt;, or Edit-<span class="sc">\&gt;</span>Paste</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If an error occurs, restart your computer and retry <span class="in">`git --version`</span>.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## RStudio, Git, and GitHub Workflow</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>To use Git and GitHub with RStudio, follow these steps:</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start/Update Project**: Create or update an RStudio project locally.</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Edit Code**: Write or modify R code in RStudio.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Save &amp; Stage**: Save changes and stage them with <span class="in">`git add`</span>.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Commit Changes**: Commit staged changes with <span class="in">`git commit`</span>.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Push to GitHub**: Push commits to a GitHub repository with <span class="in">`git push`</span>.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Sync with GitHub**: Ensure the GitHub repository reflects local changes.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Pull Changes**: Pull updates from GitHub with <span class="in">`git pull`</span>.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Proceed with GitHub Desktop workflow](setup-githubdesktop.qmd) \| [Return to Section Overview](/index.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

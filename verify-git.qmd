@@ -47,4 +47,6 @@ It's easy to check if Git is already installed on your computer.
 
 -   **For macOS:** Follow these detailed instructions: [Git Installation on macOS](git-installation-mac.qmd)
 
+### [Proceed with GitHub Desktop workflow](setup-githubdesktop.qmd) \| [Return to Section Overview](/index.qmd)
+
 ------------------------------------------------------------------------
