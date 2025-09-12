@@ -32,7 +32,7 @@
     "href": "setup-githubdesktop.html",
     "title": "Minimal Setup with Github Desktop",
     "section": "",
-    "text": "To use Git on your local computer, you need to have the standalone Git version installed, for both GitHub Desktop and for using Git from RStudio\nVerify whether Git is installed\nYou should have Git installed on your computer now. Is GitHub Desktop already installed on your computer? Check by typing ’GitHub Desktop in the Windows search bar."
+    "text": "To use Git on your local computer, you need to have the standalone Git version installed, for both GitHub Desktop and for using Git from RStudio\nVerify whether Git is installed\nYou should have Git installed on your computer now. Is GitHub Desktop already installed on your computer? Check by typing ‘GitHub Desktop’ in the Windows search bar."
   },
   {
     "objectID": "setup-githubdesktop.html#installing-and-setting-up-github-desktop",

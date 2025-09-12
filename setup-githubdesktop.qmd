@@ -6,7 +6,7 @@ title: "Minimal Setup with Github Desktop"
 
 [**Verify whether Git is installed**](verify-git.qmd) <br><br><br>
 
-You should have Git installed on your computer now. Is GitHub Desktop already installed on your computer? **Check by typing 'GitHub Desktop in the Windows search bar.**
+You should have Git installed on your computer now. Is GitHub Desktop already installed on your computer? **Check by typing 'GitHub Desktop' in the Windows search bar.**
 
 ## 1. Installing and Setting Up GitHub Desktop
 
