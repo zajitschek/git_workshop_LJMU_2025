@@ -2,17 +2,24 @@
 title: "Complete Setup"
 ---
 
-This is the recommended setup for getting the most out of the workshop and for your future projects. It includes **RStudio, Git, and GitHub integration**.
+This is a more complete setup. It includes **RStudio, Git, and GitHub integration**.
 
 ## Requirements:
 1.   **RStudio Desktop:**
      * Ensure RStudio is installed: [posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
 
-2.   **Git Installation:**
+2.   **Git Housekeeping**
      Git is essential for version control and collaborating with others via GitHub.
      
-     **If you already have Github Desktop installed, you don't need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.**
+     - **If you already have Github Desktop installed, you don't need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.**
      
+     - **Unfortunately, the possible integration of using RStudio using Git with authentication that was installled with GitHub Desktop seems to be not stable. If you have GitHub Desktop installed and your access authenticated, check in RStudio under
+     Tools -> Global Options -> Git/SVN -> Git executable:
+     This has to point to 'git.exe'.**
+     
+     - **If you ahve GitHub Desktop installed and RStudio is linked to the correct 'git.exe', jump to point 6. You might be able to proceed with the authentication used by GitHub Desktop. If 6. doesn't work, go back and proceed with 3.**
+     
+3.   **Git Installation**
      First, check if you already have Git installed: [How to Check for Git Installation](verify-git.qmd)
      
      **If you DO NOT have Git installed:**
@@ -28,10 +35,11 @@ This is the recommended setup for getting the most out of the workshop and for y
      git config --global user.name "Your Name"
      git config --global user.email "your.email@example.com"
      ```
-4.   **GitHub Account:**
-     GitHub is a web-based hosting service for Git repositories. We'll use it for sharing code and potentially collaborating.
-     * If you don't have a GitHub account, please create one here: [github.com/join](https://github.com/join)
-     * Remember your username and password.
+     * User email has to be the email used for your github.com login. This can be found on github.com, by clicking on your profile picture -> **Settings** -> **Emails**. You can use your actual email address, or, alternatively, there is a more anonymous email that can be used (look on that page for the email, ending in @users.noreply.github.com)
+     
+     * Your Name can be your GitHub user name, but doesn't have to be.
+     
+     
 5.   **Connect RStudio to GitHub (Personal Access Token - PAT):**
      This is the most secure way to connect RStudio/Git to GitHub without repeatedly typing your password.
      * **Generate a PAT on GitHub:**

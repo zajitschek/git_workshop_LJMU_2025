@@ -14,7 +14,7 @@ website:
             href: why-git.qmd
           - text: "Minimal setup with Github Desktop"
             href: setup-githubdesktop.qmd
-          - text: "Standard setup with integration of RStudio and Github"
+          - text: "Complete setup with integration of RStudio and Github"
             href: setup-complete.qmd
           - text: "More involved setups"
             href: setup-future.qmd

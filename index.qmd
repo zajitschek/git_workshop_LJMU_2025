@@ -14,7 +14,7 @@ What are Git, Github? What's the workflow? Why would it benefit researchers and 
 
 Minimal local version control, using the local app 'Github Desktop'. No direct integration with RStudio.
 
-### 3. [Standard setup with integration of RStudio and Github](setup-complete.qmd)
+### 3. [Complete setup with integration of RStudio and Github](setup-complete.qmd)
 
 Full setup, including version control with Git and seamless integration with GitHub for collaborative projects and advanced data science workflows. This is ideal if you plan to continue using a combination of RStudio and Git beyond this workshop.
 

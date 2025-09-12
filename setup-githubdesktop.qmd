@@ -2,11 +2,14 @@
 title: "Minimal Setup with Github Desktop"
 ---
 
-**To use Git on your local computer, you need to have the standalone Git version installed, for both GitHub Desktop and for using Git from RStudio**
+**GitHub Account:**
+     * If you don't have a GitHub account, please create one here: [github.com/join](https://github.com/join)
+     * Your username will be visible in your GitHub project (repository) URLs.
+     * Remember your username and password.
 
-[**Verify whether Git is installed**](verify-git.qmd) <br><br><br>
+**To use Git on your local computer, you need to have Git installed. By installing GitHub Desktop, a Git version gets also installed. Git can also be installed as a standalone version. Here, it's easiest to  install GitHub Desktop, and get Git automatically with it. In addition, GitHub Desktop uses an easier authentication than standalone Git versions.**
 
-You should have Git installed on your computer now. Is GitHub Desktop already installed on your computer? **Check by typing 'GitHub Desktop' in the Windows search bar.**
+Is GitHub Desktop already installed on your computer? **Check by typing 'GitHub Desktop' in the Windows search bar.**
 
 ## 1. Installing and Setting Up GitHub Desktop
 
