@@ -41,4 +41,4 @@ Even if you're not a data analyst, Git and GitHub are invaluable for several rea
 
 This diagram illustrates a basic workflow for a single user using Git and GitHub for an R project in RStudio. Text in red arrows are the functions used by Git.
 
-![Git workflow diagram](git_worklflow2.png)
+![Git workflow diagram](git_workflow2.png)
