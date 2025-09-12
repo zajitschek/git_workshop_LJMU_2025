@@ -103,6 +103,8 @@ To allow a student to collaborate on your repository, you first need to invite t
     -   **Commit** their changes with a descriptive message.
     -   **Push** their committed changes to the main repository.
 
+
+From here, go to the complete RStudio/Git workflow **[Proceed with Complete workflow](setup-complete.qmd)** or go more in depth below with the current setup.
 ------------------------------------------------------------------------
 
 ## Optional
@@ -148,3 +150,7 @@ For a smooth collaborative workflow, it's essential that everyone follows a few 
 3.  **Use Pull Requests for Feedback:** The Pull Request is the central tool for code review. As a tutor, you can review the student's code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com. As this requires more involved work on GitHUb.com, I added a workflow description that can be accessed here: [Pull Requests & Commenting](pull_comment.qmd)
 
 4.  **Resolve Conflicts Locally:** Sometimes, you or your student might be working on the same file at the same time, leading to a merge conflict. GitHub Desktop will alert you when this happens. You should always try to resolve these conflicts locally on your computer before attempting to merge.
+
+
+
+### [Proceed with Complete workflow](setup-complete.qmd) \| [Return to Section Overview](/index.qmd)
