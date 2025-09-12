@@ -178,7 +178,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#connecting-an-existing-rstudio-project" id="toc-connecting-an-existing-rstudio-project" class="nav-link" data-scroll-target="#connecting-an-existing-rstudio-project">3. Connecting an Existing RStudio Project</a></li>
   <li><a href="#standard-workflow-commit-push" id="toc-standard-workflow-commit-push" class="nav-link" data-scroll-target="#standard-workflow-commit-push">4. Standard Workflow: Commit &amp; Push</a></li>
   <li><a href="#collaborating-with-a-student" id="toc-collaborating-with-a-student" class="nav-link" data-scroll-target="#collaborating-with-a-student">5. Collaborating with a Student</a></li>
-  <li><a href="#working-with-branches-a-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo" id="toc-working-with-branches-a-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo" class="nav-link" data-scroll-target="#working-with-branches-a-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo">6. Working with Branches (A Best Practice, but not essential, especially for &lt;2 users of the same repo)</a>
+  <li><a href="#optional" id="toc-optional" class="nav-link" data-scroll-target="#optional">Optional</a></li>
+  <li><a href="#working-with-branches-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo" id="toc-working-with-branches-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo" class="nav-link" data-scroll-target="#working-with-branches-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo">6. Working with Branches (best practice, but not essential, especially for &lt;2 users of the same repo)</a>
   <ul class="collapse">
   <li><a href="#collaboration-best-practices-on-branches" id="toc-collaboration-best-practices-on-branches" class="nav-link" data-scroll-target="#collaboration-best-practices-on-branches">6.1 Collaboration Best Practices on Branches</a></li>
   <li><a href="#if-you-have-github-desktop-installed-you-dont-need-to-install-the-standalone-git-version-if-you-start-working-with-git-from-rstudio" id="toc-if-you-have-github-desktop-installed-you-dont-need-to-install-the-standalone-git-version-if-you-start-working-with-git-from-rstudio" class="nav-link" data-scroll-target="#if-you-have-github-desktop-installed-you-dont-need-to-install-the-standalone-git-version-if-you-start-working-with-git-from-rstudio"><strong>If you have Github Desktop installed, you don’t need to install the standalone Git version if you start working with Git from RStudio</strong></a></li>
@@ -273,10 +274,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <hr>
 </section>
-<section id="working-with-branches-a-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-branches-a-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo">6. Working with Branches (A Best Practice, but not essential, especially for &lt;2 users of the same repo)</h2>
+<section id="optional" class="level2">
+<h2 class="anchored" data-anchor-id="optional">Optional</h2>
+</section>
+<section id="working-with-branches-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-branches-best-practice-but-not-essential-especially-for-2-users-of-the-same-repo">6. Working with Branches (best practice, but not essential, especially for &lt;2 users of the same repo)</h2>
 <p>Working directly on the <code>main</code> branch can be risky, especially in a collaborative project. A <strong>branch</strong> is a separate version of your project that allows you to work on new features or bug fixes without affecting the main code.</p>
-<p>A branch is essentially a lightweight, movable pointer to a specific commit. When you create a new branch, you’re <strong>not</strong> creating a full copy of your project’s files (there’s no separate folder for each branch). Instead, you’re creating a new pointer that initially points to the same commit as the branch you branched from (e.g., ‘main’).</p>
+<p>A branch is essentially a small, movable pointer to a specific commit. When you create a new branch, you’re <strong>not</strong> creating a full copy of your project’s files (there’s no separate folder for each branch). Instead, you’re creating a new pointer that initially points to the same commit as the branch you branched from (e.g., ‘main’).</p>
 <ul>
 <li><p>Commits: Each commit is a snapshot of your project at a particular point in time. It contains a unique identifier (a hash), metadata (author, date, message), and a pointer to its parent commit. This forms a history of changes.</p></li>
 <li><p>Branches: A branch is simply a name that points to one of these commits. When you switch to a branch, Git updates your working directory to match the state of the files at that commit.</p></li>
@@ -295,9 +299,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="collaboration-best-practices-on-branches">6.1 Collaboration Best Practices on Branches</h3>
 <p>For a smooth collaborative workflow, it’s essential that everyone follows a few best practices.</p>
 <ol type="1">
-<li><p><strong>Start with the Latest Code:</strong> Before a student begins any new work, they should always <strong>Fetch origin</strong> and <strong>Pull origin</strong> on their <code>main</code> branch to make sure their local version is up-to-date with the shared repository.</p></li>
+<li><strong>Start with the Latest Code:</strong> Before a student begins any new work, they should always <strong>Fetch origin</strong> and <strong>Pull origin</strong> on their <code>main</code> branch to make sure their local version is up-to-date with the shared repository.</li>
+</ol>
+<ul>
+<li><p><strong>Fetch</strong> just imports all the updated files and the commit history, without <strong>merging</strong> it with any local files.</p></li>
+<li><p>In contrast, <strong>Pull</strong> is a combination of <strong>Fetch</strong> and <strong>Merge</strong>: It downloads the changes and then attempts to integrate them into your current local branch.</p></li>
+</ul>
+<ol start="2" type="1">
 <li><p><strong>Branch for Every Task:</strong> Encourage your student to create a new, separate branch for <em>every</em> new feature, bug fix, or major change they work on. This keeps their changes isolated and makes it easy to review and merge their work without disrupting the rest of the project.</p></li>
-<li><p><strong>Use Pull Requests for Feedback:</strong> The Pull Request is the central tool for code review. As a tutor, you can review the student’s code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com.</p></li>
+<li><p><strong>Use Pull Requests for Feedback:</strong> The Pull Request is the central tool for code review. As a tutor, you can review the student’s code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com. As this requires more involved work on GitHUb.com, I added a workflow description that can be accessed here: <a href="./pull_comment.html">Pull Requests &amp; Commenting</a></p></li>
 <li><p><strong>Resolve Conflicts Locally:</strong> Sometimes, you or your student might be working on the same file at the same time, leading to a merge conflict. GitHub Desktop will alert you when this happens. You should always try to resolve these conflicts locally on your computer before attempting to merge.</p></li>
 </ol>
 </section>
@@ -865,48 +875,55 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. Working with Branches (A Best Practice, but not essential, especially for &lt;2 users of the same repo)</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optional</span></span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>Working directly on the <span class="in">`main`</span> branch can be risky, especially in a collaborative project. A **branch** is a separate version of your project that allows you to work on new features or bug fixes without affecting the main code.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. Working with Branches (best practice, but not essential, especially for &lt;2 users of the same repo)</span></span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>A branch is essentially a lightweight, movable pointer to a specific commit. When you create a new branch, you're **not** creating a full copy of your project's files (there's no separate folder for each branch). Instead, you're creating a new pointer that initially points to the same commit as the branch you branched from (e.g., 'main').</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>Working directly on the <span class="in">`main`</span> branch can be risky, especially in a collaborative project. A **branch** is a separate version of your project that allows you to work on new features or bug fixes without affecting the main code.</span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Commits: Each commit is a snapshot of your project at a particular point in time. It contains a unique identifier (a hash), metadata (author, date, message), and a pointer to its parent commit. This forms a history of changes.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>A branch is essentially a small, movable pointer to a specific commit. When you create a new branch, you're **not** creating a full copy of your project's files (there's no separate folder for each branch). Instead, you're creating a new pointer that initially points to the same commit as the branch you branched from (e.g., 'main').</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Branches: A branch is simply a name that points to one of these commits. When you switch to a branch, Git updates your working directory to match the state of the files at that commit.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Commits: Each commit is a snapshot of your project at a particular point in time. It contains a unique identifier (a hash), metadata (author, date, message), and a pointer to its parent commit. This forms a history of changes.</span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>When you make a new commit on a branch, Git creates a new commit and then updates the branch pointer to point to this new commit.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Branches: A branch is simply a name that points to one of these commits. When you switch to a branch, Git updates your working directory to match the state of the files at that commit.</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a New Branch:** In GitHub Desktop, at the top of the application, click on the **Current Branch** dropdown menu and select **New Branch...**. Give your branch a descriptive name (e.g., <span class="in">`add-new-data`</span>, <span class="in">`fix-plot-bug`</span>).</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>When you make a new commit on a branch, Git creates a new commit and then updates the branch pointer to point to this new commit.</span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Switch to Your New Branch:** The application will automatically switch you to this new branch.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a New Branch:** In GitHub Desktop, at the top of the application, click on the **Current Branch** dropdown menu and select **New Branch...**. Give your branch a descriptive name (e.g., <span class="in">`add-new-data`</span>, <span class="in">`fix-plot-bug`</span>).</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Make and Commit Changes:** Make all of your changes and commits on this new branch. This keeps them separate from the <span class="in">`main`</span> branch.</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Switch to Your New Branch:** The application will automatically switch you to this new branch.</span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Publish the Branch:** The first time you commit to a new branch, you'll need to **Publish branch** to make it available on GitHub.com.</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Make and Commit Changes:** Make all of your changes and commits on this new branch. This keeps them separate from the <span class="in">`main`</span> branch.</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Create a Pull Request:** Once you are done with your work, go to the GitHub website. You will see a prompt to create a **Pull Request**. A Pull Request is a request to merge your changes from your new branch into the <span class="in">`main`</span> branch. This is the perfect time to ask your collaborator for a review or to check for any conflicts before merging.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Publish the Branch:** The first time you commit to a new branch, you'll need to **Publish branch** to make it available on GitHub.com.</span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Merge into Main:** When your work is ready and reviewed, you can merge your branch into `main`. In the Pull Request on GitHub.com, click the **Merge pull request** button. The changes are now safely integrated into your main project.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Create a Pull Request:** Once you are done with your work, go to the GitHub website. You will see a prompt to create a **Pull Request**. A Pull Request is a request to merge your changes from your new branch into the <span class="in">`main`</span> branch. This is the perfect time to ask your collaborator for a review or to check for any conflicts before merging.</span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Clean Up:** Once merged, you can delete your branch from both GitHub.com and GitHub Desktop to keep your project clean.</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Merge into Main:** When your work is ready and reviewed, you can merge your branch into `main`. In the Pull Request on GitHub.com, click the **Merge pull request** button. The changes are now safely integrated into your main project.</span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6.1 Collaboration Best Practices on Branches</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Clean Up:** Once merged, you can delete your branch from both GitHub.com and GitHub Desktop to keep your project clean.</span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>For a smooth collaborative workflow, it's essential that everyone follows a few best practices.</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6.1 Collaboration Best Practices on Branches</span></span>
 <span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start with the Latest Code:** Before a student begins any new work, they should always **Fetch origin** and **Pull origin** on their <span class="in">`main`</span> branch to make sure their local version is up-to-date with the shared repository.</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>For a smooth collaborative workflow, it's essential that everyone follows a few best practices.</span>
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Branch for Every Task:** Encourage your student to create a new, separate branch for *every* new feature, bug fix, or major change they work on. This keeps their changes isolated and makes it easy to review and merge their work without disrupting the rest of the project.</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start with the Latest Code:** Before a student begins any new work, they should always **Fetch origin** and **Pull origin** on their <span class="in">`main`</span> branch to make sure their local version is up-to-date with the shared repository.</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Use Pull Requests for Feedback:** The Pull Request is the central tool for code review. As a tutor, you can review the student's code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com.</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Fetch** just imports all the updated files and the commit history, without **merging** it with any local files. </span>
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Resolve Conflicts Locally:** Sometimes, you or your student might be working on the same file at the same time, leading to a merge conflict. GitHub Desktop will alert you when this happens. You should always try to resolve these conflicts locally on your computer before attempting to merge.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In contrast, **Pull** is a combination of **Fetch** and **Merge**: It downloads the changes and then attempts to integrate them into your current local branch.</span>
 <span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### **If you have Github Desktop installed, you don't need to install the standalone Git version if you start working with Git from RStudio**</span></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Branch for Every Task:** Encourage your student to create a new, separate branch for *every* new feature, bug fix, or major change they work on. This keeps their changes isolated and makes it easy to review and merge their work without disrupting the rest of the project.</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Use Pull Requests for Feedback:** The Pull Request is the central tool for code review. As a tutor, you can review the student's code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com. </span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>As this requires more involved work on GitHUb.com, I added a workflow description that can be accessed here: <span class="co">[</span><span class="ot">Pull Requests &amp; Commenting</span><span class="co">](pull_comment.qmd)</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Resolve Conflicts Locally:** Sometimes, you or your student might be working on the same file at the same time, leading to a merge conflict. GitHub Desktop will alert you when this happens. You should always try to resolve these conflicts locally on your computer before attempting to merge.</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### **If you have Github Desktop installed, you don't need to install the standalone Git version if you start working with Git from RStudio**</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
