@@ -29,11 +29,11 @@ Even if you're not a data analyst, Git and GitHub are invaluable for several rea
 
 * **Reproducible Research**: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core tenet of modern science.
 
-* **Backup and Disaster Recovery**: Your research code is a valuable asset. If your computer fails, your entire project is safe and sound on GitHub. It's a free, off-site backup.
+* **Backup and Disaster Recovery**: Your research code is valuable, and probably has to be published together with your research paper. If your computer fails, your entire project is safe and sound on GitHub. It's a free, off-site backup.
 
 * **Collaboration with Students**: As a principal investigator, you can use GitHub to work on projects with your students. You can review their code, suggest changes, and merge their contributions into the main project. You can see who made which changes and when, which helps with accountability and streamlines the collaboration process.
 
-* **Access Anywhere**: You can access your code from any computer with an internet connection. This is great for working from a lab, office, or home without needing to use a flash drive.
+* **Access Anywhere**: You can access your code from any computer with an internet connection. While working remotely is also possibly with other cloud solutions (e.g. LJMU's MIicrosoft or Google), they lack the version control functionality. Without Git, you probably end up with a lot of different code files, maybe with the date in the name. While possible, tracking changes across these files is more difficult and not enforced, unlike in Git where changes have to be commented.
 
 ***
 
