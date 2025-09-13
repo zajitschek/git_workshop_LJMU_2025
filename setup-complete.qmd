@@ -9,15 +9,14 @@ This is a more complete setup. It includes **RStudio, Git, and GitHub integratio
      * Ensure RStudio is installed: [posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
 
 2.   **Git Housekeeping**
-     Git is essential for version control and collaborating with others via GitHub.
      
      - **If you already have Github Desktop installed, you don't need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.**
      
-     - **Unfortunately, the possible integration of using RStudio using Git with authentication that was installled with GitHub Desktop seems to be not stable. If you have GitHub Desktop installed and your access authenticated, check in RStudio under
+     - **Unfortunately, the possible integration of RStudio using Git with authentication that was installled with GitHub Desktop seems unstable. If you have GitHub Desktop installed and your access authenticated, check in RStudio under
      Tools -> Global Options -> Git/SVN -> Git executable:
      This has to point to 'git.exe'.**
      
-     - **If you ahve GitHub Desktop installed and RStudio is linked to the correct 'git.exe', jump to point 6. You might be able to proceed with the authentication used by GitHub Desktop. If 6. doesn't work, go back and proceed with 3.**
+     - **If you have GitHub Desktop installed and RStudio is linked to the correct 'git.exe', jump to point 6. You might be able to proceed with the authentication used by GitHub Desktop. If 6. doesn't work for you, come back here and proceed with 3.**
      
 3.   **Git Installation**
      First, check if you already have Git installed: [How to Check for Git Installation](verify-git.qmd)

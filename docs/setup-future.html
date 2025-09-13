@@ -210,11 +210,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="nix-the-reproducible-package-manager" class="level2">
 <h2 class="anchored" data-anchor-id="nix-the-reproducible-package-manager">Nix: The Reproducible Package Manager</h2>
-<p>Nix is a powerful tool for managing software environments in a way that is fully reproducible. It works by describing your entire environment—including the exact versions of R and all your R packages—in a single file. This file can then be used by anyone to get the exact same setup.</p>
+<p>Nix is a tool for managing software environments in a way that is fully reproducible. It works by describing your entire environment—including the exact versions of R and all your R packages—in a single file. This file can then be used by anyone to get the exact same setup.</p>
 <section id="the-nix-workflow-with-rstudio-and-github" class="level3">
 <h3 class="anchored" data-anchor-id="the-nix-workflow-with-rstudio-and-github">The Nix Workflow with RStudio and GitHub</h3>
 <ol type="1">
-<li><p><strong>Define Your Environment:</strong> In the root of your R project, create a file named <code>shell.nix</code>. Inside this file, you’ll specify all your dependencies using the Nix language. This is where you declare the specific version of R, RStudio, and any required packages. <code>nix     let       nixpkgs = fetchTarball "[https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz](https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz)";       pkgs = import nixpkgs { };     in     pkgs.mkShell {       buildInputs = [         pkgs.r-base         pkgs.r-jsonlite         pkgs.r-ggplot2         # ... add all other R packages here       ];     }</code></p></li>
+<li><strong>Install Nix:</strong> In the search bar, search for terminal or command prompt. Type in <code>wsl –install</code>. (wsl stands for Windows Subsystem for Linux).</li>
+</ol>
+<p>The goal is to install a Linux distribution, eg Ubuntu. You will be asked to provide a user name and password. ! When typing in the password, no asterisks or other symbols will be shown. You have to be sure what you type, then press enter.</p>
+<p>Open Ubuntu, by searching for ‘Ubuntu’ and opening it, or by typing and executing ‘wsl’ in the command prompt. Now proceed with the instructions on nix.org/download. I had to execute: <code>sh &lt;(curl –proto ‘=https’ –tlsv1.2 -L https://nixos.org/nix/install) –no-daemon</code> (! delete the dollar sign at the start of the code given on the website)</p>
+<ol start="2" type="1">
+<li><p><strong>Define Your Environment:</strong> In the root of your R project, create a file named <code>shell.nix</code>. Inside this file, you’ll specify all your dependencies using the Nix language. This is where you declare the specific version of R, RStudio, and any required packages. <code>nix let nixpkgs = fetchTarball “<a href="https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz">https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz</a>”; pkgs = import nixpkgs { }; in pkgs.mkShell { buildInputs = [ pkgs.r-base pkgs.r-jsonlite pkgs.r-ggplot2 # … add all other R packages here ]; }</code></p></li>
 <li><p><strong>Enter the Environment:</strong> From your terminal, run the command <code>nix-shell</code>. Nix will automatically download and set up all the specified dependencies without interfering with the rest of your system. Once the process is complete, you are “inside” the isolated environment.</p></li>
 <li><p><strong>Launch RStudio:</strong> With the Nix environment active, you can launch RStudio. It will automatically detect and use the specific versions of R and packages that you’ve defined in your <code>shell.nix</code> file.</p></li>
 <li><p><strong>Version Control with Git and GitHub:</strong></p>
@@ -238,6 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Learning Curve:</strong> The Nix language and ecosystem can be complex for new users.</li>
 <li><strong>Initial Setup:</strong> Installing Nix and setting up your first environment can take time.</li>
+<li><strong>Package availability:</strong> There won’t be all R packages and versions available on Nix, compared to package availability on CRAN.</li>
 <li><strong>All-or-Nothing:</strong> All collaborators must use Nix to get the benefits.</li>
 </ul></li>
 </ul>
@@ -768,76 +774,89 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nix: The Reproducible Package Manager</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Nix is a powerful tool for managing software environments in a way that is fully reproducible. It works by describing your entire environment—including the exact versions of R and all your R packages—in a single file. This file can then be used by anyone to get the exact same setup.</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Nix is a tool for managing software environments in a way that is fully reproducible. It works by describing your entire environment—including the exact versions of R and all your R packages—in a single file. This file can then be used by anyone to get the exact same setup.</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Nix Workflow with RStudio and GitHub</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Define Your Environment:** In the root of your R project, create a file named <span class="in">`shell.nix`</span>. Inside this file, you'll specify all your dependencies using the Nix language. This is where you declare the specific version of R, RStudio, and any required packages. <span class="in">`nix     let       nixpkgs = fetchTarball "[https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz](https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz)";       pkgs = import nixpkgs { };     in     pkgs.mkShell {       buildInputs = [         pkgs.r-base         pkgs.r-jsonlite         pkgs.r-ggplot2         # ... add all other R packages here       ];     }`</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Enter the Environment:** From your terminal, run the command <span class="in">`nix-shell`</span>. Nix will automatically download and set up all the specified dependencies without interfering with the rest of your system. Once the process is complete, you are "inside" the isolated environment.</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Launch RStudio:** With the Nix environment active, you can launch RStudio. It will automatically detect and use the specific versions of R and packages that you've defined in your <span class="in">`shell.nix`</span> file.</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Install Nix:** In the search bar, search for terminal or command prompt. Type in &lt;code&gt;wsl --install&lt;/code&gt;  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>(wsl stands for Windows Subsystem for Linux). </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>The goal is to install a Linux distribution, eg Ubuntu. You will be asked to provide a user name and password. </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>!! When typing in the password, no asterisks or other symbols will be shown. You have to be sure what you type, then press enter.</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Version Control with Git and GitHub:**</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Your <span class="in">`shell.nix`</span> file is just a text file. You commit it to Git and push it to your GitHub repository along with your R code.</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>A collaborator simply clones your repository and runs <span class="in">`nix-shell`</span>. Nix handles all the dependency management, so they don't have to worry about manually installing anything.</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Open Ubuntu, by searching for 'Ubuntu' and opening it, or by typing and executing 'wsl' in the command prompt.</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Now proceed with the instructions on nix.org/download. I had to execute:  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>&lt;code&gt;sh &lt;(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon&lt;/code&gt;  </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>(! delete the dollar sign at the start of the code given on the website)</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pros and Cons of using Nix</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pros:**</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Reproducibility:** Guarantees the same environment every time.</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Isolation:** Packages and dependencies are kept separate from your system, avoiding conflicts.</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Fine-grained control:** You can pin dependencies to specific versions, even across different operating systems.</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Performance:** Nix runs directly on your machine without the overhead of containerization.</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Cons:**</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Learning Curve:** The Nix language and ecosystem can be complex for new users.</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Initial Setup:** Installing Nix and setting up your first environment can take time.</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**All-or-Nothing:** All collaborators must use Nix to get the benefits.</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Define Your Environment:** In the root of your R project, create a file named <span class="in">`shell.nix`</span>. Inside this file, you'll specify all your dependencies using the Nix language. This is where you declare the specific version of R, RStudio, and any required packages. </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>&lt;code&gt;nix     let       nixpkgs = fetchTarball "<span class="co">[</span><span class="ot">https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz</span><span class="co">](https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz)</span>";       pkgs = import nixpkgs { };     in     pkgs.mkShell {       buildInputs = <span class="co">[</span><span class="ot">         pkgs.r-base         pkgs.r-jsonlite         pkgs.r-ggplot2         # ... add all other R packages here       </span><span class="co">]</span>;     }&lt;/code&gt;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Enter the Environment:** From your terminal, run the command <span class="in">`nix-shell`</span>. Nix will automatically download and set up all the specified dependencies without interfering with the rest of your system. Once the process is complete, you are "inside" the isolated environment.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Launch RStudio:** With the Nix environment active, you can launch RStudio. It will automatically detect and use the specific versions of R and packages that you've defined in your <span class="in">`shell.nix`</span> file.</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Version Control with Git and GitHub:**</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Your <span class="in">`shell.nix`</span> file is just a text file. You commit it to Git and push it to your GitHub repository along with your R code.</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>A collaborator simply clones your repository and runs <span class="in">`nix-shell`</span>. Nix handles all the dependency management, so they don't have to worry about manually installing anything.</span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pros and Cons of using Nix</span></span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Docker: The Containerization Solution</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>Docker is a platform that uses **containers** to package an application and its dependencies into a single, isolated unit. Think of it as a lightweight virtual machine that contains everything your project needs to run, from the operating system to the R packages.</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Docker Workflow with RStudio and GitHub</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Define Your Container:** In the root of your R project, you create a text file named <span class="in">`Dockerfile`</span>. This file contains instructions for building your container image. You'll start with a base image (like a <span class="in">`rocker/rstudio`</span> image), and then specify which R packages to install.</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="in">``` dockerfile</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="in">    FROM rocker/rstudio:4.3.0</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pros:**</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Reproducibility:** Guarantees the same environment every time.</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Isolation:** Packages and dependencies are kept separate from your system, avoiding conflicts.</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Fine-grained control:** You can pin dependencies to specific versions, even across different operating systems.</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Performance:** Nix runs directly on your machine without the overhead of containerization.</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Cons:**</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Learning Curve:** The Nix language and ecosystem can be complex for new users.</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Initial Setup:** Installing Nix and setting up your first environment can take time.</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Package availability:** There won't be all R packages and versions available on Nix, compared to package availability on CRAN.</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**All-or-Nothing:** All collaborators must use Nix to get the benefits.</span>
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="in">    # Install R packages</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="in">    RUN R -e "install.packages('ggplot2', repos='[https://cloud.r-project.org/](https://cloud.r-project.org/)')"</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="in">    RUN R -e "install.packages('jsonlite', repos='[https://cloud.r-project.org/](https://cloud.r-project.org/)')"</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Docker: The Containerization Solution</span></span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="in">    # Set the working directory</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="in">    WORKDIR /home/rstudio</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>Docker is a platform that uses **containers** to package an application and its dependencies into a single, isolated unit. Think of it as a lightweight virtual machine that contains everything your project needs to run, from the operating system to the R packages.</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Docker Workflow with RStudio and GitHub</span></span>
 <span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Build the Image:** From your terminal, run the command <span class="in">`docker build -t my-r-project .`</span>. This command reads the <span class="in">`Dockerfile`</span> and builds a new Docker image containing all your dependencies.</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Define Your Container:** In the root of your R project, you create a text file named <span class="in">`Dockerfile`</span>. This file contains instructions for building your container image. You'll start with a base image (like a <span class="in">`rocker/rstudio`</span> image), and then specify which R packages to install.</span>
 <span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Run the Container:** Once the image is built, you can run a container from it and map your project folder to it. <span class="in">`bash     docker run --rm -p 8787:8787 -v C:/path/to/my/project:/home/rstudio my-r-project`</span> This command starts the container and makes RStudio accessible in your web browser at <span class="in">`localhost:8787`</span>. The <span class="in">`-v`</span> flag ensures that your local project files are accessible inside the container.</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Version Control with Git and GitHub:**</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>You commit the <span class="in">`Dockerfile`</span> to your Git repository and push it to GitHub alongside your R code.</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>A collaborator clones the repository. They only need to run the <span class="in">`docker build`</span> and <span class="in">`docker run`</span> commands to get a fully working, isolated environment that is identical to yours.</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="in">``` dockerfile</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="in">    FROM rocker/rstudio:4.3.0</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="in">    # Install R packages</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="in">    RUN R -e "install.packages('ggplot2', repos='[https://cloud.r-project.org/](https://cloud.r-project.org/)')"</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="in">    RUN R -e "install.packages('jsonlite', repos='[https://cloud.r-project.org/](https://cloud.r-project.org/)')"</span></span>
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pros and Cons of using Docker</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pros:**</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Portability:** Docker containers can run on any machine with Docker installed (Windows, macOS, or Linux).</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Strong Isolation:** The container is a fully isolated environment, which is great for security and avoiding conflicts.</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Industry Standard:** Docker is widely used, and there is a huge community and ecosystem of pre-built images.</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Environment Encapsulation:** The entire environment, from the operating system up, is encapsulated in the image.</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Cons:**</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Performance Overhead:** The containerization layer can add some overhead, especially for computationally intensive tasks.</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Resource Intensive:** Docker can be more resource-heavy than Nix, as it requires a background daemon and can consume more disk space.</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Debugging:** It can be slightly more challenging to debug code inside a container than it is in a local environment.</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>----------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">    # Set the working directory</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="in">    WORKDIR /home/rstudio</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Build the Image:** From your terminal, run the command <span class="in">`docker build -t my-r-project .`</span>. This command reads the <span class="in">`Dockerfile`</span> and builds a new Docker image containing all your dependencies.</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Run the Container:** Once the image is built, you can run a container from it and map your project folder to it. <span class="in">`bash     docker run --rm -p 8787:8787 -v C:/path/to/my/project:/home/rstudio my-r-project`</span> This command starts the container and makes RStudio accessible in your web browser at <span class="in">`localhost:8787`</span>. The <span class="in">`-v`</span> flag ensures that your local project files are accessible inside the container.</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Version Control with Git and GitHub:**</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>You commit the <span class="in">`Dockerfile`</span> to your Git repository and push it to GitHub alongside your R code.</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>A collaborator clones the repository. They only need to run the <span class="in">`docker build`</span> and <span class="in">`docker run`</span> commands to get a fully working, isolated environment that is identical to yours.</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pros and Cons of using Docker</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pros:**</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Portability:** Docker containers can run on any machine with Docker installed (Windows, macOS, or Linux).</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Strong Isolation:** The container is a fully isolated environment, which is great for security and avoiding conflicts.</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Industry Standard:** Docker is widely used, and there is a huge community and ecosystem of pre-built images.</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Environment Encapsulation:** The entire environment, from the operating system up, is encapsulated in the image.</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Cons:**</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Performance Overhead:** The containerization layer can add some overhead, especially for computationally intensive tasks.</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Resource Intensive:** Docker can be more resource-heavy than Nix, as it requires a background daemon and can consume more disk space.</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Debugging:** It can be slightly more challenging to debug code inside a container than it is in a local environment.</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>----------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
