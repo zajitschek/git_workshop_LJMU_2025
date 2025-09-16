@@ -8,41 +8,35 @@ title: "Pull request & commenting"
 
 GitHub Desktop is very good for making the actual code changes and committing them easily. It simplifies the process of creating branches, staging, and committing. However, the review, commenting, and merging process for Pull Requests is primarily done on GitHub.com. GitHub Desktop will alert you when PRs are available or when you need to update your local copy after a PR is merged, but the detailed review happens in the web interface, on github.com.
 
-
 The core idea behind a Pull Request is that a student (or any collaborator) proposes changes from their own branch to be merged into a main branch (like main or master). This proposal is the Pull Request itself, and it's where you can give feedback.
 
 ### The student's workflow:
 
-**Create a New Branch:** 
-The student never works directly on the main branch. They will create a new branch for each task, feature, or bug fix.
+**Create a New Branch:** The student never works directly on the main branch. They will create a new branch for each task, feature, or bug fix.
 
-- **In GitHub Desktop:** They'd click the "Current Branch" dropdown at the top and select "New Branch." They give it a descriptive name (e.g., add-user-profile-feature, fix-login-bug).
+-   **In GitHub Desktop:** They'd click the "Current Branch" dropdown at the top and select "New Branch." They give it a descriptive name (e.g., add-user-profile-feature, fix-login-bug).
 
-- **On GitHub.com:** They can create a branch from the repository's main page by clicking the "main" branch dropdown and selecting "New branch."
-
+-   **On GitHub.com:** They can create a branch from the repository's main page by clicking the "main" branch dropdown and selecting "New branch."
 
 **Make Changes and Commit:** The student makes their code changes and then commits them to their new branch.
 
-- **In GitHub Desktop:** They'll see their changes in the "Changes" tab. They write a commit message (e.g., "Implement user profile page") and click "Commit to [branch name]."
+-   **In GitHub Desktop:** They'll see their changes in the "Changes" tab. They write a commit message (e.g., "Implement user profile page") and click "Commit to \[branch name\]."
 
-- **On GitHub.com:** They would typically push their branch first, and then create a new commit on that branch via the web interface if making small changes.
-
+-   **On GitHub.com:** They would typically push their branch first, and then create a new commit on that branch via the web interface if making small changes.
 
 **Push the Branch:** The student pushes their new branch and commits to the remote repository.
 
-- **In GitHub Desktop:** After committing, they'll see a "Push origin" button. Clicking this uploads their branch and commits to GitHub.com.
+-   **In GitHub Desktop:** After committing, they'll see a "Push origin" button. Clicking this uploads their branch and commits to GitHub.com.
 
-- **On GitHub.com:** If they created the branch on GitHub.com, they'd then make commits directly on that branch.
-
+-   **On GitHub.com:** If they created the branch on GitHub.com, they'd then make commits directly on that branch.
 
 **Create a Pull Request: This is the crucial step for collaboration.**
 
-- **In GitHub Desktop:** After pushing their branch, GitHub Desktop often prompts them with a button like "Create Pull Request." Clicking this will open a new Pull Request on GitHub.com in their web browser.
+-   **In GitHub Desktop:** After pushing their branch, GitHub Desktop often prompts them with a button like "Create Pull Request." Clicking this will open a new Pull Request on GitHub.com in their web browser.
 
-- **On GitHub.com:** They navigate to their repository page. GitHub will usually display a banner saying "[Branch Name] had recent pushes..." with a button to "Compare & pull request." 
+-   **On GitHub.com:** They navigate to their repository page. GitHub will usually display a banner saying "\[Branch Name\] had recent pushes..." with a button to "Compare & pull request."
 
 Alternatively, they can go to the "Pull requests" tab and click "New pull request." They then select their branch as the "compare" branch and the main branch (e.g., main) as the "base" branch. They write a title and description for the PR.
-
 
 **Providing Feedback as a Tutor (on GitHub.com)**
 
@@ -50,19 +44,19 @@ Once the student has created the Pull Request, it's time for you, the tutor, to 
 
 Navigate to the Pull Request:
 
-  Go to your repository on GitHub.com.
+Go to your repository on GitHub.com.
 
-  Click on the "Pull requests" tab.
+Click on the "Pull requests" tab.
 
-  You'll see a list of open Pull Requests. Click on the one created by the student.
+You'll see a list of open Pull Requests. Click on the one created by the student.
 
-  **Review the Changes:**
+**Review the Changes:**
 
-  Within the PR page, click the "Files changed" tab.
+Within the PR page, click the "Files changed" tab.
 
-  Here, you'll see a side-by-side or inline view of the code changes the student has made.
+Here, you'll see a side-by-side or inline view of the code changes the student has made.
 
-  You can hover over any line of code and see a "+" icon appear on the left. Click this icon.
+You can hover over any line of code and see a "+" icon appear on the left. Click this icon.
 
 **Add Comments and Suggestions:**
 
@@ -90,12 +84,10 @@ The student will receive notifications about your comments. They can then reply 
 
 Once you're satisfied, you can approve the PR.
 
-
 **Merge the Pull Request:**
 
 After approving and ensuring all changes are satisfactory, you (or the student, depending on your setup) can click the "Merge pull request" button on GitHub.com.
 
 This integrates the student's branch into the main branch of the repository.
 
-You can then choose to "Delete branch" after merging, which is good practice to keep the repository clean.
----
+## You can then choose to "Delete branch" after merging, which is good practice to keep the repository clean.

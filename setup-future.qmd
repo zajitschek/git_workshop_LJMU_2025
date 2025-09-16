@@ -19,17 +19,10 @@ Now proceed with the instructions on nix.org/download. I had to execute:
 <code>sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon</code>  
 (! delete the dollar sign at the start of the code given on the website)
 
-2.  **Define Your Environment:** In the root of your R project, create a file named `shell.nix`. Inside this file, you'll specify all your dependencies using the Nix language. This is where you declare the specific version of R, RStudio, and any required packages. 
-<code>nix     let       nixpkgs = fetchTarball "[https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz](https://github.com/NixOS/nixpkgs/archive/nixos-23.11.tar.gz)";       pkgs = import nixpkgs { };     in     pkgs.mkShell {       buildInputs = [         pkgs.r-base         pkgs.r-jsonlite         pkgs.r-ggplot2         # ... add all other R packages here       ];     }</code>
+From here on it turns out to be very dependent on the local system you are using. I would recommend working with AI, i.e. tell them the system you are on, that you installed wsl and Ubuntu, and that you want to use RStudio with Nix. Ask to use flake.nix (by default you will be told to use shell.nix or default.nix, for setting up the R version, R packages and versions you would like to use). In flake.nix, it's possible to load specific versions of R packages, all collected on a dedicated github repository.
 
-3.  **Enter the Environment:** From your terminal, run the command `nix-shell`. Nix will automatically download and set up all the specified dependencies without interfering with the rest of your system. Once the process is complete, you are "inside" the isolated environment.
-
-4.  **Launch RStudio:** With the Nix environment active, you can launch RStudio. It will automatically detect and use the specific versions of R and packages that you've defined in your `shell.nix` file.
-
-4.  **Version Control with Git and GitHub:**
-
-    -   Your `shell.nix` file is just a text file. You commit it to Git and push it to your GitHub repository along with your R code.
-    -   A collaborator simply clones your repository and runs `nix-shell`. Nix handles all the dependency management, so they don't have to worry about manually installing anything.
+**Attention:** If you want to try this out, I recommend to run either 'shell-nix' or 'nix', and following 'rstudio' commands from the Unix/Ubuntu command prompt, NOT from the RStudio terminal. 
+  **Hint:** Most keyboard shortcuts, like 'Copy and paste', and file paths formats are different under Unix. (e.g. Shift + Ctrl + C for copy; forward slash / for paths in Unix; windows paths starting with c:/users can be accessed with /mnt/c/users)
 
 ### Pros and Cons of using Nix
 
@@ -39,7 +32,7 @@ Now proceed with the instructions on nix.org/download. I had to execute:
     -   **Fine-grained control:** You can pin dependencies to specific versions, even across different operating systems.
     -   **Performance:** Nix runs directly on your machine without the overhead of containerization.
 -   **Cons:**
-    -   **Learning Curve:** The Nix language and ecosystem can be complex for new users.
+    -   **Learning Curve:** The Nix language and ecosystem IS complex for new users.
     -   **Initial Setup:** Installing Nix and setting up your first environment can take time.
     -   **Package availability:** There won't be all R packages and versions available on Nix, compared to package availability on CRAN.
     -   **All-or-Nothing:** All collaborators must use Nix to get the benefits.
@@ -48,9 +41,14 @@ Now proceed with the instructions on nix.org/download. I had to execute:
 
 ## Docker: The Containerization Solution
 
-Docker is a platform that uses **containers** to package an application and its dependencies into a single, isolated unit. Think of it as a lightweight virtual machine that contains everything your project needs to run, from the operating system to the R packages.
+Docker is a platform that uses **containers** to package an application and its dependencies into a single, isolated unit. Think of it as a virtual machine that contains everything your project needs to run, from the operating system to the R packages.
 
 ### The Docker Workflow with RStudio and GitHub
+
+While the following steps give a rough overview of how one possible process of using docker with R might work, a more recent worked example online, combined with AI might be your best shot at trying this out, as instruction steps can change with updated software versions. Once it's set up though, it's execution is quite stable from my experience. It might be worth looking at the pre-configured r-docker images: [https://rocker-project.org/images/](https://rocker-project.org/images/)
+
+We implemented docker into our interactive workshop websites ([metaanalysis.zajitschek.net](https://metaanalysis.zajitschek.net), [lifespananalysis.zajitschek.net](https://lifespananalysis.zajitschek.net)), and there might be other ways of integrating docker functionality for specific purposes other than reproducible analysis.
+
 
 1.  **Define Your Container:** In the root of your R project, you create a text file named `Dockerfile`. This file contains instructions for building your container image. You'll start with a base image (like a `rocker/rstudio` image), and then specify which R packages to install.
 

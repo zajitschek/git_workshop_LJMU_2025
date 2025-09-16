@@ -39,13 +39,17 @@ This is the easiest way to start a new project. You'll create the repository on 
 
 2.  **Name Your Project:** Give your new repository a clear and descriptive name (e.g., `my-first-r-project`). Check the box to "Initialize this repository with a README."
 
-3.  **Clone to Your Local Machine:** Click **Create Repository**. GitHub Desktop will automatically publish it to your GitHub account and then clone it to a folder on your computer. You'll see the folder path right on the main screen of the application (you can change the path if you want to). You will need to know the location in the next step. Click **Create Repository**.
+3.  **Create repository:** Click **Create Repository**. GitHub Desktop will create the local repository in the folder you specified.
+**!!** To just work locally, with version control, you could stop here. However, to backup your repository remotely, click **Publish repository**. This will publish/push the new repository to your GitHub account. 
 
 4.  **Create RStudio Project:** In RStudio, go to **File \> New Project...**. Select **Existing Directory** and navigate to the folder that GitHub Desktop just created for you. Click **Create Project**.
 
 5.  **Initial Commit:** RStudio will now be linked to your Git repository. You'll notice a Git tab in the top-right pane. Back in GitHub Desktop, you'll see that a new `.Rproj` file has been added.
 
-    -   In the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!)
+In most cases, it should actually be possible to stage,commit, and push changed files now from within RStudio, using the 'Git' tab in the upper right window (and the little symbols on top: hover over them to see their function!). Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!
+
+If the GitHub connection isn't available in RStudio, or you prefer to use GitHub Desktop, work on your files in RStudio, then switch to GitHub Desktop when you want to commit and push, as follows:
+    -   In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
 
 6.  **Push to GitHub:** Click the **Publish repository** button to upload these changes to your online GitHub repository. Keep all default options.
 
