@@ -6,7 +6,7 @@ It's easy to check if Git is already installed on your computer.
 
 1.  **Open the Terminal in RStudio:**
 
-    -   In RStudio, go to `Tools > Terminal > New Terminal`. This will open a command-line interface directly within RStudio. You can also open the existing terminal window, bottom left, right of the 'Console' tab.
+    -   In RStudio, go to the Terminal tab (bottom left window) or `Tools > Terminal > New Terminal`. This will open a command-line interface directly within RStudio. You can also open the existing terminal window, bottom left, right of the 'Console' tab.
 
 2.  **Type the command and press Enter:**
 
