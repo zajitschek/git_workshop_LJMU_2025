@@ -1,0 +1,111 @@
+---
+title: "PAT authentication"
+---
+
+Ideally, we won't have to use Personal Access Tokens (PAT) for this workshop. However, here are the steps to authenticate access to GitHub.com with PAT.
+
+Here are simple instructions for authenticating Git access to GitHub.com using a **Personal Access Token (PAT)** for both PC and Mac.
+
+## **Creating a Personal Access Token (PAT) on GitHub**
+
+First, you need to generate a PAT from your GitHub account.
+
+1.  **Log in to GitHub:** Go to [github.com](https://github.com/) and log in.
+
+2.  **Go to Settings:** Click on your profile picture in the top-right corner and select **Settings**.
+
+3.  **Developer settings:** In the left sidebar, scroll down and click on **Developer settings**.
+
+4.  **Personal access tokens:** Click on **Personal access tokens**, then select **Tokens (classic)**.
+
+5.  **Generate new token:** Click the **Generate new token** button. You can also choose **Generate new token (beta)** if you prefer, but "classic" tokens are widely supported.
+
+6.  **Note:** Give your token a descriptive **Note** (e.g., "Git Access").
+
+7.  **Expiration:** Choose an **Expiration** date for your token. For security, it's best not to select "No expiration."
+
+8.  **Scopes:** Select the **scopes** (permissions) your token needs. For general Git operations, you'll typically need:
+
+    -   `repo`: This grants full control of private repositories.
+
+9.  **Generate token:** Click the **Generate token** button at the bottom.
+
+10. **Copy your token:** **Immediately copy the generated token.** You won't be able to see it again. Store it securely, as it's like a password.
+
+## **Authenticating Git Access with Your PAT**
+
+Once you have your PAT, you can use it in two main ways:
+
+### **Method 1: Using the PAT Directly in the Git Command (Temporary)**
+
+This is useful for one-off operations or if you prefer not to store the token long-term in your system's credential manager.
+
+When prompted for your username and password by Git (e.g., when pushing or pulling), enter:
+
+-   **Username:** Your GitHub username.
+
+-   **Password:** Your **Personal Access Token** (the one you just copied).
+
+### **Method 2: Storing the PAT in Your System's Credential Manager (Recommended)**
+
+This method allows Git to automatically use your token without repeatedly asking for it. The process varies slightly between PC and Mac. For PC, proceed below, for MAC scroll down further or click [here](#for-mac)
+
+#### **For PC (Windows)**
+
+Windows has a built-in Credential Manager that Git can utilize.
+
+1.  **Open Credential Manager:** Search for "Credential Manager" in the Windows search bar and open it.
+
+2.  **Windows Credentials:** Click on **Windows Credentials**.
+
+3.  **Add a generic credential:** Click on **Add a generic credential**.
+
+4.  **Enter the following:**
+
+    -   **Internet or network address:** `github.com`
+
+    -   **User name:** Your GitHub username
+
+    -   **Password:** Your **Personal Access Token**
+
+5.  **Save:** Click **Save**.
+
+Now, when you interact with GitHub repositories using Git (e.g., `git push`, `git pull`), Windows should automatically provide your PAT.
+
+#### **For Mac**
+
+macOS uses the **Keychain Access** application to store credentials.
+
+1.  **Open Keychain Access:**
+
+    -   Open **Finder**.
+
+    -   Go to **Applications** \> **Utilities**.
+
+    -   Open **Keychain Access**.
+
+2.  **Search for GitHub:** In the search bar within Keychain Access, type `github.com`.
+
+3.  **Find the entry:** Look for an entry related to `github.com` under the **Passwords** category. If you don't see one, you might need to perform a Git operation that prompts for credentials first (like `git push` or `git pull`).
+
+4.  **Edit the entry:**
+
+    -   Double-click the `github.com` entry.
+
+    -   Click **Show password**. You may need to enter your Mac's administrator password.
+
+    -   **Enter your PAT:** Replace the existing password with your **Personal Access Token**.
+
+    -   Click **Save Changes**.
+
+If you don't find an existing entry, the first time you run a Git command that requires authentication (like `git push` or `git pull` on a cloned repository), a prompt will appear.
+
+-   **Username:** Your GitHub username
+
+-   **Password:** Your **Personal Access Token**
+
+-   Check the box **"Remember this password in my keychain"**.
+
+This will add the credential to your Keychain Access.
+
+By following these steps, you'll be able to securely authenticate your Git operations with GitHub using a PAT.
