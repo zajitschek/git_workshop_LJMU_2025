@@ -65,7 +65,12 @@ We implemented docker into our interactive workshop websites ([metaanalysis.zaji
 
 2.  **Build the Image:** From your terminal, run the command `docker build -t my-r-project .`. This command reads the `Dockerfile` and builds a new Docker image containing all your dependencies.
 
-3.  **Run the Container:** Once the image is built, you can run a container from it and map your project folder to it. `bash     docker run --rm -p 8787:8787 -v C:/path/to/my/project:/home/rstudio my-r-project` This command starts the container and makes RStudio accessible in your web browser at `localhost:8787`. The `-v` flag ensures that your local project files are accessible inside the container.
+3.  **Run the Container:** Once the image is built, you can run a container from it and map your project folder to it. 
+``` bash
+docker run --rm -p 8787:8787 -v C:/path/to/my/project:/home/rstudio my-r-project
+```
+
+This command starts the container and makes RStudio accessible in your web browser at `localhost:8787`. The `-v` flag ensures that your local project files are accessible inside the container.
 
 4.  **Version Control with Git and GitHub:**
 
