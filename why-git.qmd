@@ -31,7 +31,7 @@ Even if you're not a data analyst or software developer, Git and GitHub are inva
 
 -   **Reproducible Research**: By tracking every change to your analysis scripts, you create a transparent and verifiable history. A reviewer, collaborator, or even your future self can see exactly how a figure or result was generated from the raw data. This is a core characteristic of transparent and reproducible science.
 
--  **Showcase your own techniques:** GitHub is a good platform for making code scripts or e.g. R packages available to the public.
+-  **Showcase your own techniques:** GitHub is a good platform for making code scripts or R packages available to the public.
 
 -   **Backup and Disaster Recovery**: Your research code is valuable, and probably has to be published together with your research paper. If your computer fails, your entire project is safe and sound on GitHub. It's a free, off-site backup.
 
