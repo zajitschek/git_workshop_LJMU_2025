@@ -46,9 +46,11 @@ This is the easiest way to start a new project. You'll create the repository on 
 
 In most cases, it should actually be possible to stage, commit, and push changed files now from within RStudio, using the 'Git' tab in the upper right window (and the little symbols on top: hover over them to see their function!). Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!
 
-If the GitHub connection isn't available in RStudio, or you prefer to use GitHub Desktop, work on your files in RStudio, then switch to GitHub Desktop when you want to commit and push, as follows: - In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
+If the GitHub connection isn't available in RStudio, or you prefer to use GitHub Desktop, work on your files in RStudio, then switch to GitHub Desktop when you want to commit and push, as follows:
 
-\*\*!!\* If you commit here for the first time, you should be asked about the user name and email address to use:
+ - In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
+
+**!!** If you commit here for the first time, you should be asked about the user name and email address to use:
 
 -   Your Name can be your GitHub user name, but doesn't have to be. This is what appears as the author of your commits on GitHub.
 
