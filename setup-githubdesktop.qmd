@@ -2,14 +2,13 @@
 title: "Minimal Setup with Github Desktop"
 ---
 
-**GitHub Account:**
-     * If you don't have a GitHub account, please create one here: [github.com/join](https://github.com/join)
-     * Your username will be visible in your GitHub project (repository) URLs.
-     * Remember your username and password.
+**GitHub Account:** \* If you don't have a GitHub account, please create one here: [github.com/join](https://github.com/join) \* Your username will be visible in your GitHub project (repository) URLs. \* Remember your username and password.
 
-**To use Git on your local computer, you need to have Git installed. By installing GitHub Desktop, a Git version gets also installed. Git can also be installed as a standalone version. Here, it's easiest to  install GitHub Desktop, and get Git automatically with it. In addition, GitHub Desktop uses an easier authentication than standalone Git versions.**
+**To use Git on your local computer, you need to have Git installed. By installing GitHub Desktop, a Git version gets also installed. Git can also be installed as a standalone version. Here, it's easiest to install GitHub Desktop, and get Git automatically with it. In addition, GitHub Desktop uses an easier authentication than standalone Git versions.**
 
-Is GitHub Desktop already installed on your computer? **Check by typing 'GitHub Desktop' in the Windows search bar.**
+(Optional: to check whether Git is already installed, go to [Verify Local Git Installation](verify-git.qmd))
+
+Is GitHub Desktop already installed on your computer? **Check by typing 'github' in the Windows search bar.** If installed, Github Desktop will show up as a match.
 
 ## 1. Installing and Setting Up GitHub Desktop
 
@@ -23,9 +22,9 @@ Getting started with GitHub Desktop is a straightforward process.
 
     -   Click 'Install anyway' when prompted
 
-2.  **Install and Launch:** Run the installer and follow the on-screen prompts. Once installed, launch the application.
+2.  **Install and Launch:** Run the installer and follow the on-screen prompts. Once installed, the application should launch automatically. If not, start it yourself.
 
-3.  **Sign In:** You'll be prompted to **sign in to your GitHub.com account**. Use the automatically created email address.
+3.  **Sign In:** You'll be prompted to **sign in to your GitHub.com account**. Use your GitHub.com credentials. This might be skipped if you are already logged in to GitHub.com. the automatically created email address.
 
     This is a crucial step that connects the application to your online repositories. If you don't have an account, you'll need to create one first on the [GitHub website](https://github.com/), or follow the prompt.
 
@@ -39,8 +38,7 @@ This is the easiest way to start a new project. You'll create the repository on 
 
 2.  **Name Your Project:** Give your new repository a clear and descriptive name (e.g., `my-first-r-project`). Check the box to "Initialize this repository with a README."
 
-3.  **Create repository:** Click **Create Repository**. GitHub Desktop will create the local repository in the folder you specified.
-**!!** To just work locally, with version control, you could stop here. However, to backup your repository remotely, click **Publish repository**. This will publish/push the new repository to your GitHub account. 
+3.  **Create repository:** Click **Create Repository**. GitHub Desktop will create the local repository in the folder you specified. **!!** To just work locally, with version control, you could stop here. However, to backup your repository remotely, click **Publish repository**. This will publish/push the new repository to your GitHub account.
 
 4.  **Create RStudio Project:** In RStudio, go to **File \> New Project...**. Select **Existing Directory** and navigate to the folder that GitHub Desktop just created for you. Click **Create Project**.
 
@@ -48,12 +46,15 @@ This is the easiest way to start a new project. You'll create the repository on 
 
 In most cases, it should actually be possible to stage,commit, and push changed files now from within RStudio, using the 'Git' tab in the upper right window (and the little symbols on top: hover over them to see their function!). Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!
 
-If the GitHub connection isn't available in RStudio, or you prefer to use GitHub Desktop, work on your files in RStudio, then switch to GitHub Desktop when you want to commit and push, as follows:
-    -   In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
+If the GitHub connection isn't available in RStudio, or you prefer to use GitHub Desktop, work on your files in RStudio, then switch to GitHub Desktop when you want to commit and push, as follows: - In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
+**!!* If you commit here for the first time, you should be asked about the user name and email address to use: 
+    * Your Name can be your GitHub user name, but doesn't have to be. This is what appears as the author of your commits on GitHub.
+    * User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -> **Settings** -> **Emails**. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email address ending in @users.noreply.github.com). This is the email that will probably be suggested automatically.
+     
 
 6.  **Push to GitHub:** Click the **Publish repository** button to upload these changes to your online GitHub repository. Keep all default options.
 
-7.  You can now view your linked GitHub repository online. Just click on the **View on GitHub button** in the main GitHub Desktop window. A browser window will open. 
+7.  You can now view your linked GitHub repository online. Just click on the **View on GitHub button** in the main GitHub Desktop window. A browser window will open.
 
 ------------------------------------------------------------------------
 
@@ -73,7 +74,7 @@ If you've already started working on a project in RStudio and want to add it to 
 
 6.  **Push to GitHub:** Click the **Push origin** button to upload your project to GitHub.
 
-7. Now, every time you change your code in RSTudio or add a file to your RStudio project, those changes will show up in the GitHub Desktop 'Changes' log on the left.
+7.  Now, every time you change your code in RSTudio or add a file to your RStudio project, those changes will show up in the GitHub Desktop 'Changes' log on the left.
 
 ------------------------------------------------------------------------
 
@@ -110,13 +111,11 @@ To allow a student to collaborate on your repository, you first need to invite t
     -   **Commit** their changes with a descriptive message.
     -   **Push** their committed changes to the main repository.
 
-
-From here, go to the complete RStudio/Git workflow **[Proceed with Complete workflow](setup-complete.qmd)** or go more in depth below with the current setup.
-------------------------------------------------------------------------
+## From here, go to the complete RStudio/Git workflow [**Proceed with Complete workflow**](setup-complete.qmd) or go more in depth below with the current setup.
 
 ## Optional
 
-## 6. Working with Branches (best practice, but not essential, especially for <2 users of the same repo)
+## 6. Working with Branches (best practice, but not essential, especially for \<2 users of the same repo)
 
 Working directly on the `main` branch can be risky, especially in a collaborative project. A **branch** is a separate version of your project that allows you to work on new features or bug fixes without affecting the main code.
 
@@ -157,7 +156,5 @@ For a smooth collaborative workflow, it's essential that everyone follows a few 
 3.  **Use Pull Requests for Feedback:** The Pull Request is the central tool for code review. As a tutor, you can review the student's code, add comments on specific lines, and suggest improvements directly in the Pull Request on GitHub.com. As this requires more involved work on GitHUb.com, I added a workflow description that can be accessed here: [Pull Requests & Commenting](pull_comment.qmd)
 
 4.  **Resolve Conflicts Locally:** Sometimes, you or your student might be working on the same file at the same time, leading to a merge conflict. GitHub Desktop will alert you when this happens. You should always try to resolve these conflicts locally on your computer before attempting to merge.
-
-
 
 ### [Proceed with Complete workflow](setup-complete.qmd) \| [Return to Section Overview](/index.qmd)

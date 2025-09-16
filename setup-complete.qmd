@@ -34,9 +34,9 @@ This is a more complete setup. It includes **RStudio, Git, and GitHub integratio
      git config --global user.name "Your Name"
      git config --global user.email "your.email@example.com"
      ```
-     * User email has to be the email used for your github.com login. This can be found on github.com, by clicking on your profile picture -> **Settings** -> **Emails**. You can use your actual email address, or, alternatively, there is a more anonymous email that can be used (look on that page for the email, ending in @users.noreply.github.com)
+     * User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -> **Settings** -> **Emails**. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email, ending in @users.noreply.github.com)
      
-     * Your Name can be your GitHub user name, but doesn't have to be.
+     * Your Name can be your GitHub user name, but doesn't have to be. This is what appears as the author of your commits on GitHub.
      
      
 5.   **Connect RStudio to GitHub (Personal Access Token - PAT):**
