@@ -4,7 +4,7 @@ title: "Welcome to an Open Research LJMU Workshop!"
 
 Welcome to **What is Git/Github, and how do I use it with R?**! To ensure a smooth experience during our session, after the 'What is Git' information section, please have a look at the following instructions, starting with a check whether Git is already installed on your computer.
 
-**Minimum Requirement:** All participants should have **RStudio** installed. If you don't have RStudio, please install it first from [posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/).
+**Minimum Requirement:** All participants should have **RStudio** installed. If you don't have RStudio, please install it first from [posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/) or from the company portal.
 
 ### 1. [What is Git/Github and why to use it as a researcher](why-git.qmd)
 
