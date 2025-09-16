@@ -24,7 +24,7 @@ Getting started with GitHub Desktop is a straightforward process.
 
 2.  **Install and Launch:** Run the installer and follow the on-screen prompts. Once installed, the application should launch automatically. If not, start it yourself.
 
-3.  **Sign In:** You'll be prompted to **sign in to your GitHub.com account**. Use your GitHub.com credentials. This might be skipped if you are already logged in to GitHub.com. the automatically created email address.
+3.  **Sign In:** You'll be prompted to **sign in to your GitHub.com account**. Use your GitHub.com credentials. This might be automatically skipped if you are already logged in to GitHub.com.
 
     This is a crucial step that connects the application to your online repositories. If you don't have an account, you'll need to create one first on the [GitHub website](https://github.com/), or follow the prompt.
 
@@ -44,13 +44,15 @@ This is the easiest way to start a new project. You'll create the repository on 
 
 5.  **Initial Commit:** RStudio will now be linked to your Git repository. You'll notice a Git tab in the top-right pane. Back in GitHub Desktop, you'll see that a new `.Rproj` file has been added.
 
-In most cases, it should actually be possible to stage,commit, and push changed files now from within RStudio, using the 'Git' tab in the upper right window (and the little symbols on top: hover over them to see their function!). Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!
+In most cases, it should actually be possible to stage, commit, and push changed files now from within RStudio, using the 'Git' tab in the upper right window (and the little symbols on top: hover over them to see their function!). Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!
 
 If the GitHub connection isn't available in RStudio, or you prefer to use GitHub Desktop, work on your files in RStudio, then switch to GitHub Desktop when you want to commit and push, as follows: - In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
-**!!* If you commit here for the first time, you should be asked about the user name and email address to use: 
-    * Your Name can be your GitHub user name, but doesn't have to be. This is what appears as the author of your commits on GitHub.
-    * User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -> **Settings** -> **Emails**. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email address ending in @users.noreply.github.com). This is the email that will probably be suggested automatically.
-     
+
+\*\*!!\* If you commit here for the first time, you should be asked about the user name and email address to use:
+
+-   Your Name can be your GitHub user name, but doesn't have to be. This is what appears as the author of your commits on GitHub.
+
+-   User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -\> **Settings** -\> **Emails**. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email address ending in @users.noreply.github.com). This is the email that will probably be suggested automatically.
 
 6.  **Push to GitHub:** Click the **Publish repository** button to upload these changes to your online GitHub repository. Keep all default options.
 
@@ -66,7 +68,7 @@ If you've already started working on a project in RStudio and want to add it to 
 
 2.  **Navigate to Your Project:** Select the folder that contains your RStudio project.
 
-3.  **Publish Your Repository:** Click **Add repository**. An error message will appear, prompting you to **create a repository here instead**. Proceed with the default options. Once created and added, you'll see a blue button that says **Publish repository**. Click it.
+3.  **Publish Your Repository:** Click **Add repository**. An error message will appear, asking you to **create a repository here instead**. Proceed with this option, with the default settings (check the 'initialize with a README' file if you like). Once created and added, you'll see a blue button that says **Publish repository**. Click it.
 
 4.  **Name and Publish:** A window will pop up to let you name the new repository on GitHub. Once you've chosen a name, click **Publish Repository**.
 
@@ -80,7 +82,7 @@ If you've already started working on a project in RStudio and want to add it to 
 
 ## 4. Recap: Standard Workflow - Commit & Push
 
-This is the normal process you'll use with GitHUb Desktop.
+This is the normal process you'll use with GitHub Desktop.
 
 1.  **Make Changes:** Work on your code or documents within RStudio as you normally would.
 
@@ -98,7 +100,7 @@ This is the normal process you'll use with GitHUb Desktop.
 
 To allow a student to collaborate on your repository, you first need to invite them to the project on GitHub.com.
 
-1.  **Invite Collaborator:** On the GitHub website, navigate to your repository (or just click the 'View on GitHub button in GitHub Desktop). Click on the **Settings** tab, then **Collaborators**. From there, you can invite your student using their GitHub username or email address ('Add people').
+1.  **Invite Collaborator:** On the GitHub website, navigate to your repository (or just click the 'View on GitHub button in GitHub Desktop). Click on the **Settings** tab, then **Collaborators**. From there, you can invite your student using their GitHub username, full name, or email address ('Add people').
 
 2.  **Student Accepts Invitation:** The student will receive an invitation email. They must accept the invitation to gain access.
 
@@ -111,9 +113,9 @@ To allow a student to collaborate on your repository, you first need to invite t
     -   **Commit** their changes with a descriptive message.
     -   **Push** their committed changes to the main repository.
 
-## From here, go to the complete RStudio/Git workflow [**Proceed with Complete workflow**](setup-complete.qmd) or go more in depth below with the current setup.
+### From here, go to the [**Complete RStudio/Git workflow**](setup-complete.qmd) or go more in depth below with the current setup.
 
-## Optional
+# Optional
 
 ## 6. Working with Branches (best practice, but not essential, especially for \<2 users of the same repo)
 

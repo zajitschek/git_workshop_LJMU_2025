@@ -41,7 +41,7 @@ It's easy to check if Git is already installed on your computer.
 
         -   **On macOS / Linux:** `bash: git: command not found` or `zsh: command not found: git` If you see any of these error messages, Git is not installed or not correctly configured in your system's PATH. Please proceed to the installation steps below for your operating system.
 
-### **Need to Install Git?**
+### **(Need to Install Standalone Git? (only do this after you installed GitHub Desktop and you can't use the Git version from that installation for some reason)**
 
 -   **For Windows (PC):** Follow these detailed instructions: [Git Installation on Windows](git-installation-windows.qmd)
 
