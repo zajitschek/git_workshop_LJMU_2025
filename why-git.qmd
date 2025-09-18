@@ -15,7 +15,7 @@ It operates locally on your computer, and it can be used locally, without having
 
 Git is free, open-source, trademarked by a US American non-profit organization that supports free and open source software projects ([Software Freedom Conservancy](https://en.wikipedia.org/wiki/Software_Freedom_Conservancy)).
 
-**GitHub** is the largest cloud-based service that hosts Git repositories. It's like a large collection for code, that can be either kept private or made public and downloadable. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git provides the protocol and machinery, GitHub is the platform that hosts the work and provides tools for collaboration.
+**GitHub** is the largest cloud-based service that hosts Git repositories. It's like a large collection for code, where your project folders (*aka* repositories *aka* repos) can be either kept private or made public and downloadable. It provides a central place to store your project online, enabling you to share your work, collaborate with others, and have an off-site backup. While Git provides the protocol and machinery, GitHub is the platform that hosts the work and provides tools for collaboration.
 
 GitHub is part of Microsoft. There are alternatives, e.g. non-profit [Codeberg](https://en.wikipedia.org/wiki/Codeberg) or [BitBucket](https://en.wikipedia.org/wiki/Bitbucket), but GitHub is the most widely used platform.
 

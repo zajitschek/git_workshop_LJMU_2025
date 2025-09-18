@@ -2,17 +2,25 @@
 title: "Minimal Setup with Github Desktop"
 ---
 
-**GitHub Account:** \* If you don't have a GitHub account, please create one here: [github.com/join](https://github.com/join) \* Your username will be visible in your GitHub project (repository) URLs. \* Remember your username and password.
+**GitHub Account:**
 
-**To use Git on your local computer, you need to have Git installed. By installing GitHub Desktop, a Git version gets also installed. Git can also be installed as a standalone version. Here, it's easiest to install GitHub Desktop, and get Git automatically with it. In addition, GitHub Desktop uses an easier authentication than standalone Git versions.**
+\* If you don't have a GitHub account, please create one here: [github.com/join](https://github.com/join)
+
+\* **!!** Your username will be visible in your GitHub project (repository) URLs.
+
+\* Remember your username and password.
+
+**To use Git on your local computer, you need to have Git installed. By installing GitHub Desktop, a Git version gets also installed. Git can also be installed as a standalone version. Here, it's easiest to install GitHub Desktop, and get Git automatically with it. In addition, GitHub Desktop uses an easier authentication than standalone Git versions (but you won't get the full integration in RStudio without installing a standalone version).**
 
 (Optional: to check whether Git is already installed, go to [Verify Local Git Installation](verify-git.qmd))
 
-Is GitHub Desktop already installed on your computer? **Check by typing 'github' in the Windows search bar.** If installed, Github Desktop will show up as a match.
+Is **GitHub Desktop** already installed on your computer?
+
+**Check by typing 'github' in the Windows search bar.** If installed, **Github Desktop** will show up as a match.
 
 ## 1. Installing and Setting Up GitHub Desktop
 
-Getting started with GitHub Desktop is a straightforward process.
+Getting started with **GitHub Desktop** is a straightforward process.
 
 1.  **Download the Application:** Go to the official GitHub Desktop website <https://desktop.github.com/download/> and download the installer for your operating system (Windows or macOS).
 
@@ -38,17 +46,15 @@ This is the easiest way to start a new project. You'll create the repository on 
 
 2.  **Name Your Project:** Give your new repository a clear and descriptive name (e.g., `my-first-r-project`). Check the box to "Initialize this repository with a README."
 
-3.  **Create repository:** Click **Create Repository**. GitHub Desktop will create the local repository in the folder you specified. **!!** To just work locally, with version control, you could stop here. However, to backup your repository remotely, click **Publish repository**. This will publish/push the new repository to your GitHub account.
+3.  **Create repository:** Click **Create Repository**. GitHub Desktop will create the local repository in the folder you specified. **!!** To just work locally, with version control, you could stop here. However, to backup your repository remotely, click **Publish repository**. This will publish/push the new repository, i.e. the new folder with all its contents to your GitHub account.
 
 4.  **Create RStudio Project:** In RStudio, go to **File \> New Project...**. Select **Existing Directory** and navigate to the folder that GitHub Desktop just created for you. Click **Create Project**.
 
 5.  **Initial Commit:** RStudio will now be linked to your Git repository. You'll notice a Git tab in the top-right pane. Back in GitHub Desktop, you'll see that a new `.Rproj` file has been added.
 
-In most cases, it should actually be possible to stage, commit, and push changed files now from within RStudio, using the 'Git' tab in the upper right window (and the little symbols on top: hover over them to see their function!). Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!
+Work on your files in RStudio, save them, then switch to GitHub Desktop when you want to commit and push, as follows:
 
-If the GitHub connection isn't available in RStudio, or you prefer to use GitHub Desktop, work on your files in RStudio, then switch to GitHub Desktop when you want to commit and push, as follows:
-
- - In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
+-   In GitHub Desktop, in the **'Summary' text box** on the left, write a short commit message like "Add RStudio project file" and click **Commit to main**. (It might say 'Commit 2 files to main' if the .gitignore file was added. That's ok!) Note that all changed files have been staged already by GitHub Desktop (i.e. they have a tick mark next to them and are selected).
 
 **!!** If you commit here for the first time, you should be asked about the user name and email address to use:
 
@@ -125,9 +131,9 @@ Working directly on the `main` branch can be risky, especially in a collaborativ
 
 A branch is essentially a small, movable pointer to a specific commit. When you create a new branch, you're **not** creating a full copy of your project's files (there's no separate folder for each branch). Instead, you're creating a new pointer that initially points to the same commit as the branch you branched from (e.g., 'main').
 
--   Commits: Each commit is a snapshot of your project at a particular point in time. It contains a unique identifier (a hash), metadata (author, date, message), and a pointer to its parent commit. This forms a history of changes.
+-   **Commits:** Each commit is a snapshot of your project at a particular point in time. It contains a unique identifier (a hash), metadata (author, date, message), and a pointer to its parent commit. This forms a history of changes.
 
--   Branches: A branch is simply a name that points to one of these commits. When you switch to a branch, Git updates your working directory to match the state of the files at that commit.
+-   **Branches:** A branch is simply a name that points to one of these commits. When you switch to a branch, Git updates your working directory to match the state of the files at that commit.
 
 When you make a new commit on a branch, Git creates a new commit and then updates the branch pointer to point to this new commit.
 
