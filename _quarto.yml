@@ -22,6 +22,7 @@ website:
         text: "Git Installation Windows"
       - href: git-installation-mac.qmd
         text: "Git Installation Mac"
+  favicon: "favicon.ico"  
 format:
   html:
     theme: cosmo # A clean, modern theme. You can try others: journal, lumen, darkly, etc.
