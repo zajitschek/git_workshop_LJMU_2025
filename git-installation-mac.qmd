@@ -7,7 +7,9 @@ format:
 
 ## Installing Git on macOS
 
-This guide walks you through installing Git on your macOS machine for use with RStudio and GitHub. We recommend using Homebrew for the easiest installation.
+This guide walks you through installing Git on your macOS machine for use with RStudio and GitHub. I recommend using Homebrew for the easiest installation.
+
+**!!** **At LJMU managed computers**, install **Git** either from Company Portal or App Player (older).
 
 ### Method 1: Using Homebrew (Recommended)
 
@@ -50,8 +52,7 @@ Homebrew is a package manager for macOS that simplifies software installation.
 4.  **Verify Installation in RStudio**
     -   **Important**: Close and reopen RStudio (or its terminal pane) to update the PATH environment variable.
     -   Open a new terminal in RStudio: `Tools > Terminal > New Terminal`.
-    -   Type `git --version` and press Enter. You should see the Git version (e.g., `git version 2.43.0`).
-    **!** If you want to copy and paste, but it doesn't work with <kbd>Ctrl + V</kbd> or <kbd>Cmd + V</kbd>, use <kbd>Shift + Insert</kbd>, or Edit-\>Paste
+    -   Type `git --version` and press Enter. You should see the Git version (e.g., `git version 2.43.0`). **!** If you want to copy and paste, but it doesn't work with <kbd>Ctrl + V</kbd> or <kbd>Cmd + V</kbd>, use <kbd>Shift + Insert</kbd>, or Edit-\>Paste
 
 ## RStudio, Git, and GitHub Workflow
 
@@ -65,4 +66,4 @@ To use Git and GitHub with RStudio, follow these steps:
 6.  **Sync with GitHub**: Ensure the GitHub repository reflects local changes.
 7.  **Pull Changes**: Pull updates from GitHub with `git pull`.
 
-### [Proceed with GitHub Desktop workflow](setup-githubdesktop.qmd) \| [Return to Section Overview](/index.qmd)
+### [Proceed with GitHub Complete workflow](@RStudio-GitHub-workflow) \| [Return to Section Overview](/index.qmd)

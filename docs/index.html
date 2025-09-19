@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Welcome to <strong>What is Git/Github, and how do I use it with R?</strong>! To ensure a smooth experience during our session, after the ‘What is Git’ information section, please have a look at the following instructions, starting with a check whether Git is already installed on your computer.</p>
-<p><strong>Minimum Requirement:</strong> All participants should have <strong>RStudio</strong> installed. If you don’t have RStudio, please install it first from <a href="https://posit.co/download/rstudio-desktop/">posit.co/download/rstudio-desktop/</a> or from the company portal.</p>
+<p><strong>Minimum Requirement:</strong> All participants should have <strong>RStudio</strong> installed. If you don’t have RStudio, please install it first from <a href="https://posit.co/download/rstudio-desktop/">posit.co/download/rstudio-desktop/</a> or from the Company Portal/App Player (at LJMU managed computers, you have either Company Portal or App PLayer (older) available; RStudio, but also Git Standalone should be on there).</p>
 <section id="what-is-gitgithub-and-why-to-use-it-as-a-researcher" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-gitgithub-and-why-to-use-it-as-a-researcher">1. <a href="./why-git.html">What is Git/Github and why to use it as a researcher</a></h3>
 <p>What are Git, Github? What’s the workflow? Why would it benefit researchers and supervisors who aren’t software developers or data analysts?</p>
@@ -218,11 +218,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="more-involved-setups" class="level3">
 <h3 class="anchored" data-anchor-id="more-involved-setups">4. <a href="./setup-future.html">More involved setups</a></h3>
-<p>Where to look if you want robust and highly reproducible solutions that also work with Git version control to some extent: Nix vs.&nbsp;Docker. I haven’t tested Nix yet, but it’s similar to Anaconda that was used by a previous presenter in this workshop. Docker is good but not the best for day-to-day smooth workflow due to large file sizes and time needed to build docker images.</p>
+<p>Where to look if you want robust, standalone, and highly reproducible solutions that also work with Git version control to some extent: Nix vs.&nbsp;Docker.</p>
+<p>Nix is similar to Anaconda that was used by a previous presenter in this workshop series. Installation and general usage seem to be a little complicated.</p>
+<p>Docker is more user friendly and good for containerization (it’s the industry standard), but not the best for day-to-day smooth workflow due to large file sizes and time needed to build docker images.</p>
 <p><strong>Questions or Issues?</strong> If you encounter any problems during setup, please don’t hesitate to reach out!</p>
-<p>eMail: <a href="mailto:f.zajitschek@ljmu.ac.uk">f.zajitschek@ljmu.ac.uk</a></p>
-<p>Bluesky: <a href="https://bsky.app/profile/zajitschek.bsky.social">@zajitschek.bsky.social</a></p>
-<p>X: <a href="https://x.com/zajitschek">@zajitschek</a></p>
+<p>eMail: <a href="mailto:f.zajitschek@ljmu.ac.uk">f.zajitschek@ljmu.ac.uk</a><br> Website: <a href="https://felix.zajitschek.net">felix.zajitschek.net</a><br> Bluesky: <a href="https://bsky.app/profile/zajitschek.bsky.social">@zajitschek.bsky.social</a><br> X: <a href="https://x.com/zajitschek">@zajitschek</a></p>
 
 
 <!-- -->
@@ -704,7 +704,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Welcome to **What is Git/Github, and how do I use it with R?**! To ensure a smooth experience during our session, after the 'What is Git' information section, please have a look at the following instructions, starting with a check whether Git is already installed on your computer.</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>**Minimum Requirement:** All participants should have **RStudio** installed. If you don't have RStudio, please install it first from <span class="co">[</span><span class="ot">posit.co/download/rstudio-desktop/</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span> or from the company portal.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>**Minimum Requirement:** All participants should have **RStudio** installed. If you don't have RStudio, please install it first from <span class="co">[</span><span class="ot">posit.co/download/rstudio-desktop/</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span> or from the Company Portal/App Player (at LJMU managed  computers, you have either Company Portal or App PLayer (older) available; RStudio, but also Git Standalone should be on there).</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. [What is Git/Github and why to use it as a researcher](why-git.qmd)</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -720,15 +720,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. [More involved setups](setup-future.qmd)</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Where to look if you want robust and highly reproducible solutions that also work with Git version control to some extent: Nix vs. Docker. I haven't tested Nix yet, but it's similar to Anaconda that was used by a previous presenter in this workshop. Docker is good but not the best for day-to-day smooth workflow due to large file sizes and time needed to build docker images.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Where to look if you want robust, standalone, and highly reproducible solutions that also work with Git version control to some extent: Nix vs. Docker.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>**Questions or Issues?** If you encounter any problems during setup, please don't hesitate to reach out!</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Nix is similar to Anaconda that was used by a previous presenter in this workshop series. Installation and general usage seem to be a little complicated.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>eMail: <span class="co">[</span><span class="ot">f.zajitschek\@ljmu.ac.uk</span><span class="co">](mailto:f.zajitschek@ljmu.ac.uk)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Docker is more user friendly and good for containerization (it's the industry standard), but not the best for day-to-day smooth workflow due to large file sizes and time needed to build docker images.</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Bluesky: <span class="co">[</span><span class="ot">\@zajitschek.bsky.social</span><span class="co">](https://bsky.app/profile/zajitschek.bsky.social)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>**Questions or Issues?** If you encounter any problems during setup, please don't hesitate to reach out!</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>X: <span class="co">[</span><span class="ot">\@zajitschek</span><span class="co">](https://x.com/zajitschek)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>eMail: <span class="co">[</span><span class="ot">f.zajitschek\@ljmu.ac.uk</span><span class="co">](mailto:f.zajitschek@ljmu.ac.uk)</span>&lt;br&gt;</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Website: <span class="co">[</span><span class="ot">felix.zajitschek.net</span><span class="co">](https://felix.zajitschek.net)</span>&lt;br&gt;</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Bluesky: <span class="co">[</span><span class="ot">\@zajitschek.bsky.social</span><span class="co">](https://bsky.app/profile/zajitschek.bsky.social)</span>&lt;br&gt;</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>X: <span class="co">[</span><span class="ot">\@zajitschek</span><span class="co">](https://x.com/zajitschek)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

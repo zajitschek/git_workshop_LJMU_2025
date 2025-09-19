@@ -14,7 +14,7 @@ This is a more complete setup. It includes **RStudio, Git, and GitHub integratio
 
     -   **If you already have Github Desktop installed, you still need to install the standalone Git version for the following steps.**
 
-    -   **Unfortunately, the possible integration of RStudio using Git with authentication that was installled with GitHub Desktop seems not possible anymore.**
+    -   **The integration of RStudio using Git with authentication that was installled with GitHub Desktop is still possible on some systems. For LJMU users this means: if you have GitHub Desktop installed and authenticated your GitHub.com access, you should be able to install Git standalone (Point 3 below), without having to authenticate with PAT and command line after that. After Git installation, you can go straight to [Point 6](#RStudio-GitHub-Workflow:-Project-Setup-&-Collaboration) below.**
 
 3.  **Git Installation** First, check if you already have Git installed: [How to Check for Git Installation](verify-git.qmd)
 
@@ -23,7 +23,7 @@ This is a more complete setup. It includes **RStudio, Git, and GitHub integratio
     -   **For Windows (PC):** Follow these detailed instructions: [Git Installation on Windows](git-installation-windows.qmd)
     -   **For macOS:** Follow these detailed instructions: [Git Installation on macOS](git-installation-mac.qmd)
 
-    **If you DO have Git installed:** Great! You're all set for the Git part of this setup.
+    **If you DO have Git installed:** Great! You're all set for the Git part of this setup. **!!** If you also have GitHub Desktop installed, go straight to [**Point 6**](#RStudio-GitHub-Workflow:-Project-Setup-&-Collaboration) from here.
 
 4.  **Configure Git (First-Time Setup):** After installing Git, tell it who you are by running these commands in your RStudio Terminal:
 
@@ -57,7 +57,7 @@ For example, my commands could look like:
         -   When prompted for password, **paste the PAT you just generated**.
         -   Git Credential Manager Core (Windows) or macOS Keychain Access will often securely store this for future use, so you don't have to enter it every time. For instructions to do that later, go [**HERE**](pat.qmd).
 
-## 6. RStudio-GitHub Workflow: Project Setup & Collaboration
+## 6. RStudio-GitHub Workflow: Project Setup & Collaboration {#RStudio-GitHub-workflow}
 
 ### Step 1: Create a Project and Add Git
 

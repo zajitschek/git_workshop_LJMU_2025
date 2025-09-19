@@ -9,6 +9,8 @@ format:
 
 This guide walks you through installing Git on your Windows PC for use with RStudio and GitHub.
 
+**!!** **At LJMU managed computers**, install **Git** either from Company Portal or App Player (older).
+
 1.  **Download the Installer**
     -   Visit the official Git website: <https://git-scm.com/downloads>.
     -   Click the "Windows" link to download the latest stable `.exe` installer.
@@ -55,4 +57,4 @@ To use Git and GitHub with RStudio, follow these steps:
 6.  **Sync with GitHub**: Ensure the GitHub repository reflects local changes.
 7.  **Pull Changes**: Pull updates from GitHub with `git pull`.
 
-### [Proceed with GitHub Desktop workflow](setup-githubdesktop.qmd) \| [Return to Section Overview](/index.qmd)
+### [Proceed with GitHub Complete workflow](@RStudio-GitHub-workflow) \| [Return to Section Overview](/index.qmd)

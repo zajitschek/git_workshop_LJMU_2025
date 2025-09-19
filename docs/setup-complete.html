@@ -174,13 +174,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements:</a></li>
-  <li><a href="#rstudio-github-workflow-project-setup-collaboration" id="toc-rstudio-github-workflow-project-setup-collaboration" class="nav-link" data-scroll-target="#rstudio-github-workflow-project-setup-collaboration">6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</a>
+  <li><a href="#RStudio-GitHub-workflow" id="toc-RStudio-GitHub-workflow" class="nav-link" data-scroll-target="#RStudio-GitHub-workflow">6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</a>
   <ul class="collapse">
   <li><a href="#step-1-create-a-project-and-add-git" id="toc-step-1-create-a-project-and-add-git" class="nav-link" data-scroll-target="#step-1-create-a-project-and-add-git">Step 1: Create a Project and Add Git</a></li>
   <li><a href="#step-2-make-your-first-commit" id="toc-step-2-make-your-first-commit" class="nav-link" data-scroll-target="#step-2-make-your-first-commit">Step 2: Make Your First Commit</a></li>
   <li><a href="#step-3-link-to-a-github-repository-your-remote" id="toc-step-3-link-to-a-github-repository-your-remote" class="nav-link" data-scroll-target="#step-3-link-to-a-github-repository-your-remote">Step 3: Link to a GitHub Repository (Your Remote)</a></li>
   <li><a href="#step-4-push-to-github" id="toc-step-4-push-to-github" class="nav-link" data-scroll-target="#step-4-push-to-github">Step 4: Push to GitHub</a></li>
-  <li><a href="#step-5-working-on-a-branch-best-practices" id="toc-step-5-working-on-a-branch-best-practices" class="nav-link" data-scroll-target="#step-5-working-on-a-branch-best-practices">Step 5: Working on a Branch (Best Practices)</a></li>
+  <li><a href="#step-5-after-the-initial-setup-project-setup-workflows" id="toc-step-5-after-the-initial-setup-project-setup-workflows" class="nav-link" data-scroll-target="#step-5-after-the-initial-setup-project-setup-workflows">Step 5: After the initial setup: PROJECT SETUP WORKFLOWS</a></li>
+  <li><a href="#github-first-workflow" id="toc-github-first-workflow" class="nav-link" data-scroll-target="#github-first-workflow">1: GitHub First Workflow</a></li>
+  <li><a href="#github-desktop-workflow-starting-with-new-repository" id="toc-github-desktop-workflow-starting-with-new-repository" class="nav-link" data-scroll-target="#github-desktop-workflow-starting-with-new-repository">2: GitHub Desktop Workflow (Starting with “New repository”)</a></li>
+  <li><a href="#step-6-working-on-a-branch-best-practices" id="toc-step-6-working-on-a-branch-best-practices" class="nav-link" data-scroll-target="#step-6-working-on-a-branch-best-practices">Step 6: Working on a Branch (Best Practices)</a></li>
   <li><a href="#working-with-a-collaborator-on-a-branch" id="toc-working-with-a-collaborator-on-a-branch" class="nav-link" data-scroll-target="#working-with-a-collaborator-on-a-branch">Working with a Collaborator on a Branch</a></li>
   </ul></li>
   </ul>
@@ -218,9 +221,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p><strong>Git Housekeeping</strong></p>
 <ul>
-<li><p><strong>If you already have Github Desktop installed, you don’t need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.</strong></p></li>
-<li><p><strong>Unfortunately, the possible integration of RStudio using Git with authentication that was installled with GitHub Desktop seems unstable. If you have GitHub Desktop installed and your access authenticated, check in RStudio under Tools -&gt; Global Options -&gt; Git/SVN -&gt; Git executable: This has to point to ‘git.exe’.</strong></p></li>
-<li><p><strong>If you have GitHub Desktop installed and RStudio is linked to the correct ‘git.exe’, jump to point 6. You might be able to proceed with the authentication used by GitHub Desktop. If 6. doesn’t work for you, come back here and proceed with 3.</strong></p></li>
+<li><p><strong>If you already have Github Desktop installed, you still need to install the standalone Git version for the following steps.</strong></p></li>
+<li><p><strong>The integration of RStudio using Git with authentication that was installled with GitHub Desktop is still possible on some systems. For LJMU users this means: if you have GitHub Desktop installed and authenticated your GitHub.com access, you should be able to install Git standalone (Point 3 below), without having to authenticate with PAT and command line after that. After Git installation, you can go straight to <a href="#RStudio-GitHub-Workflow:-Project-Setup-&amp;-Collaboration">Point 6</a> below.</strong></p></li>
 </ul></li>
 <li><p><strong>Git Installation</strong> First, check if you already have Git installed: <a href="./verify-git.html">How to Check for Git Installation</a></p>
 <p><strong>If you DO NOT have Git installed:</strong></p>
@@ -228,27 +230,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>For Windows (PC):</strong> Follow these detailed instructions: <a href="./git-installation-windows.html">Git Installation on Windows</a></li>
 <li><strong>For macOS:</strong> Follow these detailed instructions: <a href="./git-installation-mac.html">Git Installation on macOS</a></li>
 </ul>
-<p><strong>If you DO have Git installed:</strong> Great! You’re all set for the Git part of this setup.</p></li>
+<p><strong>If you DO have Git installed:</strong> Great! You’re all set for the Git part of this setup. <strong>!!</strong> If you also have GitHub Desktop installed, go straight to <a href="#RStudio-GitHub-Workflow:-Project-Setup-&amp;-Collaboration"><strong>Point 6</strong></a> from here.</p></li>
 <li><p><strong>Configure Git (First-Time Setup):</strong> After installing Git, tell it who you are by running these commands in your RStudio Terminal:</p></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your.email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><p>User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -&gt; <strong>Settings</strong> -&gt; <strong>Emails</strong>. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email, ending in <span class="citation" data-cites="users.noreply.github.com">@users.noreply.github.com</span>)</p></li>
-<li><p>Your Name can be your GitHub user name, but doesn’t have to be. This is what appears as the author of your commits on GitHub.</p></li>
+<li>User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -&gt; <strong>Settings</strong> -&gt; <strong>Emails</strong>. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email, ending in <span class="citation" data-cites="users.noreply.github.com">@users.noreply.github.com</span>)</li>
+</ul>
+<p>For example, my commands could look like:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Felix Z"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"FelixZ@zajitschek.net"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Your Name can be your GitHub user name, but doesn’t have to be. This is what appears as the author of your commits on GitHub.</li>
 </ul>
 <ol start="5" type="1">
 <li><strong>Connect RStudio to GitHub (Personal Access Token - PAT):</strong> This is the most secure way to connect RStudio/Git to GitHub without repeatedly typing your password.
 <ul>
 <li><strong>Generate a PAT on GitHub:</strong>
 <ol type="1">
-<li>Go to your GitHub profile settings: <a href="https://github.com/settings/tokens">github.com/settings/tokens</a></li>
-<li>Click <code>Generate new token</code> (or <code>Generate new token (classic)</code> if you don’t see the new one).</li>
+<li>Go to your GitHub profile settings: <a href="https://github.com/settings/tokens">github.com/settings/tokens</a> (somehow hidden when you try to navigate to it on the GitHub.com page: Click on your profile picture, upper right corner, then Settings -&gt; Developer settings (last link, bottom left) -&gt; Personal Access Tokens</li>
+<li>Choose <code>Tokens (classic)</code>, then Button <code>Generate new token (classic)</code> and choose <code>Generate new token (classic)</code>.</li>
 <li>Give it a descriptive <code>Note</code> (e.g., “RStudio PAT”).</li>
-<li>Set an <code>Expiration</code> (e.g., 30 days, 90 days, or a custom date after the workshop).</li>
+<li>Set an <code>Expiration</code> (e.g., 30 days, 90 days, custom date after the workshop, or No Expiration).</li>
 <li>Under <code>Select scopes</code>, check at least <code>repo</code> (full control of private repositories) and potentially <code>workflow</code> if you plan to use GitHub Actions.</li>
 <li>Click <code>Generate token</code>.</li>
-<li><strong>IMPORTANT:</strong> Copy the generated token immediately! You won’t see it again. Store it securely (e.g., in a password manager).</li>
+<li><strong>IMPORTANT:</strong> Copy the generated token immediately! You won’t see it again! Store it securely (e.g., in a password manager).</li>
 </ol></li>
 <li><strong>Store PAT in RStudio/Git:</strong> When you try to interact with GitHub from RStudio for the first time (e.g., by creating a new RStudio project from a GitHub repository, or pushing changes), Git will prompt you for your username and password/PAT.
 <ul>
@@ -259,8 +266,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 </section>
-<section id="rstudio-github-workflow-project-setup-collaboration" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-github-workflow-project-setup-collaboration">6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</h2>
+<section id="RStudio-GitHub-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="RStudio-GitHub-workflow">6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</h2>
 <section id="step-1-create-a-project-and-add-git" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-create-a-project-and-add-git">Step 1: Create a Project and Add Git</h3>
 <p>This is the first step to linking your work to Git.</p>
@@ -273,14 +280,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="step-2-make-your-first-commit">Step 2: Make Your First Commit</h3>
 <p>This is how you save a snapshot of your project’s history.</p>
 <ul>
-<li><strong>Make Changes:</strong> Create a new script, save a data file, or make any other changes to your project.</li>
-<li><strong>Open the Git Pane:</strong> In the top-right pane of RStudio, you’ll see a tab named <strong>Git</strong>. Click on it.</li>
-<li><strong>Review and Stage:</strong> The Git pane shows you a list of all the files that have changed.
+<li><p><strong>Make Changes:</strong> Create a new script, save a data file, or make any other changes to your project.</p></li>
+<li><p><strong>Open the Git Pane:</strong> In the top-right pane of RStudio, you’ll see a tab named <strong>Git</strong>. Click on it.</p></li>
+<li><p><strong>Review and Stage:</strong> The Git pane shows you a list of all the files that have changed.</p>
 <ul>
 <li>The “Status” column indicates if a file is new (<code>?</code>), modified (<code>M</code>), or deleted (<code>D</code>).</li>
 <li>To prepare a file for your commit, click the <strong>checkbox</strong> next to its name under the “Staged” column. This action is called <strong>staging</strong>—you’re telling Git which specific changes you want to include in this snapshot.</li>
 </ul></li>
-<li><strong>Commit the Changes:</strong> Click the <strong>Commit</strong> button at the top of the Git pane. This opens a new window called “Review Changes.”
+<li><p><strong>Commit the Changes:</strong> Click the <strong>Commit</strong> button at the top of the Git pane:</p>
+<p>Hover over the symbols on top of the Git window to see their function! In my RStudio version, <strong>Commit</strong> is the second one (a tick mark). <strong>!!</strong> Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!</p>
+<p>You can also stage all your changes you want to include in a Commit in the following pop-up window (I think it’s easiest to go into the following window and use select all <kbd> Ctrl + A</kbd> (PC) or <kbd>Cmd + A</kbd> (Mac) and press the ‘Stage’ button in the upper menu bar).</p></li>
+<li><p>This opens a new window called “Review Changes.”</p>
 <ul>
 <li>On the left, you can see the files you’ve staged.</li>
 <li>On the bottom right, there’s a box for a <strong>Commit message</strong>. This is a brief, descriptive note that explains <em>what</em> you changed and <em>why</em>. A good message is like a helpful hint for your future self (or a collaborator).</li>
@@ -300,13 +310,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="step-4-push-to-github">Step 4: Push to GitHub</h3>
 <p>Once you’ve made a commit, you need to push it to share it with the world.</p>
 <ul>
-<li><strong>The Push Action:</strong> The <strong>Push</strong> button (the up arrow in the Git pane) sends the commits you’ve made on your computer to the remote repository on GitHub.</li>
+<li><strong>The Push Action:</strong> The <strong>Push</strong> button (the up arrow in the Git pane OR in the ‘Review chnages’ popup window) sends the commits you’ve made on your computer to the remote repository on GitHub.</li>
 <li><strong>Pushing for the First Time:</strong> The first time you push, a window will pop up asking for your GitHub username and password/PAT. Enter your username and paste your PAT, as you set up in the earlier step. Your commits will now be uploaded to GitHub.</li>
 <li><strong>The Push-Pull Cycle:</strong> From now on, your workflow will be a simple “push-pull” cycle. After you commit, you <strong>push</strong> to share your changes.</li>
 </ul>
 </section>
-<section id="step-5-working-on-a-branch-best-practices" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-working-on-a-branch-best-practices">Step 5: Working on a Branch (Best Practices)</h3>
+<section id="step-5-after-the-initial-setup-project-setup-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-after-the-initial-setup-project-setup-workflows">Step 5: After the initial setup: PROJECT SETUP WORKFLOWS</h3>
+<p>After steps 1-4 above, creating a new RStudio project connected to a GitHub repository is much easier!</p>
+<p>I will explain two workflows. The first one is independent of having GitHub Desktop installed. In contrast, workflow two uses GitHub Desktop. Just choose the one you prefer!</p>
+</section>
+<section id="github-first-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="github-first-workflow">1: GitHub First Workflow</h3>
+<ol type="1">
+<li><p><strong>Create a New Repository on GitHub</strong>: 💻 Go to github.com and sign in. Click the “New” button in the top-left corner. Give your repository a name (e.g., <code>my-r-project</code>). You can add a description. Most importantly, check the box to <strong>“Add a README file”</strong>. Do <strong>not</strong> add a <code>.gitignore</code> or a license here. Click <strong>“Create repository”</strong>.</p></li>
+<li><p><strong>Copy the Repository URL</strong>: On the new repository’s page, click the green <strong>“&lt; &gt; Code”</strong> button. Make sure the <strong>HTTPS</strong> tab is selected, and then click the copy icon to copy the full URL to your clipboard.</p></li>
+<li><p><strong>Create a New Project in RStudio</strong>: Open RStudio. Go to <strong>File &gt; New Project… &gt; Version Control &gt; Git</strong>. In the “Repository URL” field, paste the URL you just copied. RStudio will automatically populate the “Project directory name.” Choose a location on your local machine to save the project and click <strong>“Create Project”</strong>.</p></li>
+<li><p><strong>Confirm the Connection</strong>: RStudio will now clone the repository from GitHub to your local machine. A new RStudio project window will open. You will see a <strong>Git</strong> tab in the top-right pane. If you see the <code>README.md</code> file listed there, your local R project is successfully connected to the remote GitHub repository.</p></li>
+</ol>
+</section>
+<section id="github-desktop-workflow-starting-with-new-repository" class="level3">
+<h3 class="anchored" data-anchor-id="github-desktop-workflow-starting-with-new-repository">2: GitHub Desktop Workflow (Starting with “New repository”)</h3>
+<p>This workflow starts with GitHub Desktop to create a new local repository, then publishing it to a new GitHub repository. It doesn’t involve working on GitHub.com.</p>
+<ul>
+<li><p><strong>Create a New Repository in GitHub Desktop</strong>: Open the GitHub Desktop application. Go to <strong>File &gt; New repository…</strong>. In the pop-up window, give your repository a name (e.g., <code>best-R-project-ever</code>). The <strong>“Local path”</strong> is where the repository will be created on your computer. Choose the directory where you want to store your R project. You can also select to add a README if you like. Click <strong>“Create repository”</strong>.</p></li>
+<li><p><strong>Publish the Repository to GitHub</strong>: GitHub Desktop will create a local Git repository in the folder you selected. It will then prompt you to <strong>“Publish repository”</strong> to GitHub. Click this button. A new window will appear where you can give it a name and description on GitHub and decide if it should be private. Click <strong>“Publish repository”</strong>.</p></li>
+<li><p><strong>Create the R Project in RStudio</strong>: Now that the repository exists on your local machine and on GitHub, open RStudio. Go to <strong>File &gt; New Project… &gt; Existing Directory</strong>. Navigate to the folder that GitHub Desktop created for your repository and click <strong>“Open”</strong>. RStudio will recognize that the directory is already a Git repository and will automatically create the project files, setting up the Git integration in RStudio for you.</p></li>
+</ul>
+</section>
+<section id="step-6-working-on-a-branch-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-working-on-a-branch-best-practices">Step 6: Working on a Branch (Best Practices)</h3>
 <p>To avoid problems in collaborative projects, you should always work on a separate branch.</p>
 <ol type="1">
 <li><strong>Create a New Branch:</strong> In the RStudio Git pane, click the <strong>dropdown menu</strong> with the branch name (it will likely say “main”). From the menu, select <strong>New Branch…</strong>. Give your branch a descriptive name (e.g., <code>feature-plots</code> or <code>bug-fix</code>). Click “OK.” RStudio will automatically switch you to this new branch.</li>
@@ -805,123 +838,165 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Complete Setup"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>This is a more complete setup. It includes **RStudio, Git, and GitHub integration**.</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements:</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**RStudio Desktop:**</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Ensure RStudio is installed: <span class="co">[</span><span class="ot">posit.co/download/rstudio-desktop/</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Git Housekeeping**</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**If you already have Github Desktop installed, you don't need to install the standalone Git version for the following steps. However, Github Desktop needs to stay on your computer to keep that functionality. If you uninstall Github Desktop, you need to install Git Standalone separately, as follows.**</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Unfortunately, the possible integration of RStudio using Git with authentication that was installled with GitHub Desktop seems unstable. If you have GitHub Desktop installed and your access authenticated, check in RStudio under Tools -\&gt; Global Options -\&gt; Git/SVN -\&gt; Git executable: This has to point to 'git.exe'.**</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**If you have GitHub Desktop installed and RStudio is linked to the correct 'git.exe', jump to point 6. You might be able to proceed with the authentication used by GitHub Desktop. If 6. doesn't work for you, come back here and proceed with 3.**</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Git Installation** First, check if you already have Git installed: <span class="co">[</span><span class="ot">How to Check for Git Installation</span><span class="co">](verify-git.qmd)</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    **If you DO NOT have Git installed:**</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**For Windows (PC):** Follow these detailed instructions: <span class="co">[</span><span class="ot">Git Installation on Windows</span><span class="co">](git-installation-windows.qmd)</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**For macOS:** Follow these detailed instructions: <span class="co">[</span><span class="ot">Git Installation on macOS</span><span class="co">](git-installation-mac.qmd)</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    **If you DO have Git installed:** Great! You're all set for the Git part of this setup.</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Configure Git (First-Time Setup):** After installing Git, tell it who you are by running these commands in your RStudio Terminal:</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your.email@example.com"</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -<span class="sc">\&gt;</span> **Settings** -\&gt; **Emails**. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email, ending in @users.noreply.github.com)</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Your Name can be your GitHub user name, but doesn't have to be. This is what appears as the author of your commits on GitHub.</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Connect RStudio to GitHub (Personal Access Token - PAT):** This is the most secure way to connect RStudio/Git to GitHub without repeatedly typing your password.</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Generate a PAT on GitHub:**</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">        1.  </span>Go to your GitHub profile settings: <span class="co">[</span><span class="ot">github.com/settings/tokens</span><span class="co">](https://github.com/settings/tokens)</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="ss">        2.  </span>Click <span class="in">`Generate new token`</span> (or <span class="in">`Generate new token (classic)`</span> if you don't see the new one).</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="ss">        3.  </span>Give it a descriptive <span class="in">`Note`</span> (e.g., "RStudio PAT").</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="ss">        4.  </span>Set an <span class="in">`Expiration`</span> (e.g., 30 days, 90 days, or a custom date after the workshop).</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="ss">        5.  </span>Under <span class="in">`Select scopes`</span>, check at least <span class="in">`repo`</span> (full control of private repositories) and potentially <span class="in">`workflow`</span> if you plan to use GitHub Actions.</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="ss">        6.  </span>Click <span class="in">`Generate token`</span>.</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="ss">        7.  </span>**IMPORTANT:** Copy the generated token immediately! You won't see it again. Store it securely (e.g., in a password manager).</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Store PAT in RStudio/Git:** When you try to interact with GitHub from RStudio for the first time (e.g., by creating a new RStudio project from a GitHub repository, or pushing changes), Git will prompt you for your username and password/PAT.</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Enter your GitHub username.</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>When prompted for password, **paste the PAT you just generated**.</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Git Credential Manager Core (Windows) or macOS Keychain Access will often securely store this for future use, so you don't have to enter it every time. For instructions to do that later, go <span class="co">[</span><span class="ot">**HERE**</span><span class="co">](pat.qmd)</span>.</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Create a Project and Add Git</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>This is the first step to linking your work to Git.</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**For a NEW Project:** Go to the RStudio menu bar and select **File \&gt; New Project...**. In the pop-up window, choose **New Directory**, and make sure to **check the box** for "Create a Git repository." Give your project a name and click "Create Project." This automatically initializes a Git repository in your new project folder.</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**For an EXISTING Project:** Go to **File \&gt; New Project...**, then select **Existing Directory**. Navigate to your project folder. Click "Create Project." To add Git, go to the RStudio menu bar and select **Tools \&gt; Project Options...**. In the pop-up window, go to the **Git/SVN** tab. Next to "Version control system," choose **Git** from the dropdown menu and click "OK." RStudio will prompt you to restart. After restarting, a new Git pane will appear in the top-right of the RStudio window.</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Make Your First Commit</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>This is how you save a snapshot of your project's history.</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Make Changes:** Create a new script, save a data file, or make any other changes to your project.</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Open the Git Pane:** In the top-right pane of RStudio, you'll see a tab named **Git**. Click on it.</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Review and Stage:** The Git pane shows you a list of all the files that have changed.</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>The "Status" column indicates if a file is new (<span class="in">`?`</span>), modified (<span class="in">`M`</span>), or deleted (<span class="in">`D`</span>).</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>To prepare a file for your commit, click the **checkbox** next to its name under the "Staged" column. This action is called **staging**—you're telling Git which specific changes you want to include in this snapshot.</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Commit the Changes:** Click the **Commit** button at the top of the Git pane. This opens a new window called "Review Changes."</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>On the left, you can see the files you've staged.</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>On the bottom right, there's a box for a **Commit message**. This is a brief, descriptive note that explains *what* you changed and *why*. A good message is like a helpful hint for your future self (or a collaborator).</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click the **Commit** button in the pop-up window. This creates a **local** snapshot of your staged files. The changes are now saved to your computer's Git history.</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Link to a GitHub Repository (Your Remote)</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>Now that you have a local Git repository, you need to connect it to an online repository on GitHub.</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a Repository on GitHub:** Go to the GitHub website and click the green **New** button. Give your repository a name, and be sure to **leave the checkboxes for initializing with a README, .gitignore, and license unchecked.** Click "Create repository." You will be taken to a page with a series of instructions. **Copy the HTTPS URL** (it will look something like <span class="in">`https://github.com/your-username/your-repo.git`</span>).</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Add a Remote in RStudio:** Back in RStudio, go to the **Git** pane. Click the blue **Push** button (the up arrow). Since this is the first time you're pushing, RStudio will prompt you to set a "Remote URL." Paste the HTTPS URL you just copied from GitHub and click "OK." This establishes the connection between your local project and the online GitHub repository.</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Push to GitHub</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>Once you've made a commit, you need to push it to share it with the world.</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**The Push Action:** The **Push** button (the up arrow in the Git pane) sends the commits you've made on your computer to the remote repository on GitHub.</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pushing for the First Time:** The first time you push, a window will pop up asking for your GitHub username and password/PAT. Enter your username and paste your PAT, as you set up in the earlier step. Your commits will now be uploaded to GitHub.</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**The Push-Pull Cycle:** From now on, your workflow will be a simple "push-pull" cycle. After you commit, you **push** to share your changes.</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 5: Working on a Branch (Best Practices)</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>To avoid problems in collaborative projects, you should always work on a separate branch.</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a New Branch:** In the RStudio Git pane, click the **dropdown menu** with the branch name (it will likely say "main"). From the menu, select **New Branch...**. Give your branch a descriptive name (e.g., <span class="in">`feature-plots`</span> or <span class="in">`bug-fix`</span>). Click "OK." RStudio will automatically switch you to this new branch.</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Make and Commit Changes:** Make all your changes and commits on this branch, just as you did on the main branch. Your commits are now isolated from the main project code.</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Push the Branch:** Click the **Push** button to send your new branch and its commits to GitHub. Since this is a new branch, you may need to confirm the "Upstream branch" setting, but RStudio usually handles this automatically.</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Create a Pull Request:** Go to your repository on the GitHub website. GitHub will usually show a banner at the top prompting you to create a **Pull Request** for your newly pushed branch. A Pull Request is how you propose that the changes on your branch be merged into the <span class="in">`main`</span> branch. This is also where you can ask a collaborator to review your work.</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Merge and Cleanup:** Once the Pull Request is approved, you can click the **Merge pull request** button on GitHub to safely integrate your changes. After the merge is complete, you can click the **Delete branch** button on GitHub to keep your repository tidy.</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>This process keeps your main project code safe and allows for a smooth, collaborative workflow.</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="fu">### Working with a Collaborator on a Branch</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>Working with a collaborator on a branch is a highly recommended practice for keeping your <span class="in">`main`</span> branch clean and stable. Here's a typical workflow:</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Both Collaborators Create a Branch:** Each person creates their own branch from the <span class="in">`main`</span> branch (e.g., you create <span class="in">`your-branch`</span> and your collaborator creates <span class="in">`collaborator-branch`</span>).</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Work and Commit Locally:** You both work independently on your branches, making changes and committing them as you go.</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**The "Pull Before Push" Rule:** Before you `Push` your changes to GitHub, it is best practice to always **Pull** first. This fetches any new changes from the remote repository that your collaborator might have pushed. Click the **Pull** button (the down arrow) in the Git pane. This helps prevent merge conflicts.</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Push Your Changes:** After you pull, and after you are confident that your local branch is up-to-date with your collaborator's work, you can <span class="in">`Push`</span> your commits to GitHub. Your collaborator will do the same from their machine.</span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**The Pull Request and Code Review:** When you are ready to merge your work, you open a **Pull Request** on GitHub. The Pull Request shows the changes you've made and allows your collaborator (or team) to review the code, suggest changes, or ask questions. This is a crucial step for collaboration, as it ensures quality and prevents bugs from being introduced to the <span class="in">`main`</span> branch.</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Merging:** Once the Pull Request is approved, you can merge your branch into <span class="in">`main`</span>. Then, you can delete your branch on GitHub, and your collaborator will need to <span class="in">`Pull`</span> from <span class="in">`main`</span> to get your new changes.</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>This approach ensures that all work is reviewed and tested before being integrated, making for a much more robust and manageable project.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Complete Setup"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>This is a more complete setup. It includes **RStudio, Git, and GitHub integration**.</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**RStudio Desktop:**</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Ensure RStudio is installed: <span class="co">[</span><span class="ot">posit.co/download/rstudio-desktop/</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Git Housekeeping**</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**If you already have Github Desktop installed, you still need to install the standalone Git version for the following steps.**</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**The integration of RStudio using Git with authentication that was installled with GitHub Desktop is still possible on some systems. For LJMU users this means: if you have GitHub Desktop installed and authenticated your GitHub.com access, you should be able to install Git standalone (Point 3 below), without having to authenticate with PAT and command line after that. After Git installation, you can go straight to [Point 6](#RStudio-GitHub-Workflow:-Project-Setup-&amp;-Collaboration) below.**</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Git Installation** First, check if you already have Git installed: <span class="co">[</span><span class="ot">How to Check for Git Installation</span><span class="co">](verify-git.qmd)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    **If you DO NOT have Git installed:**</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**For Windows (PC):** Follow these detailed instructions: <span class="co">[</span><span class="ot">Git Installation on Windows</span><span class="co">](git-installation-windows.qmd)</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**For macOS:** Follow these detailed instructions: <span class="co">[</span><span class="ot">Git Installation on macOS</span><span class="co">](git-installation-mac.qmd)</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    **If you DO have Git installed:** Great! You're all set for the Git part of this setup. **!!** If you also have GitHub Desktop installed, go straight to [**Point 6**](#RStudio-GitHub-Workflow:-Project-Setup-&amp;-Collaboration) from here.</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Configure Git (First-Time Setup):** After installing Git, tell it who you are by running these commands in your RStudio Terminal:</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your.email@example.com"</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>User email has to be an email address connected to your github.com profile. These can be found on github.com, by clicking on your profile picture -<span class="sc">\&gt;</span> **Settings** -\&gt; **Emails**. You can use your actual email address, or, more standard, there is a more anonymous email that can be used (look on that page for the email, ending in @users.noreply.github.com)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>For example, my commands could look like:</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Felix Z"</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>     <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"FelixZ@zajitschek.net"</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Your Name can be your GitHub user name, but doesn't have to be. This is what appears as the author of your commits on GitHub.</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Connect RStudio to GitHub (Personal Access Token - PAT):** This is the most secure way to connect RStudio/Git to GitHub without repeatedly typing your password.</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Generate a PAT on GitHub:**</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">        1.  </span>Go to your GitHub profile settings: <span class="co">[</span><span class="ot">github.com/settings/tokens</span><span class="co">](https://github.com/settings/tokens)</span> (somehow hidden when you try to navigate to it on the GitHub.com page: Click on your profile picture, upper right corner, then Settings -<span class="sc">\&gt;</span> Developer settings (last link, bottom left) -<span class="sc">\&gt;</span> Personal Access Tokens</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">        2.  </span>Choose <span class="in">`Tokens (classic)`</span>, then Button <span class="in">`Generate new token (classic)`</span> and choose <span class="in">`Generate new token (classic)`</span>.</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">        3.  </span>Give it a descriptive <span class="in">`Note`</span> (e.g., "RStudio PAT").</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">        4.  </span>Set an <span class="in">`Expiration`</span> (e.g., 30 days, 90 days, custom date after the workshop, or No Expiration).</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">        5.  </span>Under <span class="in">`Select scopes`</span>, check at least <span class="in">`repo`</span> (full control of private repositories) and potentially <span class="in">`workflow`</span> if you plan to use GitHub Actions.</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">        6.  </span>Click <span class="in">`Generate token`</span>.</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="ss">        7.  </span>**IMPORTANT:** Copy the generated token immediately! You won't see it again! Store it securely (e.g., in a password manager).</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Store PAT in RStudio/Git:** When you try to interact with GitHub from RStudio for the first time (e.g., by creating a new RStudio project from a GitHub repository, or pushing changes), Git will prompt you for your username and password/PAT.</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Enter your GitHub username.</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>When prompted for password, **paste the PAT you just generated**.</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span>Git Credential Manager Core (Windows) or macOS Keychain Access will often securely store this for future use, so you don't have to enter it every time. For instructions to do that later, go <span class="co">[</span><span class="ot">**HERE**</span><span class="co">](pat.qmd)</span>.</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. RStudio-GitHub Workflow: Project Setup &amp; Collaboration {#RStudio-GitHub-workflow}</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Create a Project and Add Git</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>This is the first step to linking your work to Git.</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**For a NEW Project:** Go to the RStudio menu bar and select **File \&gt; New Project...**. In the pop-up window, choose **New Directory**, and make sure to **check the box** for "Create a Git repository." Give your project a name and click "Create Project." This automatically initializes a Git repository in your new project folder.</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**For an EXISTING Project:** Go to **File \&gt; New Project...**, then select **Existing Directory**. Navigate to your project folder. Click "Create Project." To add Git, go to the RStudio menu bar and select **Tools \&gt; Project Options...**. In the pop-up window, go to the **Git/SVN** tab. Next to "Version control system," choose **Git** from the dropdown menu and click "OK." RStudio will prompt you to restart. After restarting, a new Git pane will appear in the top-right of the RStudio window.</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Make Your First Commit</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>This is how you save a snapshot of your project's history.</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Make Changes:** Create a new script, save a data file, or make any other changes to your project.</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Open the Git Pane:** In the top-right pane of RStudio, you'll see a tab named **Git**. Click on it.</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Review and Stage:** The Git pane shows you a list of all the files that have changed.</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>The "Status" column indicates if a file is new (<span class="in">`?`</span>), modified (<span class="in">`M`</span>), or deleted (<span class="in">`D`</span>).</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>To prepare a file for your commit, click the **checkbox** next to its name under the "Staged" column. This action is called **staging**—you're telling Git which specific changes you want to include in this snapshot.</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Commit the Changes:** Click the **Commit** button at the top of the Git pane:</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>    Hover over the symbols on top of the Git window to see their function! In my RStudio version, **Commit** is the second one (a tick mark). **!!** Every file change has to be staged, before committing and pushing. There is no button that combines all three of these actions!</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>    You can also stage all your changes you want to include in a Commit in the following pop-up window (I think it's easiest to go into the following window and use select all &lt;kbd&gt; Ctrl + A&lt;/kbd&gt; (PC) or &lt;kbd&gt;Cmd + A&lt;/kbd&gt; (Mac) and press the 'Stage' button in the upper menu bar).</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>This opens a new window called "Review Changes."</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>On the left, you can see the files you've staged.</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>On the bottom right, there's a box for a **Commit message**. This is a brief, descriptive note that explains *what* you changed and *why*. A good message is like a helpful hint for your future self (or a collaborator).</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click the **Commit** button in the pop-up window. This creates a **local** snapshot of your staged files. The changes are now saved to your computer's Git history.</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Link to a GitHub Repository (Your Remote)</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>Now that you have a local Git repository, you need to connect it to an online repository on GitHub.</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a Repository on GitHub:** Go to the GitHub website and click the green **New** button. Give your repository a name, and be sure to **leave the checkboxes for initializing with a README, .gitignore, and license unchecked.** Click "Create repository." You will be taken to a page with a series of instructions. **Copy the HTTPS URL** (it will look something like <span class="in">`https://github.com/your-username/your-repo.git`</span>).</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Add a Remote in RStudio:** Back in RStudio, go to the **Git** pane. Click the blue **Push** button (the up arrow). Since this is the first time you're pushing, RStudio will prompt you to set a "Remote URL." Paste the HTTPS URL you just copied from GitHub and click "OK." This establishes the connection between your local project and the online GitHub repository.</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Push to GitHub</span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>Once you've made a commit, you need to push it to share it with the world.</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**The Push Action:** The **Push** button (the up arrow in the Git pane OR in the 'Review chnages' popup window) sends the commits you've made on your computer to the remote repository on GitHub.</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Pushing for the First Time:** The first time you push, a window will pop up asking for your GitHub username and password/PAT. Enter your username and paste your PAT, as you set up in the earlier step. Your commits will now be uploaded to GitHub.</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**The Push-Pull Cycle:** From now on, your workflow will be a simple "push-pull" cycle. After you commit, you **push** to share your changes.</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 5: After the initial setup: PROJECT SETUP WORKFLOWS</span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>After steps 1-4 above, creating a new RStudio project connected to a GitHub repository is much easier!</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>I will explain two workflows. The first one is independent of having GitHub Desktop installed. In contrast, workflow two uses GitHub Desktop. Just choose the one you prefer!</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1: GitHub First Workflow</span></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a New Repository on GitHub**: 💻 Go to github.com and sign in. Click the "New" button in the top-left corner. Give your repository a name (e.g., `my-r-project`). You can add a description. Most importantly, check the box to **"Add a README file"**. Do **not** add a `.gitignore` or a license here. Click **"Create repository"**.</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Copy the Repository URL**: On the new repository's page, click the green **"\&lt; \&gt; Code"** button. Make sure the **HTTPS** tab is selected, and then click the copy icon to copy the full URL to your clipboard.</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Create a New Project in RStudio**: Open RStudio. Go to **File \&gt; New Project... \&gt; Version Control \&gt; Git**. In the "Repository URL" field, paste the URL you just copied. RStudio will automatically populate the "Project directory name." Choose a location on your local machine to save the project and click **"Create Project"**.</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Confirm the Connection**: RStudio will now clone the repository from GitHub to your local machine. A new RStudio project window will open. You will see a **Git** tab in the top-right pane. If you see the <span class="in">`README.md`</span> file listed there, your local R project is successfully connected to the remote GitHub repository.</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2: GitHub Desktop Workflow (Starting with "New repository")</span></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>This workflow starts with GitHub Desktop to create a new local repository, then publishing it to a new GitHub repository. It doesn't involve working on GitHub.com.</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Create a New Repository in GitHub Desktop**: Open the GitHub Desktop application. Go to **File \&gt; New repository...**. In the pop-up window, give your repository a name (e.g., `best-R-project-ever`). The **"Local path"** is where the repository will be created on your computer. Choose the directory where you want to store your R project. You can also select to add a README if you like. Click **"Create repository"**.</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Publish the Repository to GitHub**: GitHub Desktop will create a local Git repository in the folder you selected. It will then prompt you to **"Publish repository"** to GitHub. Click this button. A new window will appear where you can give it a name and description on GitHub and decide if it should be private. Click **"Publish repository"**.</span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Create the R Project in RStudio**: Now that the repository exists on your local machine and on GitHub, open RStudio. Go to **File \&gt; New Project... \&gt; Existing Directory**. Navigate to the folder that GitHub Desktop created for your repository and click **"Open"**. RStudio will recognize that the directory is already a Git repository and will automatically create the project files, setting up the Git integration in RStudio for you.</span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 6: Working on a Branch (Best Practices)</span></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>To avoid problems in collaborative projects, you should always work on a separate branch.</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Create a New Branch:** In the RStudio Git pane, click the **dropdown menu** with the branch name (it will likely say "main"). From the menu, select **New Branch...**. Give your branch a descriptive name (e.g., <span class="in">`feature-plots`</span> or <span class="in">`bug-fix`</span>). Click "OK." RStudio will automatically switch you to this new branch.</span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Make and Commit Changes:** Make all your changes and commits on this branch, just as you did on the main branch. Your commits are now isolated from the main project code.</span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Push the Branch:** Click the **Push** button to send your new branch and its commits to GitHub. Since this is a new branch, you may need to confirm the "Upstream branch" setting, but RStudio usually handles this automatically.</span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Create a Pull Request:** Go to your repository on the GitHub website. GitHub will usually show a banner at the top prompting you to create a **Pull Request** for your newly pushed branch. A Pull Request is how you propose that the changes on your branch be merged into the <span class="in">`main`</span> branch. This is also where you can ask a collaborator to review your work.</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Merge and Cleanup:** Once the Pull Request is approved, you can click the **Merge pull request** button on GitHub to safely integrate your changes. After the merge is complete, you can click the **Delete branch** button on GitHub to keep your repository tidy.</span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>This process keeps your main project code safe and allows for a smooth, collaborative workflow.</span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### Working with a Collaborator on a Branch</span></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>Working with a collaborator on a branch is a highly recommended practice for keeping your <span class="in">`main`</span> branch clean and stable. Here's a typical workflow:</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Both Collaborators Create a Branch:** Each person creates their own branch from the <span class="in">`main`</span> branch (e.g., you create <span class="in">`your-branch`</span> and your collaborator creates <span class="in">`collaborator-branch`</span>).</span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Work and Commit Locally:** You both work independently on your branches, making changes and committing them as you go.</span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**The "Pull Before Push" Rule:** Before you `Push` your changes to GitHub, it is best practice to always **Pull** first. This fetches any new changes from the remote repository that your collaborator might have pushed. Click the **Pull** button (the down arrow) in the Git pane. This helps prevent merge conflicts.</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Push Your Changes:** After you pull, and after you are confident that your local branch is up-to-date with your collaborator's work, you can <span class="in">`Push`</span> your commits to GitHub. Your collaborator will do the same from their machine.</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**The Pull Request and Code Review:** When you are ready to merge your work, you open a **Pull Request** on GitHub. The Pull Request shows the changes you've made and allows your collaborator (or team) to review the code, suggest changes, or ask questions. This is a crucial step for collaboration, as it ensures quality and prevents bugs from being introduced to the <span class="in">`main`</span> branch.</span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Merging:** Once the Pull Request is approved, you can merge your branch into <span class="in">`main`</span>. Then, you can delete your branch on GitHub, and your collaborator will need to <span class="in">`Pull`</span> from <span class="in">`main`</span> to get your new changes.</span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>This approach ensures that all work is reviewed and tested before being integrated, making for a much more robust and manageable project.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
