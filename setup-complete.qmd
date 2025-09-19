@@ -16,7 +16,7 @@ This is a more complete setup. It includes **RStudio, Git, and GitHub integratio
 
     -   **The integration of RStudio using Git with authentication that was installled with GitHub Desktop is still possible on some systems.**
 
-        **For LJMU users this means: if you have GitHub Desktop installed and authenticated your GitHub.com access within GitHUb Desktop, you should be able to install Git standalone (Point 3 below), without having to authenticate with PAT and command line after that. After Git installation, you can go straight to [**Point 6**]([Point 6](#RStudio-GitHub-workflow) below.**
+        **For LJMU users this means: if you have GitHub Desktop installed and authenticated your GitHub.com access within GitHUb Desktop, you should be able to install Git standalone (Point 3 below), without having to authenticate with PAT and command line after that. After Git installation, you can go straight to [**Point 6**](#RStudio-GitHub-workflow) below.**
 
 3.  **Git Installation** First, check if you already have Git installed: [How to Check for Git Installation](verify-git.qmd)
 
